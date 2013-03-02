@@ -19,6 +19,25 @@
 		C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E81716E2271B008A71AD /* IAAErrorViewController.m */; };
 		C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C311E81816E2271B008A71AD /* IAAErrorViewController.xib */; };
 		C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E82016E2299D008A71AD /* IAAErrorManager.m */; };
+		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
+		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
+		C3B75E5416E24855004B49FB /* toolbarIcon_conf.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E5216E24855004B49FB /* toolbarIcon_conf.png */; };
+		C3B75E5516E24855004B49FB /* toolbarIcon_conf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E5316E24855004B49FB /* toolbarIcon_conf@2x.png */; };
+		C3B75E5916E249C7004B49FB /* IAASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E5816E249C7004B49FB /* IAASettingsViewController.m */; };
+		C3B75E5D16E25175004B49FB /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C3B75E5F16E2520E004B49FB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B75E5E16E2520E004B49FB /* Security.framework */; };
+		C3B75E6216E2522F004B49FB /* IAAIdentityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E6116E2522F004B49FB /* IAAIdentityManager.m */; };
+		C3B75E6516E25365004B49FB /* IAADefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E6416E25365004B49FB /* IAADefaultsManager.m */; };
+		C3B75E6C16E25622004B49FB /* IAAOpenidSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E6B16E25622004B49FB /* IAAOpenidSelectViewController.m */; };
+		C3B75E7016E25E4C004B49FB /* openid-google.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E6F16E25E4C004B49FB /* openid-google.png */; };
+		C3B75E7216E261CF004B49FB /* openid-yahoo.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7116E261CF004B49FB /* openid-yahoo.png */; };
+		C3B75E7416E26448004B49FB /* openid-aol.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7316E26448004B49FB /* openid-aol.png */; };
+		C3B75E7616E2651B004B49FB /* openid-myopenid.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7516E2651B004B49FB /* openid-myopenid.png */; };
+		C3B75E7816E26586004B49FB /* openid.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7716E26586004B49FB /* openid.png */; };
+		C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E7D16E26736004B49FB /* IAAOpenidAccountViewController.m */; };
+		C3B75E8016E26736004B49FB /* IAAOpenidAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */; };
+		C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */; };
+		C3B75E8616E275FA004B49FB /* NSURL+PathParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E8516E275FA004B49FB /* NSURL+PathParameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +59,35 @@
 		C311E81816E2271B008A71AD /* IAAErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAErrorViewController.xib; sourceTree = "<group>"; };
 		C311E81F16E2299D008A71AD /* IAAErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorManager.h; sourceTree = "<group>"; };
 		C311E82016E2299D008A71AD /* IAAErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorManager.m; sourceTree = "<group>"; };
+		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
+		C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANetworkConfiguration.m; sourceTree = "<group>"; };
+		C3B75E4E16E246FE004B49FB /* IAAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAMainViewController.h; sourceTree = "<group>"; };
+		C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAMainViewController.m; sourceTree = "<group>"; };
+		C3B75E5216E24855004B49FB /* toolbarIcon_conf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarIcon_conf.png; sourceTree = "<group>"; };
+		C3B75E5316E24855004B49FB /* toolbarIcon_conf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarIcon_conf@2x.png"; sourceTree = "<group>"; };
+		C3B75E5716E249C7004B49FB /* IAASettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAASettingsViewController.h; sourceTree = "<group>"; };
+		C3B75E5816E249C7004B49FB /* IAASettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAASettingsViewController.m; sourceTree = "<group>"; };
+		C3B75E5B16E25175004B49FB /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		C3B75E5E16E2520E004B49FB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C3B75E6016E2522F004B49FB /* IAAIdentityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAIdentityManager.h; sourceTree = "<group>"; };
+		C3B75E6116E2522F004B49FB /* IAAIdentityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAIdentityManager.m; sourceTree = "<group>"; };
+		C3B75E6316E25365004B49FB /* IAADefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAADefaultsManager.h; sourceTree = "<group>"; };
+		C3B75E6416E25365004B49FB /* IAADefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAADefaultsManager.m; sourceTree = "<group>"; };
+		C3B75E6A16E25622004B49FB /* IAAOpenidSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAOpenidSelectViewController.h; sourceTree = "<group>"; };
+		C3B75E6B16E25622004B49FB /* IAAOpenidSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAOpenidSelectViewController.m; sourceTree = "<group>"; };
+		C3B75E6F16E25E4C004B49FB /* openid-google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "openid-google.png"; sourceTree = "<group>"; };
+		C3B75E7116E261CF004B49FB /* openid-yahoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "openid-yahoo.png"; sourceTree = "<group>"; };
+		C3B75E7316E26448004B49FB /* openid-aol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "openid-aol.png"; sourceTree = "<group>"; };
+		C3B75E7516E2651B004B49FB /* openid-myopenid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "openid-myopenid.png"; sourceTree = "<group>"; };
+		C3B75E7716E26586004B49FB /* openid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openid.png; sourceTree = "<group>"; };
+		C3B75E7C16E26736004B49FB /* IAAOpenidAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAOpenidAccountViewController.h; sourceTree = "<group>"; };
+		C3B75E7D16E26736004B49FB /* IAAOpenidAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAOpenidAccountViewController.m; sourceTree = "<group>"; };
+		C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAOpenidAccountViewController.xib; sourceTree = "<group>"; };
+		C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
+		C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
+		C3B75E8416E275F9004B49FB /* NSURL+PathParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PathParameters.h"; sourceTree = "<group>"; };
+		C3B75E8516E275FA004B49FB /* NSURL+PathParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PathParameters.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B75E5F16E2520E004B49FB /* Security.framework in Frameworks */,
 				C311E7F816E21B89008A71AD /* UIKit.framework in Frameworks */,
 				C311E7FA16E21B89008A71AD /* Foundation.framework in Frameworks */,
 				C311E7FC16E21B89008A71AD /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +125,7 @@
 		C311E7F616E21B89008A71AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3B75E5E16E2520E004B49FB /* Security.framework */,
 				C311E7F716E21B89008A71AD /* UIKit.framework */,
 				C311E7F916E21B89008A71AD /* Foundation.framework */,
 				C311E7FB16E21B89008A71AD /* CoreGraphics.framework */,
@@ -114,6 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				C311E81516E22704008A71AD /* Utils */,
+				C3B75E5616E249AE004B49FB /* Settings */,
+				C3B75E4E16E246FE004B49FB /* IAAMainViewController.h */,
+				C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -130,6 +183,7 @@
 		C311E81B16E227AA008A71AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3B75E5116E24844004B49FB /* Images */,
 				C311E81C16E227B0008A71AD /* Xibs */,
 			);
 			name = Views;
@@ -139,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C311E81816E2271B008A71AD /* IAAErrorViewController.xib */,
+				C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -146,6 +201,7 @@
 		C311E81D16E22968008A71AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3B75E5A16E25161004B49FB /* Lib */,
 				C311E81E16E22972008A71AD /* Utils */,
 			);
 			name = Model;
@@ -154,10 +210,64 @@
 		C311E81E16E22972008A71AD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */,
+				C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */,
+				C3B75E8416E275F9004B49FB /* NSURL+PathParameters.h */,
+				C3B75E8516E275FA004B49FB /* NSURL+PathParameters.m */,
 				C311E81F16E2299D008A71AD /* IAAErrorManager.h */,
 				C311E82016E2299D008A71AD /* IAAErrorManager.m */,
+				C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */,
+				C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */,
+				C3B75E6016E2522F004B49FB /* IAAIdentityManager.h */,
+				C3B75E6116E2522F004B49FB /* IAAIdentityManager.m */,
+				C3B75E6316E25365004B49FB /* IAADefaultsManager.h */,
+				C3B75E6416E25365004B49FB /* IAADefaultsManager.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		C3B75E5116E24844004B49FB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C3B75E7716E26586004B49FB /* openid.png */,
+				C3B75E6F16E25E4C004B49FB /* openid-google.png */,
+				C3B75E7116E261CF004B49FB /* openid-yahoo.png */,
+				C3B75E7316E26448004B49FB /* openid-aol.png */,
+				C3B75E7516E2651B004B49FB /* openid-myopenid.png */,
+				C3B75E5216E24855004B49FB /* toolbarIcon_conf.png */,
+				C3B75E5316E24855004B49FB /* toolbarIcon_conf@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		C3B75E5616E249AE004B49FB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3B75E6616E255B9004B49FB /* Identity */,
+				C3B75E5716E249C7004B49FB /* IAASettingsViewController.h */,
+				C3B75E5816E249C7004B49FB /* IAASettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		C3B75E5A16E25161004B49FB /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C3B75E5B16E25175004B49FB /* SFHFKeychainUtils.h */,
+				C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		C3B75E6616E255B9004B49FB /* Identity */ = {
+			isa = PBXGroup;
+			children = (
+				C3B75E6A16E25622004B49FB /* IAAOpenidSelectViewController.h */,
+				C3B75E6B16E25622004B49FB /* IAAOpenidSelectViewController.m */,
+				C3B75E7C16E26736004B49FB /* IAAOpenidAccountViewController.h */,
+				C3B75E7D16E26736004B49FB /* IAAOpenidAccountViewController.m */,
+			);
+			name = Identity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +327,14 @@
 				C311E80C16E21B89008A71AD /* Default@2x.png in Resources */,
 				C311E80E16E21B89008A71AD /* Default-568h@2x.png in Resources */,
 				C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */,
+				C3B75E5416E24855004B49FB /* toolbarIcon_conf.png in Resources */,
+				C3B75E5516E24855004B49FB /* toolbarIcon_conf@2x.png in Resources */,
+				C3B75E7016E25E4C004B49FB /* openid-google.png in Resources */,
+				C3B75E7216E261CF004B49FB /* openid-yahoo.png in Resources */,
+				C3B75E7416E26448004B49FB /* openid-aol.png in Resources */,
+				C3B75E7616E2651B004B49FB /* openid-myopenid.png in Resources */,
+				C3B75E7816E26586004B49FB /* openid.png in Resources */,
+				C3B75E8016E26736004B49FB /* IAAOpenidAccountViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +349,16 @@
 				C311E80816E21B89008A71AD /* IAAAppDelegate.m in Sources */,
 				C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */,
 				C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */,
+				C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */,
+				C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */,
+				C3B75E5916E249C7004B49FB /* IAASettingsViewController.m in Sources */,
+				C3B75E5D16E25175004B49FB /* SFHFKeychainUtils.m in Sources */,
+				C3B75E6216E2522F004B49FB /* IAAIdentityManager.m in Sources */,
+				C3B75E6516E25365004B49FB /* IAADefaultsManager.m in Sources */,
+				C3B75E6C16E25622004B49FB /* IAAOpenidSelectViewController.m in Sources */,
+				C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */,
+				C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */,
+				C3B75E8616E275FA004B49FB /* NSURL+PathParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

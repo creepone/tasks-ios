@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class IAAMainViewController;
+
 @interface IAAAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) IAAMainViewController *mainViewController;
+
 
 @end

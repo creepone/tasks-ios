@@ -7,22 +7,23 @@
 //
 
 #import "IAAAppDelegate.h"
-#import "IAAErrorManager.h"
+#import "IAAMainViewController.h"
 
 @implementation IAAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+
+    self.mainViewController = [[IAAMainViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
     
-    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(aQueue, ^{
-        NSError *error = [NSError errorWithDomain:@"Test" code:12 userInfo:nil];
-        [IAAErrorManager checkError:error];
-    });
+    [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
+    [self.navigationController.toolbar setTintColor:[UIColor redColor]];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window setRootViewController:self.navigationController];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
