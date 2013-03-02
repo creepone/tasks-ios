@@ -16,6 +16,9 @@
 		C311E80A16E21B89008A71AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C311E80916E21B89008A71AD /* Default.png */; };
 		C311E80C16E21B89008A71AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C311E80B16E21B89008A71AD /* Default@2x.png */; };
 		C311E80E16E21B89008A71AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C311E80D16E21B89008A71AD /* Default-568h@2x.png */; };
+		C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E81716E2271B008A71AD /* IAAErrorViewController.m */; };
+		C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C311E81816E2271B008A71AD /* IAAErrorViewController.xib */; };
+		C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E82016E2299D008A71AD /* IAAErrorManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,11 @@
 		C311E80916E21B89008A71AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C311E80B16E21B89008A71AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C311E80D16E21B89008A71AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C311E81616E2271B008A71AD /* IAAErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorViewController.h; sourceTree = "<group>"; };
+		C311E81716E2271B008A71AD /* IAAErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorViewController.m; sourceTree = "<group>"; };
+		C311E81816E2271B008A71AD /* IAAErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAErrorViewController.xib; sourceTree = "<group>"; };
+		C311E81F16E2299D008A71AD /* IAAErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorManager.h; sourceTree = "<group>"; };
+		C311E82016E2299D008A71AD /* IAAErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,9 @@
 		C311E7FD16E21B89008A71AD /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				C311E81D16E22968008A71AD /* Model */,
+				C311E81B16E227AA008A71AD /* Views */,
+				C311E81416E226FB008A71AD /* ViewControllers */,
 				C311E80616E21B89008A71AD /* IAAAppDelegate.h */,
 				C311E80716E21B89008A71AD /* IAAAppDelegate.m */,
 				C311E7FE16E21B89008A71AD /* Supporting Files */,
@@ -97,6 +108,56 @@
 				C311E80D16E21B89008A71AD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C311E81416E226FB008A71AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C311E81516E22704008A71AD /* Utils */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C311E81516E22704008A71AD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C311E81616E2271B008A71AD /* IAAErrorViewController.h */,
+				C311E81716E2271B008A71AD /* IAAErrorViewController.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C311E81B16E227AA008A71AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C311E81C16E227B0008A71AD /* Xibs */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C311E81C16E227B0008A71AD /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				C311E81816E2271B008A71AD /* IAAErrorViewController.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		C311E81D16E22968008A71AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C311E81E16E22972008A71AD /* Utils */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C311E81E16E22972008A71AD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C311E81F16E2299D008A71AD /* IAAErrorManager.h */,
+				C311E82016E2299D008A71AD /* IAAErrorManager.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +216,7 @@
 				C311E80A16E21B89008A71AD /* Default.png in Resources */,
 				C311E80C16E21B89008A71AD /* Default@2x.png in Resources */,
 				C311E80E16E21B89008A71AD /* Default-568h@2x.png in Resources */,
+				C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +229,8 @@
 			files = (
 				C311E80416E21B89008A71AD /* main.m in Sources */,
 				C311E80816E21B89008A71AD /* IAAAppDelegate.m in Sources */,
+				C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */,
+				C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +345,7 @@
 				C311E81316E21B89008A71AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

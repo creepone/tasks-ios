@@ -7,6 +7,7 @@
 //
 
 #import "IAAAppDelegate.h"
+#import "IAAErrorManager.h"
 
 @implementation IAAAppDelegate
 
@@ -16,6 +17,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(aQueue, ^{
+        NSError *error = [NSError errorWithDomain:@"Test" code:12 userInfo:nil];
+        [IAAErrorManager checkError:error];
+    });
+    
     return YES;
 }
 
