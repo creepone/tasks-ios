@@ -19,6 +19,7 @@
 		C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E81716E2271B008A71AD /* IAAErrorViewController.m */; };
 		C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C311E81816E2271B008A71AD /* IAAErrorViewController.xib */; };
 		C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E82016E2299D008A71AD /* IAAErrorManager.m */; };
+		C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C367859816E3D722003B22F7 /* NSURL+GHUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
 		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
 		C3B75E5416E24855004B49FB /* toolbarIcon_conf.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E5216E24855004B49FB /* toolbarIcon_conf.png */; };
@@ -37,7 +38,6 @@
 		C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E7D16E26736004B49FB /* IAAOpenidAccountViewController.m */; };
 		C3B75E8016E26736004B49FB /* IAAOpenidAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */; };
 		C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */; };
-		C3B75E8616E275FA004B49FB /* NSURL+PathParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E8516E275FA004B49FB /* NSURL+PathParameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +59,8 @@
 		C311E81816E2271B008A71AD /* IAAErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAErrorViewController.xib; sourceTree = "<group>"; };
 		C311E81F16E2299D008A71AD /* IAAErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorManager.h; sourceTree = "<group>"; };
 		C311E82016E2299D008A71AD /* IAAErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorManager.m; sourceTree = "<group>"; };
+		C367859716E3D722003B22F7 /* NSURL+GHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GHUtils.h"; sourceTree = "<group>"; };
+		C367859816E3D722003B22F7 /* NSURL+GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GHUtils.m"; sourceTree = "<group>"; };
 		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
 		C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANetworkConfiguration.m; sourceTree = "<group>"; };
 		C3B75E4E16E246FE004B49FB /* IAAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAMainViewController.h; sourceTree = "<group>"; };
@@ -86,8 +88,6 @@
 		C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAOpenidAccountViewController.xib; sourceTree = "<group>"; };
 		C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
 		C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
-		C3B75E8416E275F9004B49FB /* NSURL+PathParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PathParameters.h"; sourceTree = "<group>"; };
-		C3B75E8516E275FA004B49FB /* NSURL+PathParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PathParameters.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +212,8 @@
 			children = (
 				C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */,
 				C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */,
-				C3B75E8416E275F9004B49FB /* NSURL+PathParameters.h */,
-				C3B75E8516E275FA004B49FB /* NSURL+PathParameters.m */,
+				C367859716E3D722003B22F7 /* NSURL+GHUtils.h */,
+				C367859816E3D722003B22F7 /* NSURL+GHUtils.m */,
 				C311E81F16E2299D008A71AD /* IAAErrorManager.h */,
 				C311E82016E2299D008A71AD /* IAAErrorManager.m */,
 				C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */,
@@ -358,7 +358,7 @@
 				C3B75E6C16E25622004B49FB /* IAAOpenidSelectViewController.m in Sources */,
 				C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */,
 				C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */,
-				C3B75E8616E275FA004B49FB /* NSURL+PathParameters.m in Sources */,
+				C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

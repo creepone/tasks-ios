@@ -11,7 +11,8 @@
 #import "IAADefaultsManager.h"
 #import "IAANetworkConfiguration.h"
 #import "SFHFKeychainUtils.h"
-#import "NSURL+PathParameters.h"
+#import "NSURL+GHUtils.h"
+#import "NSString+Extensions.h"
 
 #import "IAAOpenidSelectViewController.h"
 #import "IAAOpenidAccountViewController.h"
@@ -136,7 +137,8 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
         return;
     }
     
-    authenticateURL = [authenticateURL URLByAppendingParameterName:@"openid" value:openid];
+    NSString *query = [NSURL gh_dictionaryToQueryString:@{ @"openid": openid, @"device": [[UIDevice currentDevice] name] }];
+    authenticateURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [authenticateURL absoluteString], query]];
     
     // clear cookies to avoid automatic login into the last used account
     NSHTTPCookie *cookie;
@@ -159,12 +161,23 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    // todo: go on in the process of authentication
-    
-    NSString *host = [[request URL] host];
-    if ([host isEqualToString:@"done"]) {
-        [webView removeFromSuperview];
+{    
+    NSString *host = [[request URL] host];    
+    if ([host isEqualToString:@"done"])
+    {
+        NSDictionary *params = [[request URL] gh_queryDictionary];
+        NSString *token = [params valueForKey:@"token"];
+        NSLog(@"token = %@", token);
+        
+        NSString *username = [params valueForKey:@"username"];
+        NSLog(@"username = %@", username);
+        
+        // todo: save the token into the keychain and username into defaults
+        
+        // todo: raise a global event so that the UI can be updated and sync start (now that we have an identity)
+        
+        [self dismissAuthentication];
+        return NO;
     }
     
     NSLog(@"%@", [request URL]);
