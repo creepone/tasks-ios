@@ -17,6 +17,8 @@
 #import "IAAOpenidSelectViewController.h"
 #import "IAAOpenidAccountViewController.h"
 
+NSString * const IAAIdentityManagerAcquiredIdentityNotification = @"IAAIdentityManagerAcquiredIdentityNotification";
+
 @interface IAAIdentityManager() <UIWebViewDelegate> {
     UINavigationController *_navigationController;
 }
@@ -180,7 +182,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
         self.username = username;
         self.deviceToken = token;
         
-        // todo: raise a global event so that the UI can be updated and sync start (now that we have an identity)
+        [[NSNotificationCenter defaultCenter] postNotificationName:IAAIdentityManagerAcquiredIdentityNotification object:self];
         
         [self dismissAuthentication];
         return NO;

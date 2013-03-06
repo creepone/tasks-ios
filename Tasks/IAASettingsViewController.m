@@ -31,6 +31,9 @@
 {
     [super viewDidLoad];
     [self setupNavigationBarItems];
+    
+    // subscribe to identity change notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshIdentity) name:IAAIdentityManagerAcquiredIdentityNotification object:nil];
 }
 
 - (void)setupNavigationBarItems
@@ -41,6 +44,11 @@
 - (void)tappedDone
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)refreshIdentity
+{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark - Table view data source
@@ -66,6 +74,8 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"Sync";
         
+        // todo: use sync manager to find out whether we are online / offline
+        
         IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
         cell.detailTextLabel.text = (identity.username != nil) ? @"active" : @"setup";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -86,6 +96,12 @@
         if (identity.username == nil)
             [identity acquireIdentity];
     }
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -16,6 +16,11 @@ typedef enum {
     IAAOpenIDProviderMyOpenID
 } IAAOpenIDProvider;
 
+/**
+ Notification sent when the process of acquiring the identity was successfuly completed.
+ */
+extern NSString * const IAAIdentityManagerAcquiredIdentityNotification;
+
 @interface IAAIdentityManager : NSObject
 
 + (IAAIdentityManager *)sharedManager;
