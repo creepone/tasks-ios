@@ -26,9 +26,9 @@ typedef enum {
 @property (nonatomic, strong) NSString *username;
 
 /**
- ID of the device associated with the account on the server. Used as an authentication token.
+ Token of the device associated with the account on the server. Used for authentication.
  */
-@property (nonatomic, strong) NSString *deviceId;
+@property (nonatomic, strong) NSString *deviceToken;
 
 /**
  If there is no identity yet, this method initiates the process of acquiring one.

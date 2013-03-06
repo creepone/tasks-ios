@@ -41,7 +41,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
         self.username = [IAADefaultsManager username];
         
         if (self.username != nil) {
-            self.deviceId = [SFHFKeychainUtils getPasswordForUsername:self.username andServiceName:kServiceName error:&error];
+            self.deviceToken = [SFHFKeychainUtils getPasswordForUsername:self.username andServiceName:kServiceName error:&error];
             [IAAErrorManager checkError:error];
         }
     }
@@ -58,6 +58,9 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
 
 - (void)acquireIdentity
 {
+    if (self.username != nil)
+        return;
+    
     // guide the user through the process of acquiring the identity
     [self selectProvider];
 }
@@ -167,12 +170,15 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
     {
         NSDictionary *params = [[request URL] gh_queryDictionary];
         NSString *token = [params valueForKey:@"token"];
-        NSLog(@"token = %@", token);
-        
         NSString *username = [params valueForKey:@"username"];
-        NSLog(@"username = %@", username);
+                
+        NSError *error;
+        [IAADefaultsManager setUsername:username];
+        [SFHFKeychainUtils storeUsername:username andPassword:token forServiceName:kServiceName updateExisting:YES error:&error];
+        [IAAErrorManager checkError:error];
         
-        // todo: save the token into the keychain and username into defaults
+        self.username = username;
+        self.deviceToken = token;
         
         // todo: raise a global event so that the UI can be updated and sync start (now that we have an identity)
         
