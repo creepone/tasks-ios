@@ -10,7 +10,4 @@
 
 @interface IAADefaultsManager : NSObject
 
-+ (NSString *)username;
-+ (void)setUsername:(NSString *)username;
-
 @end

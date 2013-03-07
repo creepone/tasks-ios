@@ -33,6 +33,7 @@ NSString * const IAAIdentityManagerAcquiredIdentityNotification = @"IAAIdentityM
 
 @implementation IAAIdentityManager
 
+static NSString *kUsername = @"username";
 static NSString *kServiceName = @"at.iosapps.Tasks";
 
 - (id)init
@@ -40,12 +41,8 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
     self = [super init];
     if (self) {
         NSError *error;
-        self.username = [IAADefaultsManager username];
-        
-        if (self.username != nil) {
-            self.deviceToken = [SFHFKeychainUtils getPasswordForUsername:self.username andServiceName:kServiceName error:&error];
-            [IAAErrorManager checkError:error];
-        }
+        self.deviceToken = [SFHFKeychainUtils getPasswordForUsername:kUsername andServiceName:kServiceName error:&error];
+        [IAAErrorManager checkError:error];
     }
     return self;
 }
@@ -60,7 +57,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
 
 - (void)acquireIdentity
 {
-    if (self.username != nil)
+    if (self.deviceToken != nil)
         return;
     
     // guide the user through the process of acquiring the identity
@@ -131,14 +128,19 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
             break;
     }
     
+    UIViewController *dummyVc = [[UIViewController alloc] init];
+    dummyVc.title = @"Authenticate";
+    [_navigationController setViewControllers:@[dummyVc] animated:NO];
+    
+    // add cancel button in case something goes wrong in the web view
+    dummyVc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAuthentication)];
+    
     IAANetworkConfiguration *networkConfig = [IAANetworkConfiguration sharedConfiguration];
     [networkConfig refresh];
 
-    NSURL *authenticateURL = [networkConfig authenticationURL];    
+    NSURL *authenticateURL = [networkConfig authenticationURL];
     if (authenticateURL == nil) {
-        // todo: at this point, we are probably not online. show some message to the user and let him dismiss
-        [_navigationController.view removeFromSuperview];
-        _navigationController = nil;
+        [self showError];
         return;
     }
     
@@ -151,14 +153,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
     for (cookie in [storage cookies]) {
         [storage deleteCookie:cookie];
     }
-    
-    UIViewController *dummyVc = [[UIViewController alloc] init];
-    dummyVc.title = @"Authenticate";
-    [_navigationController setViewControllers:@[dummyVc] animated:NO];
-    
-    // add cancel button in case something goes wrong in the web view
-    dummyVc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAuthentication)];
-    
+        
     UIWebView *webView = [[UIWebView alloc] initWithFrame:dummyVc.view.bounds];
     [webView setDelegate:self];
     [webView loadRequest:[NSURLRequest requestWithURL:authenticateURL]];
@@ -172,14 +167,11 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
     {
         NSDictionary *params = [[request URL] gh_queryDictionary];
         NSString *token = [params valueForKey:@"token"];
-        NSString *username = [params valueForKey:@"username"];
                 
         NSError *error;
-        [IAADefaultsManager setUsername:username];
-        [SFHFKeychainUtils storeUsername:username andPassword:token forServiceName:kServiceName updateExisting:YES error:&error];
+        [SFHFKeychainUtils storeUsername:kUsername andPassword:token forServiceName:kServiceName updateExisting:YES error:&error];
         [IAAErrorManager checkError:error];
         
-        self.username = username;
         self.deviceToken = token;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:IAAIdentityManagerAcquiredIdentityNotification object:self];
@@ -187,15 +179,57 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
         [self dismissAuthentication];
         return NO;
     }
+    else if ([host isEqualToString:@"error"])
+    {
+        [self dismissAuthentication];
+        return NO;
+    }
     
-    NSLog(@"%@", [request URL]);
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    _navigationController.topViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+    [activityIndicator startAnimating];
+    
     return YES;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    // todo: show some message to the user to let him know
+    // hide loading indicator
+    _navigationController.topViewController.navigationItem.rightBarButtonItem = nil;
+    
     [webView removeFromSuperview];
+    [self showError];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    // hide loading indicator
+    _navigationController.topViewController.navigationItem.rightBarButtonItem = nil;
+}
+
+- (void)showError
+{    
+    UIViewController *dummyVc = _navigationController.topViewController;
+    
+    UIView *errorView = [[UIView alloc] initWithFrame:dummyVc.view.bounds];
+    [errorView setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, 290, 70)];
+    [label setText:@"There was an error loading the authentication service. Check your internet connection."];
+    [label setNumberOfLines:3];
+    [errorView addSubview:label];
+    
+    UIButton *dismissButton = [[UIButton alloc] initWithFrame:CGRectMake(5, 110, 310, 44)];
+    [dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [dismissButton setTitle:@"Dismiss" forState:UIControlStateNormal];
+    [[dismissButton titleLabel] setFont:[UIFont boldSystemFontOfSize:17.0]];
+
+    [dismissButton setBackgroundImage:[UIImage imageNamed:@"button"] forState:UIControlStateNormal];
+    [dismissButton setBackgroundImage:[UIImage imageNamed:@"button_pressed"] forState:UIControlStateHighlighted];
+    [dismissButton addTarget:self action:@selector(dismissAuthentication) forControlEvents:UIControlEventTouchUpInside];
+    [errorView addSubview:dismissButton];
+    
+    [dummyVc.view addSubview:errorView];
 }
 
 - (void)dismissAuthentication

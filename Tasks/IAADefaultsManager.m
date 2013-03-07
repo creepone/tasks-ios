@@ -10,17 +10,4 @@
 
 @implementation IAADefaultsManager
 
-static NSString *kUsername = @"Username";
-
-+ (NSString *)username {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults stringForKey:kUsername];
-}
-
-+ (void)setUsername:(NSString *)username {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setValue:username forKey:kUsername];
-    [userDefaults synchronize];
-}
-
 @end

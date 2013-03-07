@@ -77,7 +77,7 @@
         // todo: use sync manager to find out whether we are online / offline
         
         IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
-        cell.detailTextLabel.text = (identity.username != nil) ? @"active" : @"setup";
+        cell.detailTextLabel.text = (identity.deviceToken != nil) ? @"active" : @"setup";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -93,7 +93,7 @@
     if (indexPath.row == 0) {
         IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
         
-        if (identity.username == nil)
+        if (identity.deviceToken == nil)
             [identity acquireIdentity];
     }
 }

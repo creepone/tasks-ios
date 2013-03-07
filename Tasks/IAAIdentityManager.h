@@ -26,11 +26,6 @@ extern NSString * const IAAIdentityManagerAcquiredIdentityNotification;
 + (IAAIdentityManager *)sharedManager;
 
 /**
- If available, the username associated with the account on the server.
- */
-@property (nonatomic, strong) NSString *username;
-
-/**
  Token of the device associated with the account on the server. Used for authentication.
  */
 @property (nonatomic, strong) NSString *deviceToken;
