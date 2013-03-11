@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 iOS Apps Austria. All rights reserved.
 //
 
+#import <TapkuLibrary/TapkuLibrary.h>
+
 #import "IAAMainViewController.h"
 #import "IAASettingsViewController.h"
 #import "IAAErrorManager.h"
@@ -42,12 +44,17 @@
 
 - (void)setupToolbarItems
 {
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd)];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *confItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbarIcon_conf.png"] style:UIBarButtonItemStylePlain target:self action:@selector(tappedSettings)];
     
-    self.toolbarItems = [NSArray arrayWithObjects:flexibleSpace, confItem, nil];
-    
+    self.toolbarItems = @[addItem, flexibleSpace, confItem];
     [self.navigationController setToolbarHidden:NO];
+}
+
+- (void)tappedAdd
+{
+    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"Testing"];
 }
 
 - (void)tappedSettings
