@@ -42,6 +42,9 @@
     [super viewWillAppear:animated];
 }
 
+- (void)loadData
+{}
+
 - (void)setupToolbarItems
 {
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd)];

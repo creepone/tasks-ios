@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class IAAMainViewController;
+@class IAAMainViewController, IAACoreDataStack;
 
 @interface IAAAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,5 +16,6 @@
 @property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) IAAMainViewController *mainViewController;
 
+@property (nonatomic) IAACoreDataStack *coreDataStack;
 
 @end

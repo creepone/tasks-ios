@@ -44,6 +44,13 @@
 		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
 		C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F516EE690200BB7B60 /* MapKit.framework */; };
 		C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F716EE690900BB7B60 /* QuartzCore.framework */; };
+		C3D2020216EE6B2A00BB7B60 /* IAAMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D201FD16EE6B2A00BB7B60 /* IAAMigrationManager.m */; };
+		C3D2020316EE6B2A00BB7B60 /* IAACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D201FF16EE6B2A00BB7B60 /* IAACoreDataStack.m */; };
+		C3D2020416EE6B2A00BB7B60 /* IAADataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D2020116EE6B2A00BB7B60 /* IAADataAccess.m */; };
+		C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D2020516EE6B8600BB7B60 /* CoreData.framework */; };
+		C3D2020916EE6D2600BB7B60 /* IAAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D2020816EE6D2600BB7B60 /* IAAUtils.m */; };
+		C3D2020F16EE711E00BB7B60 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D2020E16EE711E00BB7B60 /* MBProgressHUD.m */; };
+		C3D2021216EE734000BB7B60 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3D2021016EE734000BB7B60 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +131,18 @@
 		C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = submodules/tapku/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		C3D201F516EE690200BB7B60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C3D201F716EE690900BB7B60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3D201FC16EE6B2A00BB7B60 /* IAAMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAMigrationManager.h; sourceTree = "<group>"; };
+		C3D201FD16EE6B2A00BB7B60 /* IAAMigrationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAMigrationManager.m; sourceTree = "<group>"; };
+		C3D201FE16EE6B2A00BB7B60 /* IAACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAACoreDataStack.h; sourceTree = "<group>"; };
+		C3D201FF16EE6B2A00BB7B60 /* IAACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAACoreDataStack.m; sourceTree = "<group>"; };
+		C3D2020016EE6B2A00BB7B60 /* IAADataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAADataAccess.h; sourceTree = "<group>"; };
+		C3D2020116EE6B2A00BB7B60 /* IAADataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAADataAccess.m; sourceTree = "<group>"; };
+		C3D2020516EE6B8600BB7B60 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C3D2020716EE6D2600BB7B60 /* IAAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAUtils.h; sourceTree = "<group>"; };
+		C3D2020816EE6D2600BB7B60 /* IAAUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAUtils.m; sourceTree = "<group>"; };
+		C3D2020D16EE711E00BB7B60 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		C3D2020E16EE711E00BB7B60 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		C3D2021116EE734000BB7B60 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
 				C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */,
 				C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */,
@@ -164,6 +184,7 @@
 		C311E7F616E21B89008A71AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3D2020516EE6B8600BB7B60 /* CoreData.framework */,
 				C3D201F716EE690900BB7B60 /* QuartzCore.framework */,
 				C3D201F516EE690200BB7B60 /* MapKit.framework */,
 				C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */,
@@ -226,6 +247,7 @@
 		C311E81B16E227AA008A71AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3D2020B16EE710500BB7B60 /* Custom views */,
 				C3B75E5116E24844004B49FB /* Images */,
 				C311E81C16E227B0008A71AD /* Xibs */,
 			);
@@ -244,6 +266,7 @@
 		C311E81D16E22968008A71AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3D201FA16EE6B0C00BB7B60 /* CoreData */,
 				C3B75E5A16E25161004B49FB /* Lib */,
 				C311E81E16E22972008A71AD /* Utils */,
 			);
@@ -265,6 +288,8 @@
 				C3B75E6116E2522F004B49FB /* IAAIdentityManager.m */,
 				C3B75E6316E25365004B49FB /* IAADefaultsManager.h */,
 				C3B75E6416E25365004B49FB /* IAADefaultsManager.m */,
+				C3D2020716EE6D2600BB7B60 /* IAAUtils.h */,
+				C3D2020816EE6D2600BB7B60 /* IAAUtils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -322,6 +347,45 @@
 				C3D201F116EE68B200BB7B60 /* LogicTests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C3D201FA16EE6B0C00BB7B60 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C3D201FB16EE6B1900BB7B60 /* Entities */,
+				C3D201FC16EE6B2A00BB7B60 /* IAAMigrationManager.h */,
+				C3D201FD16EE6B2A00BB7B60 /* IAAMigrationManager.m */,
+				C3D201FE16EE6B2A00BB7B60 /* IAACoreDataStack.h */,
+				C3D201FF16EE6B2A00BB7B60 /* IAACoreDataStack.m */,
+				C3D2020016EE6B2A00BB7B60 /* IAADataAccess.h */,
+				C3D2020116EE6B2A00BB7B60 /* IAADataAccess.m */,
+				C3D2021016EE734000BB7B60 /* Model.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		C3D201FB16EE6B1900BB7B60 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		C3D2020B16EE710500BB7B60 /* Custom views */ = {
+			isa = PBXGroup;
+			children = (
+				C3D2020C16EE710E00BB7B60 /* Lib */,
+			);
+			name = "Custom views";
+			sourceTree = "<group>";
+		};
+		C3D2020C16EE710E00BB7B60 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C3D2020D16EE711E00BB7B60 /* MBProgressHUD.h */,
+				C3D2020E16EE711E00BB7B60 /* MBProgressHUD.m */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +504,12 @@
 				C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */,
 				C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */,
 				C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */,
+				C3D2020216EE6B2A00BB7B60 /* IAAMigrationManager.m in Sources */,
+				C3D2020316EE6B2A00BB7B60 /* IAACoreDataStack.m in Sources */,
+				C3D2020416EE6B2A00BB7B60 /* IAADataAccess.m in Sources */,
+				C3D2020916EE6D2600BB7B60 /* IAAUtils.m in Sources */,
+				C3D2020F16EE711E00BB7B60 /* MBProgressHUD.m in Sources */,
+				C3D2021216EE734000BB7B60 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +639,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C3D2021016EE734000BB7B60 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C3D2021116EE734000BB7B60 /* Model.xcdatamodel */,
+			);
+			currentVersion = C3D2021116EE734000BB7B60 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C311E7EC16E21B89008A71AD /* Project object */;
 }

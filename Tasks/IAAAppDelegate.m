@@ -6,8 +6,21 @@
 //  Copyright (c) 2013 iOS Apps Austria. All rights reserved.
 //
 
+#import "MBProgressHUD.h"
 #import "IAAAppDelegate.h"
 #import "IAAMainViewController.h"
+#import "IAAMigrationManager.h"
+
+#define kMigrationErrorAlertTag 44
+
+@interface IAAAppDelegate() <MBProgressHUDDelegate> {
+    NSError *_migrationError;
+    MBProgressHUD *_progressHud;
+}
+
+- (void)startDataInitialization;
+
+@end
 
 @implementation IAAAppDelegate
 
@@ -24,6 +37,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:self.navigationController];
     [self.window makeKeyAndVisible];
+    
+    [self startDataInitialization];
     
     return YES;
 }
@@ -53,6 +68,66 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Data initialization on startup
+
+- (void)startDataInitialization
+{
+    _progressHud = [[MBProgressHUD alloc] initWithWindow:self.window];
+    
+    [self.navigationController.view addSubview:_progressHud];
+    _progressHud.delegate = self;
+    _progressHud.graceTime = 1.0;
+    _progressHud.labelText = @"Initializing data...";
+    [_progressHud showWhileExecuting:@selector(performDataInitialization) onTarget:self withObject:nil animated:YES];
+}
+
+- (void)performDataInitialization
+{
+    @autoreleasepool {
+        NSError *error;
+        
+        [NSThread sleepForTimeInterval:10];
+        
+        self.coreDataStack = [IAAMigrationManager coreDataStack:&error];
+        
+        if(error != nil) {
+            _migrationError = error;
+        }
+    }
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud
+{
+    [_progressHud removeFromSuperview];
+    _progressHud.delegate = nil;
+    _progressHud = nil;
+    
+    if(self.coreDataStack == nil || _migrationError != nil) {
+        NSLog(@"Data initialization error: %@", [_migrationError localizedDescription]);
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Error"
+                              message:@"There was an error migrating the data"
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        
+        [alert setTag:kMigrationErrorAlertTag];
+        [alert show];
+        return;
+    }
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self.mainViewController loadData];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == kMigrationErrorAlertTag) {
+        exit(1);
+    }
 }
 
 @end

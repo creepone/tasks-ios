@@ -10,4 +10,6 @@
 
 @interface IAAMainViewController : UIViewController
 
+- (void)loadData;
+
 @end

@@ -10,4 +10,11 @@
 
 @interface IAADefaultsManager : NSObject
 
+/**
+ Version of the data store used to ensure that it is compatible with the model and was
+ initialized with a default set of objects
+ */
++ (NSInteger)dataStoreVersion;
++ (void)setDataStoreVersion:(NSInteger)version;
+
 @end

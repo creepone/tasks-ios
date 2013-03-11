@@ -8,6 +8,19 @@
 
 #import "IAADefaultsManager.h"
 
+NSString *kDataStoreVersion = @"DataStoreVersion";
+
 @implementation IAADefaultsManager
+
++ (NSInteger)dataStoreVersion {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults integerForKey:kDataStoreVersion];
+}
+
++ (void)setDataStoreVersion:(NSInteger)version {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:version forKey:kDataStoreVersion];
+    [userDefaults synchronize];
+}
 
 @end
