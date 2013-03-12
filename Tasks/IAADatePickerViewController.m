@@ -9,6 +9,7 @@
 #import <TapkuLibrary/TapkuLibrary.h>
 
 #import "IAADatePickerViewController.h"
+#import "IAADateCalculator.h"
 #import "IAAColor.h"
 
 @interface IAADatePickerViewController () <TKCalendarMonthViewDelegate> {
@@ -38,7 +39,7 @@
     self.view.backgroundColor = [IAAColor tableViewBackgroundColor];
 
     if (_date != nil)
-        [_calendar selectDate:_date];
+        [_calendar selectDate:[[IAADateCalculator sharedCalculator] gmtDateWithLocalDate:_date]];
     
     [_calendar setDelegate:self];
     [self.view addSubview:_calendar];
@@ -57,8 +58,8 @@
 }
 
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date
-{
-    _date = date;
+{    
+    _date = [[IAADateCalculator sharedCalculator] localDateWithGmtDate:date];
 }
 
 - (void)tappedSubmit

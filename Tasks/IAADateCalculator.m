@@ -80,4 +80,25 @@
     return [_calendar dateByAddingComponents:components toDate:midnight options:0];
 }
 
+- (NSDate *)gmtDateWithLocalDate:(NSDate *)date
+{
+    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+	NSDateComponents *components = [_calendar components:unitFlags fromDate:date];
+    
+    NSCalendar *gmtCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [gmtCalendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    return [gmtCalendar dateFromComponents:components];
+}
+
+- (NSDate *)localDateWithGmtDate:(NSDate *)date
+{
+    NSCalendar *gmtCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [gmtCalendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
+    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+	NSDateComponents *components = [gmtCalendar components:unitFlags fromDate:date];
+    return [_calendar dateFromComponents:components];
+}
+
+
 @end
