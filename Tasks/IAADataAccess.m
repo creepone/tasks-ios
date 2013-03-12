@@ -87,6 +87,11 @@
 }
 
 
+- (id)createObject:(Class)class
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(class) inManagedObjectContext:self.context];
+}
+
 
 - (void)dealloc
 {

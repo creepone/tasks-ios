@@ -51,6 +51,17 @@
 		C3D2020916EE6D2600BB7B60 /* IAAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D2020816EE6D2600BB7B60 /* IAAUtils.m */; };
 		C3D2020F16EE711E00BB7B60 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D2020E16EE711E00BB7B60 /* MBProgressHUD.m */; };
 		C3D2021216EE734000BB7B60 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3D2021016EE734000BB7B60 /* Model.xcdatamodeld */; };
+		C3DF28BB16EF969E00F395D5 /* IAATaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28BA16EF969E00F395D5 /* IAATaskViewController.m */; };
+		C3DF28BF16EF975300F395D5 /* IAATask.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28BE16EF975300F395D5 /* IAATask.m */; };
+		C3DF28C216EF975300F395D5 /* IAACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28C116EF975300F395D5 /* IAACategory.m */; };
+		C3DF28C516EF975300F395D5 /* IAAPatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28C416EF975300F395D5 /* IAAPatch.m */; };
+		C3DF28C916EF9C7300F395D5 /* IAAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28C816EF9C7300F395D5 /* IAAColor.m */; };
+		C3DF28CC16EFA91C00F395D5 /* IAATextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28CB16EFA91C00F395D5 /* IAATextFieldCell.m */; };
+		C3DF28D016EFC32300F395D5 /* IAAReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28CF16EFC32300F395D5 /* IAAReminderViewController.m */; };
+		C3DF28D516EFC7E700F395D5 /* IAADatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28D416EFC7E700F395D5 /* IAADatePickerViewController.m */; };
+		C3DF28D816EFCD6400F395D5 /* IAADateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28D716EFCD6400F395D5 /* IAADateFormatter.m */; };
+		C3DF28DB16EFCFC500F395D5 /* IAADateCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */; };
+		C3DF28DE16EFD23B00F395D5 /* IAATimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28DD16EFD23B00F395D5 /* IAATimePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +154,28 @@
 		C3D2020D16EE711E00BB7B60 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C3D2020E16EE711E00BB7B60 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C3D2021116EE734000BB7B60 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C3DF28B916EF969E00F395D5 /* IAATaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATaskViewController.h; sourceTree = "<group>"; };
+		C3DF28BA16EF969E00F395D5 /* IAATaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATaskViewController.m; sourceTree = "<group>"; };
+		C3DF28BD16EF975300F395D5 /* IAATask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATask.h; sourceTree = "<group>"; };
+		C3DF28BE16EF975300F395D5 /* IAATask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATask.m; sourceTree = "<group>"; };
+		C3DF28C016EF975300F395D5 /* IAACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAACategory.h; sourceTree = "<group>"; };
+		C3DF28C116EF975300F395D5 /* IAACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAACategory.m; sourceTree = "<group>"; };
+		C3DF28C316EF975300F395D5 /* IAAPatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAPatch.h; sourceTree = "<group>"; };
+		C3DF28C416EF975300F395D5 /* IAAPatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAPatch.m; sourceTree = "<group>"; };
+		C3DF28C716EF9C7300F395D5 /* IAAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAColor.h; sourceTree = "<group>"; };
+		C3DF28C816EF9C7300F395D5 /* IAAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAColor.m; sourceTree = "<group>"; };
+		C3DF28CA16EFA91C00F395D5 /* IAATextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATextFieldCell.h; sourceTree = "<group>"; };
+		C3DF28CB16EFA91C00F395D5 /* IAATextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATextFieldCell.m; sourceTree = "<group>"; };
+		C3DF28CE16EFC32300F395D5 /* IAAReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAReminderViewController.h; sourceTree = "<group>"; };
+		C3DF28CF16EFC32300F395D5 /* IAAReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAReminderViewController.m; sourceTree = "<group>"; };
+		C3DF28D316EFC7E600F395D5 /* IAADatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAADatePickerViewController.h; sourceTree = "<group>"; };
+		C3DF28D416EFC7E700F395D5 /* IAADatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAADatePickerViewController.m; sourceTree = "<group>"; };
+		C3DF28D616EFCD6400F395D5 /* IAADateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAADateFormatter.h; sourceTree = "<group>"; };
+		C3DF28D716EFCD6400F395D5 /* IAADateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAADateFormatter.m; sourceTree = "<group>"; };
+		C3DF28D916EFCFC500F395D5 /* IAADateCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAADateCalculator.h; sourceTree = "<group>"; };
+		C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAADateCalculator.m; sourceTree = "<group>"; };
+		C3DF28DC16EFD23B00F395D5 /* IAATimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATimePickerViewController.h; sourceTree = "<group>"; };
+		C3DF28DD16EFD23B00F395D5 /* IAATimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATimePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +260,7 @@
 		C311E81416E226FB008A71AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF28D116EFC39500F395D5 /* Task */,
 				C311E81516E22704008A71AD /* Utils */,
 				C3B75E5616E249AE004B49FB /* Settings */,
 				C3B75E4E16E246FE004B49FB /* IAAMainViewController.h */,
@@ -247,6 +281,7 @@
 		C311E81B16E227AA008A71AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF28C616EF9C6200F395D5 /* Utils */,
 				C3D2020B16EE710500BB7B60 /* Custom views */,
 				C3B75E5116E24844004B49FB /* Images */,
 				C311E81C16E227B0008A71AD /* Xibs */,
@@ -290,6 +325,10 @@
 				C3B75E6416E25365004B49FB /* IAADefaultsManager.m */,
 				C3D2020716EE6D2600BB7B60 /* IAAUtils.h */,
 				C3D2020816EE6D2600BB7B60 /* IAAUtils.m */,
+				C3DF28D616EFCD6400F395D5 /* IAADateFormatter.h */,
+				C3DF28D716EFCD6400F395D5 /* IAADateFormatter.m */,
+				C3DF28D916EFCFC500F395D5 /* IAADateCalculator.h */,
+				C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -367,6 +406,12 @@
 		C3D201FB16EE6B1900BB7B60 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF28C316EF975300F395D5 /* IAAPatch.h */,
+				C3DF28C416EF975300F395D5 /* IAAPatch.m */,
+				C3DF28C016EF975300F395D5 /* IAACategory.h */,
+				C3DF28C116EF975300F395D5 /* IAACategory.m */,
+				C3DF28BD16EF975300F395D5 /* IAATask.h */,
+				C3DF28BE16EF975300F395D5 /* IAATask.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -374,6 +419,7 @@
 		C3D2020B16EE710500BB7B60 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF28CD16EFA92700F395D5 /* Cells */,
 				C3D2020C16EE710E00BB7B60 /* Lib */,
 			);
 			name = "Custom views";
@@ -386,6 +432,47 @@
 				C3D2020E16EE711E00BB7B60 /* MBProgressHUD.m */,
 			);
 			name = Lib;
+			sourceTree = "<group>";
+		};
+		C3DF28C616EF9C6200F395D5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF28C716EF9C7300F395D5 /* IAAColor.h */,
+				C3DF28C816EF9C7300F395D5 /* IAAColor.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C3DF28CD16EFA92700F395D5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF28CA16EFA91C00F395D5 /* IAATextFieldCell.h */,
+				C3DF28CB16EFA91C00F395D5 /* IAATextFieldCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C3DF28D116EFC39500F395D5 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF28D216EFC3A000F395D5 /* Reminder */,
+				C3DF28B916EF969E00F395D5 /* IAATaskViewController.h */,
+				C3DF28BA16EF969E00F395D5 /* IAATaskViewController.m */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		C3DF28D216EFC3A000F395D5 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF28CE16EFC32300F395D5 /* IAAReminderViewController.h */,
+				C3DF28CF16EFC32300F395D5 /* IAAReminderViewController.m */,
+				C3DF28D316EFC7E600F395D5 /* IAADatePickerViewController.h */,
+				C3DF28D416EFC7E700F395D5 /* IAADatePickerViewController.m */,
+				C3DF28DC16EFD23B00F395D5 /* IAATimePickerViewController.h */,
+				C3DF28DD16EFD23B00F395D5 /* IAATimePickerViewController.m */,
+			);
+			name = Reminder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +597,17 @@
 				C3D2020916EE6D2600BB7B60 /* IAAUtils.m in Sources */,
 				C3D2020F16EE711E00BB7B60 /* MBProgressHUD.m in Sources */,
 				C3D2021216EE734000BB7B60 /* Model.xcdatamodeld in Sources */,
+				C3DF28BB16EF969E00F395D5 /* IAATaskViewController.m in Sources */,
+				C3DF28BF16EF975300F395D5 /* IAATask.m in Sources */,
+				C3DF28C216EF975300F395D5 /* IAACategory.m in Sources */,
+				C3DF28C516EF975300F395D5 /* IAAPatch.m in Sources */,
+				C3DF28C916EF9C7300F395D5 /* IAAColor.m in Sources */,
+				C3DF28CC16EFA91C00F395D5 /* IAATextFieldCell.m in Sources */,
+				C3DF28D016EFC32300F395D5 /* IAAReminderViewController.m in Sources */,
+				C3DF28D516EFC7E700F395D5 /* IAADatePickerViewController.m in Sources */,
+				C3DF28D816EFCD6400F395D5 /* IAADateFormatter.m in Sources */,
+				C3DF28DB16EFCFC500F395D5 /* IAADateCalculator.m in Sources */,
+				C3DF28DE16EFD23B00F395D5 /* IAATimePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

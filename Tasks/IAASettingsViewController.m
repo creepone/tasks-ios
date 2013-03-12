@@ -8,6 +8,7 @@
 
 #import "IAASettingsViewController.h"
 #import "IAAIdentityManager.h"
+#import "IAAColor.h"
 
 @interface IAASettingsViewController ()
 
@@ -34,6 +35,9 @@
     
     // subscribe to identity change notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshIdentity) name:IAAIdentityManagerAcquiredIdentityNotification object:nil];
+    
+    self.tableView.backgroundView = nil;
+    [self.tableView setBackgroundColor:[IAAColor tableViewBackgroundColor]];
 }
 
 - (void)setupNavigationBarItems

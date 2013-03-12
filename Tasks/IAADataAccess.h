@@ -1,7 +1,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-// todo: include entities
+#import "IAATask.h"
+#import "IAAPatch.h"
+#import "IAACategory.h"
 
 @interface IAADataAccess : NSObject
 
@@ -29,5 +31,7 @@
 - (BOOL)saveChanges:(NSError **)error;
 - (void)rollbackChanges;
 - (void)processChanges;
+
+- (id)createObject:(Class)class;
 
 @end

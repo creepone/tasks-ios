@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 iOS Apps Austria. All rights reserved.
 //
 
-#import <TapkuLibrary/TapkuLibrary.h>
-
 #import "IAAMainViewController.h"
 #import "IAASettingsViewController.h"
+#import "IAATaskViewController.h"
 #import "IAAErrorManager.h"
+#import "IAAColor.h"
+#import "IAADataAccess.h"
 
 @interface IAAMainViewController ()
 
@@ -34,6 +35,8 @@
 {
     [super viewDidLoad];
     [self setupToolbarItems];
+    
+    self.view.backgroundColor = [IAAColor tableViewBackgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,14 +60,19 @@
 
 - (void)tappedAdd
 {
-    [[TKAlertCenter defaultCenter] postAlertWithMessage:@"Testing"];
+    IAATask *task = [[IAADataAccess sharedDataAccess] createObject:[IAATask class]];
+    IAATaskViewController *tvc = [[IAATaskViewController alloc] initWithTask:task];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
+    [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
+    
+    [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
 - (void)tappedSettings
 {
     IAASettingsViewController *svc = [[IAASettingsViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:svc];
-    [navigationController.navigationBar setTintColor:[UIColor redColor]];
+    [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
     [navigationController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
     [self presentViewController:navigationController animated:YES completion:NULL];

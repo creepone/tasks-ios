@@ -13,6 +13,7 @@
 #import "SFHFKeychainUtils.h"
 #import "NSURL+GHUtils.h"
 #import "NSString+Extensions.h"
+#import "IAAColor.h"
 
 #import "IAAOpenidSelectViewController.h"
 #import "IAAOpenidAccountViewController.h"
@@ -69,7 +70,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
     IAAOpenidSelectViewController *osvc = [[IAAOpenidSelectViewController alloc] init];
     
     _navigationController = [[UINavigationController alloc] initWithRootViewController:osvc];
-    [_navigationController.navigationBar setTintColor:[UIColor redColor]];
+    [_navigationController.navigationBar setTintColor:[IAAColor themeColor]];
     _navigationController.view.frame = [[UIScreen mainScreen] applicationFrame];
     
     osvc.callbackSelect = ^(IAAOpenIDProvider provider) {

@@ -10,6 +10,7 @@
 #import "IAAAppDelegate.h"
 #import "IAAMainViewController.h"
 #import "IAAMigrationManager.h"
+#import "IAAColor.h"
 
 #define kMigrationErrorAlertTag 44
 
@@ -31,8 +32,8 @@
     self.mainViewController = [[IAAMainViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
-    [self.navigationController.toolbar setTintColor:[UIColor redColor]];
+    [self.navigationController.navigationBar setTintColor:[IAAColor themeColor]];
+    [self.navigationController.toolbar setTintColor:[IAAColor themeColor]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:self.navigationController];
@@ -87,9 +88,6 @@
 {
     @autoreleasepool {
         NSError *error;
-        
-        [NSThread sleepForTimeInterval:10];
-        
         self.coreDataStack = [IAAMigrationManager coreDataStack:&error];
         
         if(error != nil) {
