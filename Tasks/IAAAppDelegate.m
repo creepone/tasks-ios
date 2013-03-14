@@ -24,6 +24,7 @@
 }
 
 - (void)startDataInitialization;
+- (void)initializeLogging;
 
 @end
 
@@ -43,6 +44,7 @@
     [self.window setRootViewController:self.navigationController];
     [self.window makeKeyAndVisible];
     
+    [self initializeLogging];
     [self startDataInitialization];
     
     return YES;
@@ -138,6 +140,7 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 24 * 60 * 60;
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
     [DDLog addLogger:fileLogger];
 }

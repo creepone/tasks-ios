@@ -68,6 +68,9 @@
     if (_task.reminderDate == nil)
         _task.reminderDate = [dateCalculator today];
     
+    if (date == nil)
+        date = [dateCalculator today];
+    
     _task.reminderDate = [dateCalculator dateWithDate:date timePart:_task.reminderDate];
     [self.tableView reloadData];
 }
@@ -78,6 +81,9 @@
 
     if (_task.reminderDate == nil)
         _task.reminderDate = [dateCalculator today];
+    
+    if (time == nil)
+        time = [dateCalculator today];
     
     _task.reminderDate = [dateCalculator dateWithDate:_task.reminderDate timePart:time];
     [self.tableView reloadData];

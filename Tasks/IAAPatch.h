@@ -12,7 +12,7 @@
 
 @interface IAAPatch : NSManagedObject
 
-@property (nonatomic, retain) NSString * body;
+@property (nonatomic, retain) NSData * body;
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic) int16_t operation;
 @property (nonatomic, retain) NSString * taskId;

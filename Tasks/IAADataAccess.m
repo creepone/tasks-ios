@@ -54,8 +54,11 @@
 
 - (void)mergeChangesIntoContext:(NSNotification *)notification
 {
-    if (notification.object != self.context) {
-        [self.context mergeChangesFromContextDidSaveNotification:notification];
+    // only merge into the main context and if it's not the one notifying
+    if (_context == nil && notification.object != self.context) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.context mergeChangesFromContextDidSaveNotification:notification];
+        });
     }
 }
 

@@ -11,7 +11,6 @@
 
 @implementation IAATask
 
-@dynamic done;
 @dynamic id;
 @dynamic name;
 @dynamic reminderDate;
