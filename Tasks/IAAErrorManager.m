@@ -8,6 +8,7 @@
 
 #import "IAAErrorManager.h"
 #import "IAAErrorViewController.h"
+#import "IAALog.h"
 
 @implementation IAAErrorManager
 
@@ -16,7 +17,7 @@
     if (error == nil)
         return YES;
     
-    NSLog(@"%@", [error localizedDescription]);
+    DDLogError(@"%@", [error localizedDescription]);
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"

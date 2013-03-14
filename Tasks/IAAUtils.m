@@ -7,6 +7,7 @@
 //
 
 #import "IAAUtils.h"
+#import "IAALog.h"
 
 @implementation IAAUtils
 
@@ -14,8 +15,9 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
-    if (![[NSFileManager defaultManager] createDirectoryAtPath:basePath withIntermediateDirectories:YES attributes:nil error:NULL]) {
-        NSLog(@"Error: Create documents folder failed %@", basePath);
+    NSError *error;
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:basePath withIntermediateDirectories:YES attributes:nil error:&error]) {
+        DDLogError(@"Error: Create documents folder at %@ failed: %@", basePath, [error localizedDescription]);
     }
     
     return basePath;

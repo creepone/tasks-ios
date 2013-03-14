@@ -11,6 +11,10 @@
 #import "IAAMainViewController.h"
 #import "IAAMigrationManager.h"
 #import "IAAColor.h"
+#import "IAALog.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+#import "DDFileLogger.h"
 
 #define kMigrationErrorAlertTag 44
 
@@ -103,7 +107,7 @@
     _progressHud = nil;
     
     if(self.coreDataStack == nil || _migrationError != nil) {
-        NSLog(@"Data initialization error: %@", [_migrationError localizedDescription]);
+        DDLogError(@"Data initialization error: %@", [_migrationError localizedDescription]);
         
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Error"
@@ -126,6 +130,16 @@
     if(alertView.tag == kMigrationErrorAlertTag) {
         exit(1);
     }
+}
+
+- (void)initializeLogging
+{
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
 }
 
 @end
