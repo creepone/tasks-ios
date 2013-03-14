@@ -15,12 +15,14 @@
 		C311E80216E21B89008A71AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C311E80016E21B89008A71AD /* InfoPlist.strings */; };
 		C311E80416E21B89008A71AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E80316E21B89008A71AD /* main.m */; };
 		C311E80816E21B89008A71AD /* IAAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E80716E21B89008A71AD /* IAAAppDelegate.m */; };
-		C311E80A16E21B89008A71AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C311E80916E21B89008A71AD /* Default.png */; };
-		C311E80C16E21B89008A71AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C311E80B16E21B89008A71AD /* Default@2x.png */; };
-		C311E80E16E21B89008A71AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C311E80D16E21B89008A71AD /* Default-568h@2x.png */; };
 		C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E81716E2271B008A71AD /* IAAErrorViewController.m */; };
 		C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C311E81816E2271B008A71AD /* IAAErrorViewController.xib */; };
 		C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E82016E2299D008A71AD /* IAAErrorManager.m */; };
+		C31F7ADF16F2691E004C0E52 /* Default@2x.png in Frameworks */ = {isa = PBXBuildFile; fileRef = C31F7ADE16F2691E004C0E52 /* Default@2x.png */; };
+		C31F7AE216F2692A004C0E52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE116F2692A004C0E52 /* Default.png */; };
+		C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE316F26945004C0E52 /* Default-568h@2x.png */; };
+		C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE516F26AFB004C0E52 /* icon@2x.png */; };
+		C31F7AE816F26AFE004C0E52 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE716F26AFD004C0E52 /* icon.png */; };
 		C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C367859816E3D722003B22F7 /* NSURL+GHUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
 		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
@@ -106,14 +108,16 @@
 		C311E80516E21B89008A71AD /* Tasks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tasks-Prefix.pch"; sourceTree = "<group>"; };
 		C311E80616E21B89008A71AD /* IAAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAAAppDelegate.h; sourceTree = "<group>"; };
 		C311E80716E21B89008A71AD /* IAAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAAAppDelegate.m; sourceTree = "<group>"; };
-		C311E80916E21B89008A71AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C311E80B16E21B89008A71AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C311E80D16E21B89008A71AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C311E81616E2271B008A71AD /* IAAErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorViewController.h; sourceTree = "<group>"; };
 		C311E81716E2271B008A71AD /* IAAErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorViewController.m; sourceTree = "<group>"; };
 		C311E81816E2271B008A71AD /* IAAErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAErrorViewController.xib; sourceTree = "<group>"; };
 		C311E81F16E2299D008A71AD /* IAAErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorManager.h; sourceTree = "<group>"; };
 		C311E82016E2299D008A71AD /* IAAErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorManager.m; sourceTree = "<group>"; };
+		C31F7ADE16F2691E004C0E52 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../../Desktop/Default@2x.png"; sourceTree = "<group>"; };
+		C31F7AE116F2692A004C0E52 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		C31F7AE316F26945004C0E52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		C31F7AE516F26AFB004C0E52 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		C31F7AE716F26AFD004C0E52 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		C367859716E3D722003B22F7 /* NSURL+GHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GHUtils.h"; sourceTree = "<group>"; };
 		C367859816E3D722003B22F7 /* NSURL+GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GHUtils.m"; sourceTree = "<group>"; };
 		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 			files = (
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
+				C31F7ADF16F2691E004C0E52 /* Default@2x.png in Frameworks */,
 				C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */,
 				C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */,
 				C3B75E5F16E2520E004B49FB /* Security.framework in Frameworks */,
@@ -266,9 +271,6 @@
 				C311E80016E21B89008A71AD /* InfoPlist.strings */,
 				C311E80316E21B89008A71AD /* main.m */,
 				C311E80516E21B89008A71AD /* Tasks-Prefix.pch */,
-				C311E80916E21B89008A71AD /* Default.png */,
-				C311E80B16E21B89008A71AD /* Default@2x.png */,
-				C311E80D16E21B89008A71AD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -354,6 +356,11 @@
 		C3B75E5116E24844004B49FB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C31F7AE716F26AFD004C0E52 /* icon.png */,
+				C31F7AE516F26AFB004C0E52 /* icon@2x.png */,
+				C31F7AE316F26945004C0E52 /* Default-568h@2x.png */,
+				C31F7AE116F2692A004C0E52 /* Default.png */,
+				C31F7ADE16F2691E004C0E52 /* Default@2x.png */,
 				C305354016E928A6005A7685 /* button.png */,
 				C305354116E928A6005A7685 /* button_pressed.png */,
 				C3B75E7716E26586004B49FB /* openid.png */,
@@ -595,9 +602,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C311E80216E21B89008A71AD /* InfoPlist.strings in Resources */,
-				C311E80A16E21B89008A71AD /* Default.png in Resources */,
-				C311E80C16E21B89008A71AD /* Default@2x.png in Resources */,
-				C311E80E16E21B89008A71AD /* Default-568h@2x.png in Resources */,
 				C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */,
 				C3B75E5416E24855004B49FB /* toolbarIcon_conf.png in Resources */,
 				C3B75E5516E24855004B49FB /* toolbarIcon_conf@2x.png in Resources */,
@@ -610,6 +614,10 @@
 				C305354216E928A6005A7685 /* button.png in Resources */,
 				C305354316E928A6005A7685 /* button_pressed.png in Resources */,
 				C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */,
+				C31F7AE216F2692A004C0E52 /* Default.png in Resources */,
+				C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */,
+				C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */,
+				C31F7AE816F26AFE004C0E52 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
