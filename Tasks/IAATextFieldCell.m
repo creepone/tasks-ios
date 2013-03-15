@@ -78,18 +78,8 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(self.commitBlock != nil) {
-        NSString *newText = self.commitBlock(textField.text);
-        if(newText != nil)
-            textField.text = newText;
-    }
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    if(self.startedEditingBlock != nil) {
-        self.startedEditingBlock();
-    }
+    if(self.commitBlock != nil)
+        self.commitBlock(textField.text);
 }
 
 - (void)dealloc

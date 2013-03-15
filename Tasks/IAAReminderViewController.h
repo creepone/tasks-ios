@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class IAATask;
+@class IAATaskChanges;
 
 @interface IAAReminderViewController : UITableViewController
 
-- (id)initWithTask:(IAATask *)task;
+- (id)initWithTaskChanges:(IAATaskChanges *)taskChanges;
 
 @end

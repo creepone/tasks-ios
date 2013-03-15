@@ -34,4 +34,6 @@
 
 - (id)createObject:(Class)class;
 
+- (NSFetchedResultsController *)fetchedResultsControllerForAllCategories;
+
 @end

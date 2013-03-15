@@ -12,6 +12,7 @@
 #import "IAAMigrationManager.h"
 #import "IAAColor.h"
 #import "IAALog.h"
+#import "IAAKeyboard.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
 #import "DDFileLogger.h"
@@ -43,6 +44,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:self.navigationController];
     [self.window makeKeyAndVisible];
+    
+    // call to initialize listening to show/hide events
+    [IAAKeyboard sharedKeyboard];
     
     [self initializeLogging];
     [self startDataInitialization];

@@ -18,11 +18,17 @@
 		C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E81716E2271B008A71AD /* IAAErrorViewController.m */; };
 		C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C311E81816E2271B008A71AD /* IAAErrorViewController.xib */; };
 		C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E82016E2299D008A71AD /* IAAErrorManager.m */; };
-		C31F7ADF16F2691E004C0E52 /* Default@2x.png in Frameworks */ = {isa = PBXBuildFile; fileRef = C31F7ADE16F2691E004C0E52 /* Default@2x.png */; };
 		C31F7AE216F2692A004C0E52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE116F2692A004C0E52 /* Default.png */; };
 		C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE316F26945004C0E52 /* Default-568h@2x.png */; };
 		C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE516F26AFB004C0E52 /* icon@2x.png */; };
 		C31F7AE816F26AFE004C0E52 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE716F26AFD004C0E52 /* icon.png */; };
+		C31F7AEC16F37AA9004C0E52 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AEB16F37AA9004C0E52 /* Default@2x.png */; };
+		C31F7AF016F37B4A004C0E52 /* IAANotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AEF16F37B4A004C0E52 /* IAANotesViewController.m */; };
+		C31F7AF316F393F8004C0E52 /* IAAKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AF216F393F8004C0E52 /* IAAKeyboard.m */; };
+		C31F7AF616F3A33E004C0E52 /* IAACategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AF516F3A33E004C0E52 /* IAACategoriesViewController.m */; };
+		C31F7AF916F3AA0C004C0E52 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */; };
+		C31F7AFD16F3B37E004C0E52 /* IAATaskChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */; };
+		C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */; };
 		C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C367859816E3D722003B22F7 /* NSURL+GHUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
 		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
@@ -113,11 +119,23 @@
 		C311E81816E2271B008A71AD /* IAAErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAErrorViewController.xib; sourceTree = "<group>"; };
 		C311E81F16E2299D008A71AD /* IAAErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorManager.h; sourceTree = "<group>"; };
 		C311E82016E2299D008A71AD /* IAAErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorManager.m; sourceTree = "<group>"; };
-		C31F7ADE16F2691E004C0E52 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../../Desktop/Default@2x.png"; sourceTree = "<group>"; };
 		C31F7AE116F2692A004C0E52 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		C31F7AE316F26945004C0E52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		C31F7AE516F26AFB004C0E52 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		C31F7AE716F26AFD004C0E52 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		C31F7AEB16F37AA9004C0E52 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C31F7AEE16F37B4A004C0E52 /* IAANotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANotesViewController.h; sourceTree = "<group>"; };
+		C31F7AEF16F37B4A004C0E52 /* IAANotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANotesViewController.m; sourceTree = "<group>"; };
+		C31F7AF116F393F8004C0E52 /* IAAKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAKeyboard.h; sourceTree = "<group>"; };
+		C31F7AF216F393F8004C0E52 /* IAAKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAKeyboard.m; sourceTree = "<group>"; };
+		C31F7AF416F3A33E004C0E52 /* IAACategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAACategoriesViewController.h; sourceTree = "<group>"; };
+		C31F7AF516F3A33E004C0E52 /* IAACategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAACategoriesViewController.m; sourceTree = "<group>"; };
+		C31F7AF716F3AA0B004C0E52 /* NSArray+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extensions.h"; sourceTree = "<group>"; };
+		C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extensions.m"; sourceTree = "<group>"; };
+		C31F7AFB16F3B37E004C0E52 /* IAATaskChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATaskChanges.h; sourceTree = "<group>"; };
+		C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATaskChanges.m; sourceTree = "<group>"; };
+		C31F7AFE16F3BF1B004C0E52 /* NSObject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extensions.h"; sourceTree = "<group>"; };
+		C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extensions.m"; sourceTree = "<group>"; };
 		C367859716E3D722003B22F7 /* NSURL+GHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GHUtils.h"; sourceTree = "<group>"; };
 		C367859816E3D722003B22F7 /* NSURL+GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GHUtils.m"; sourceTree = "<group>"; };
 		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
@@ -205,7 +223,6 @@
 			files = (
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
-				C31F7ADF16F2691E004C0E52 /* Default@2x.png in Frameworks */,
 				C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */,
 				C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */,
 				C3B75E5F16E2520E004B49FB /* Security.framework in Frameworks */,
@@ -319,8 +336,8 @@
 		C311E81D16E22968008A71AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C31F7AFA16F3B372004C0E52 /* Logic */,
 				C3D201FA16EE6B0C00BB7B60 /* CoreData */,
-				C3B75E5A16E25161004B49FB /* Lib */,
 				C311E81E16E22972008A71AD /* Utils */,
 			);
 			name = Model;
@@ -332,6 +349,8 @@
 				C3F12BE316F24FE2007C3198 /* Lib */,
 				C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */,
 				C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */,
+				C31F7AFE16F3BF1B004C0E52 /* NSObject+Extensions.h */,
+				C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */,
 				C367859716E3D722003B22F7 /* NSURL+GHUtils.h */,
 				C367859816E3D722003B22F7 /* NSURL+GHUtils.m */,
 				C311E81F16E2299D008A71AD /* IAAErrorManager.h */,
@@ -349,8 +368,19 @@
 				C3DF28D916EFCFC500F395D5 /* IAADateCalculator.h */,
 				C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */,
 				C3F12BF516F25021007C3198 /* IAALog.h */,
+				C31F7AF716F3AA0B004C0E52 /* NSArray+Extensions.h */,
+				C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		C31F7AFA16F3B372004C0E52 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C31F7AFB16F3B37E004C0E52 /* IAATaskChanges.h */,
+				C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */,
+			);
+			name = Logic;
 			sourceTree = "<group>";
 		};
 		C3B75E5116E24844004B49FB /* Images */ = {
@@ -360,7 +390,7 @@
 				C31F7AE516F26AFB004C0E52 /* icon@2x.png */,
 				C31F7AE316F26945004C0E52 /* Default-568h@2x.png */,
 				C31F7AE116F2692A004C0E52 /* Default.png */,
-				C31F7ADE16F2691E004C0E52 /* Default@2x.png */,
+				C31F7AEB16F37AA9004C0E52 /* Default@2x.png */,
 				C305354016E928A6005A7685 /* button.png */,
 				C305354116E928A6005A7685 /* button_pressed.png */,
 				C3B75E7716E26586004B49FB /* openid.png */,
@@ -382,13 +412,6 @@
 				C3B75E5816E249C7004B49FB /* IAASettingsViewController.m */,
 			);
 			name = Settings;
-			sourceTree = "<group>";
-		};
-		C3B75E5A16E25161004B49FB /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Lib;
 			sourceTree = "<group>";
 		};
 		C3B75E6616E255B9004B49FB /* Identity */ = {
@@ -462,6 +485,8 @@
 			children = (
 				C3DF28C716EF9C7300F395D5 /* IAAColor.h */,
 				C3DF28C816EF9C7300F395D5 /* IAAColor.m */,
+				C31F7AF116F393F8004C0E52 /* IAAKeyboard.h */,
+				C31F7AF216F393F8004C0E52 /* IAAKeyboard.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -481,6 +506,10 @@
 				C3DF28D216EFC3A000F395D5 /* Reminder */,
 				C3DF28B916EF969E00F395D5 /* IAATaskViewController.h */,
 				C3DF28BA16EF969E00F395D5 /* IAATaskViewController.m */,
+				C31F7AEE16F37B4A004C0E52 /* IAANotesViewController.h */,
+				C31F7AEF16F37B4A004C0E52 /* IAANotesViewController.m */,
+				C31F7AF416F3A33E004C0E52 /* IAACategoriesViewController.h */,
+				C31F7AF516F3A33E004C0E52 /* IAACategoriesViewController.m */,
 			);
 			name = Task;
 			sourceTree = "<group>";
@@ -618,6 +647,7 @@
 				C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */,
 				C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */,
 				C31F7AE816F26AFE004C0E52 /* icon.png in Resources */,
+				C31F7AEC16F37AA9004C0E52 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +694,12 @@
 				C3F12BF216F25010007C3198 /* DDFileLogger.m in Sources */,
 				C3F12BF316F25010007C3198 /* DDLog.m in Sources */,
 				C3F12BF416F25010007C3198 /* DDTTYLogger.m in Sources */,
+				C31F7AF016F37B4A004C0E52 /* IAANotesViewController.m in Sources */,
+				C31F7AF316F393F8004C0E52 /* IAAKeyboard.m in Sources */,
+				C31F7AF616F3A33E004C0E52 /* IAACategoriesViewController.m in Sources */,
+				C31F7AF916F3AA0C004C0E52 /* NSArray+Extensions.m in Sources */,
+				C31F7AFD16F3B37E004C0E52 /* IAATaskChanges.m in Sources */,
+				C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

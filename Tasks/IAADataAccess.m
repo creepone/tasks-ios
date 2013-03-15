@@ -95,6 +95,22 @@
     return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(class) inManagedObjectContext:self.context];
 }
 
+- (NSFetchedResultsController *)fetchedResultsControllerForAllCategories
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAACategory class]) inManagedObjectContext:self.context]];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+	return [[NSFetchedResultsController alloc]
+            initWithFetchRequest:fetchRequest
+            managedObjectContext:self.context
+            sectionNameKeyPath:nil
+            cacheName:nil];
+}
+
 
 - (void)dealloc
 {

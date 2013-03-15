@@ -9,7 +9,7 @@
 #import "DDLog.h"
 
 #if DEBUG
-    static int ddLogLevel = LOG_LEVEL_VERBOSE;
+    static int ddLogLevel __attribute__((unused)) = LOG_LEVEL_VERBOSE;
 #else
-    static int ddLogLevel = LOG_LEVEL_ERROR;
+    static int ddLogLevel __attribute__((unused)) = LOG_LEVEL_ERROR;
 #endif

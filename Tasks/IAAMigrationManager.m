@@ -101,7 +101,19 @@
 
 + (BOOL)createDefaultObjectsInContext:(NSManagedObjectContext *)context error:(NSError **)error
 {
-    return YES;
+    IAACategory *categoryHigh = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([IAACategory class]) inManagedObjectContext:context];
+    categoryHigh.name = @"High";
+    categoryHigh.order = 0;
+    
+    IAACategory *categoryMedium = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([IAACategory class]) inManagedObjectContext:context];
+    categoryMedium.name = @"Medium";
+    categoryMedium.order = 1;
+    
+    IAACategory *categoryLow = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([IAACategory class]) inManagedObjectContext:context];
+    categoryLow.name = @"Low";
+    categoryLow.order = 2;
+    
+    return [context save:error];
 }
 
 + (BOOL)migrateFromVersion:(NSInteger)version error:(NSError **)error

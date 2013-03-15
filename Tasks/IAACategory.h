@@ -16,6 +16,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int16_t order;
 @property (nonatomic, retain) NSSet *tasks;
+
++ (void)renumberAll:(NSArray *)allCategories;
+
 @end
 
 @interface IAACategory (CoreDataGeneratedAccessors)

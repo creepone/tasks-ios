@@ -11,11 +11,12 @@
 #import "IAATimePickerViewController.h"
 #import "IAADateFormatter.h"
 #import "IAADateCalculator.h"
+#import "IAATaskChanges.h"
 #import "IAADataAccess.h"
 #import "IAAColor.h"
 
 @interface IAAReminderViewController () <IAADatePickerViewControllerDelegate, IAATimePickerViewControllerDelegate> {
-    IAATask *_task;
+    IAATaskChanges *_taskChanges;
     UISwitch *_switchImportant;
 }
 
@@ -25,11 +26,11 @@
 
 @implementation IAAReminderViewController
 
-- (id)initWithTask:(IAATask *)task
+- (id)initWithTaskChanges:(IAATaskChanges *)taskChanges
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        _task = task;
+        _taskChanges = taskChanges;
         self.title = @"Reminder";
     }
     return self;
@@ -51,27 +52,27 @@
 
 - (void)tappedClear
 {
-    _task.reminderImportant = NO;
-    _task.reminderDate = nil;
+    _taskChanges.reminderImportant = NO;
+    _taskChanges.reminderDate = nil;
     [self.tableView reloadData];
 }
 
 - (void)changedSwitchValue
 {
-    _task.reminderImportant = _switchImportant.on;
+    _taskChanges.reminderImportant = _switchImportant.on;
 }
 
 - (void)datePicker:(IAADatePickerViewController *)datePicker selectedDate:(NSDate *)date
 {
     IAADateCalculator *dateCalculator = [IAADateCalculator sharedCalculator];
     
-    if (_task.reminderDate == nil)
-        _task.reminderDate = [dateCalculator today];
+    if (_taskChanges.reminderDate == nil)
+        _taskChanges.reminderDate = [dateCalculator today];
     
     if (date == nil)
         date = [dateCalculator today];
     
-    _task.reminderDate = [dateCalculator dateWithDate:date timePart:_task.reminderDate];
+    _taskChanges.reminderDate = [dateCalculator dateWithDate:date timePart:_taskChanges.reminderDate];
     [self.tableView reloadData];
 }
 
@@ -79,13 +80,13 @@
 {
     IAADateCalculator *dateCalculator = [IAADateCalculator sharedCalculator];
 
-    if (_task.reminderDate == nil)
-        _task.reminderDate = [dateCalculator today];
+    if (_taskChanges.reminderDate == nil)
+        _taskChanges.reminderDate = [dateCalculator today];
     
     if (time == nil)
         time = [dateCalculator today];
     
-    _task.reminderDate = [dateCalculator dateWithDate:_task.reminderDate timePart:time];
+    _taskChanges.reminderDate = [dateCalculator dateWithDate:_taskChanges.reminderDate timePart:time];
     [self.tableView reloadData];
 }
 
@@ -112,11 +113,11 @@
     {
         if (_switchImportant == nil) {
             _switchImportant = [[UISwitch alloc] init];
-            _switchImportant.on = _task.reminderImportant;
+            _switchImportant.on = _taskChanges.reminderImportant;
             [_switchImportant addTarget:self action:@selector(changedSwitchValue) forControlEvents:UIControlEventValueChanged];
         }
         else {
-            [_switchImportant setOn:_task.reminderImportant animated:YES];
+            [_switchImportant setOn:_taskChanges.reminderImportant animated:YES];
         }
         
         cell.accessoryView = _switchImportant;
@@ -129,9 +130,9 @@
         cell.textLabel.text = @"Date";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        if (_task.reminderDate != nil)
+        if (_taskChanges.reminderDate != nil)
         {
-            cell.detailTextLabel.text = [[IAADateFormatter sharedFormatter] shortDateStringFromDate:_task.reminderDate];
+            cell.detailTextLabel.text = [[IAADateFormatter sharedFormatter] shortDateStringFromDate:_taskChanges.reminderDate];
         }
         else
             cell.detailTextLabel.text = @"";
@@ -142,9 +143,9 @@
         cell.textLabel.text = @"Time";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        if (_task.reminderDate != nil)
+        if (_taskChanges.reminderDate != nil)
         {
-            cell.detailTextLabel.text = [[IAADateFormatter sharedFormatter] shortTimeStringFromDate:_task.reminderDate];            
+            cell.detailTextLabel.text = [[IAADateFormatter sharedFormatter] shortTimeStringFromDate:_taskChanges.reminderDate];            
         }
         else
             cell.detailTextLabel.text = @"";
@@ -162,14 +163,14 @@
     
     if (indexPath.row == 1)
     {
-        IAADatePickerViewController *dpvc = [[IAADatePickerViewController alloc] initWithDate:_task.reminderDate];
+        IAADatePickerViewController *dpvc = [[IAADatePickerViewController alloc] initWithDate:_taskChanges.reminderDate];
         dpvc.delegate = self;
         [self.navigationController pushViewController:dpvc animated:YES];
     }
     
     if (indexPath.row == 2)
     {
-        NSDate *time = _task.reminderDate == nil ? [dateCalculator today] : _task.reminderDate;
+        NSDate *time = _taskChanges.reminderDate == nil ? [dateCalculator today] : _taskChanges.reminderDate;
         
         IAATimePickerViewController *tpvc = [[IAATimePickerViewController alloc] initWithTime:time];
         tpvc.delegate = self;

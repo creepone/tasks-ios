@@ -16,4 +16,12 @@
 @dynamic order;
 @dynamic tasks;
 
++ (void)renumberAll:(NSArray *)allCategories
+{
+    for (int i = 0; i < [allCategories count]; i++) {
+        IAACategory *category = [allCategories objectAtIndex:i];
+        category.order = i + 1;
+    }
+}
+
 @end
