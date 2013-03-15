@@ -28,8 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textViewDetails.text = [_error localizedDescription];
-}
+    
+    if (_error.userInfo != nil)
+        self.textViewDetails.text = [NSString stringWithFormat:@"%@ %@", [_error localizedDescription], [_error.userInfo description]];
+    else
+        self.textViewDetails.text = [_error localizedDescription];}
 
 - (IBAction)tappedDismiss:(id)sender
 {

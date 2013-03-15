@@ -19,6 +19,9 @@
     
     DDLogError(@"%@", [error localizedDescription]);
     
+    if (error.userInfo != nil)
+        DDLogError(@"%@", [error.userInfo description]);
+    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
     
