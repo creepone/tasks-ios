@@ -127,8 +127,9 @@
     
     [fetchRequest setPredicate:predicate];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    NSSortDescriptor *reminderSD = [[NSSortDescriptor alloc] initWithKey:@"reminderDate" ascending:YES];
+    NSSortDescriptor *timestampSD = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
+    [fetchRequest setSortDescriptors:@[reminderSD, timestampSD]];
     
 	return [[NSFetchedResultsController alloc]
             initWithFetchRequest:fetchRequest

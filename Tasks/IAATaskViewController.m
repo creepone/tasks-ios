@@ -23,6 +23,7 @@
 #import "IAAUtils.h"
 
 #define kTitleTextField 42
+#define kLabelWidth 260
 #define kMaxLabelHeight 189
 
 @interface IAATaskViewController () <IAANotesViewControllerDelegate, IAACategoriesViewControllerDelegate> {
@@ -196,7 +197,7 @@
                 cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
                 cell.textLabel.clipsToBounds = YES;
                 
-                CGSize expectedLabelSize = [text sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(300, kMaxLabelHeight) lineBreakMode:NSLineBreakByWordWrapping];
+                CGSize expectedLabelSize = [text sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(kLabelWidth, kMaxLabelHeight) lineBreakMode:NSLineBreakByWordWrapping];
                 
                 CGRect frame = cell.textLabel.frame;
                 frame.size = expectedLabelSize;
@@ -225,7 +226,7 @@
                 cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
                 cell.textLabel.clipsToBounds = YES;
                                 
-                CGSize expectedLabelSize = [_taskChanges.notes sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(300, kMaxLabelHeight) lineBreakMode:NSLineBreakByWordWrapping];
+                CGSize expectedLabelSize = [_taskChanges.notes sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(kLabelWidth, kMaxLabelHeight) lineBreakMode:NSLineBreakByWordWrapping];
                 
                 CGRect frame = cell.textLabel.frame;
                 frame.size = expectedLabelSize;
@@ -258,7 +259,7 @@
     
     UIFont *font = [UIFont systemFontOfSize:17.0];
         
-    CGSize expectedLabelSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(300, kMaxLabelHeight) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize expectedLabelSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(kLabelWidth, kMaxLabelHeight) lineBreakMode:NSLineBreakByWordWrapping];
                 
     return expectedLabelSize.height + (44 - font.lineHeight);
 }
