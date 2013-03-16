@@ -13,7 +13,6 @@
 #import "IAANotificationManager.h"
 #import "IAAUtils.h"
 
-
 @implementation IAATask
 
 @dynamic id;
@@ -24,14 +23,13 @@
 @dynamic notes;
 @dynamic categories;
 
-
 + (void)insert:(IAATaskChanges *)taskChanges
 {
     BOOL needsReschedule = taskChanges.reminderDate != nil;
     NSString *uuid = [IAAUtils generateUuid];
+    [IAAPatch generateInsertPatch:taskChanges id:uuid];
         
     IAATask *task = [[IAADataAccess sharedDataAccess] createObject:[IAATask class]];
-    
     [task setId:uuid];
     [task setName:taskChanges.name];
     [task setReminderDate:taskChanges.reminderDate];
@@ -39,8 +37,6 @@
     [task setNotes:taskChanges.notes];
     [task setCategories:taskChanges.categories];
     [task setTimestamp:[NSDate date]];
-    
-    // todo: generate patch before saving
     
     NSError *error;
     [[IAADataAccess sharedDataAccess] saveChanges:&error];
@@ -53,8 +49,7 @@
 + (void)update:(IAATask *)task with:(IAATaskChanges *)taskChanges
 {
     BOOL needsReschedule = [task.reminderDate compare:taskChanges.reminderDate] != NSOrderedSame || task.reminderImportant != taskChanges.reminderImportant;
-    
-    // todo: generate patch before modifying and saving
+    [IAAPatch generateUpdatePatch:taskChanges forTask:task];
     
     [task setName:taskChanges.name];
     [task setNotes:taskChanges.notes];
@@ -74,8 +69,7 @@
 + (void)remove:(IAATask *)task
 {
     BOOL needsReschedule = task.reminderDate != nil;
-    
-    // todo: generate patch before saving
+    [IAAPatch generateRemovePatch:task];
     
     NSError *error;
     [[IAADataAccess sharedDataAccess] deleteObject:task error:&error];
@@ -84,6 +78,5 @@
     if (needsReschedule)
         [[IAANotificationManager sharedManager] rescheduleAll];
 }
-
 
 @end

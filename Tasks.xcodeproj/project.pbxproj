@@ -50,6 +50,9 @@
 		C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */; };
 		C3BA92FA16F49F7300F15CBB /* IAATasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92F916F49F7200F15CBB /* IAATasksViewController.m */; };
 		C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */; };
+		C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */; };
+		C3BA931216F4D3DB00F15CBB /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */; };
+		C3BA931716F4D4B200F15CBB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */; };
 		C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */; };
 		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
 		C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F516EE690200BB7B60 /* MapKit.framework */; };
@@ -80,6 +83,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C3BA930A16F4D3B400F15CBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC12323D1391D5CC00131607;
+			remoteInfo = SBJson;
+		};
+		C3BA930C16F4D3B400F15CBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC1232521391D5CC00131607;
+			remoteInfo = SBJsonTests;
+		};
+		C3BA930E16F4D3B400F15CBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2626913920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
+		C3BA931016F4D3B400F15CBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2627313920FC7003D9994;
+			remoteInfo = "sbjson-iosTests";
+		};
+		C3BA931316F4D3EF00F15CBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCC2626813920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
 		C3D201EE16EE68B200BB7B60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
@@ -171,6 +209,11 @@
 		C3BA92F916F49F7200F15CBB /* IAATasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATasksViewController.m; sourceTree = "<group>"; };
 		C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANotificationManager.h; sourceTree = "<group>"; };
 		C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANotificationManager.m; sourceTree = "<group>"; };
+		C3BA930016F4D15400F15CBB /* NSSet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Extensions.h"; sourceTree = "<group>"; };
+		C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Extensions.m"; sourceTree = "<group>"; };
+		C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "submodules/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
+		C3BA931516F4D4B200F15CBB /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = submodules/tapku/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = submodules/tapku/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		C3D201F516EE690200BB7B60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -227,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BA931216F4D3DB00F15CBB /* libsbjson-ios.a in Frameworks */,
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
 				C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */,
@@ -261,6 +305,7 @@
 		C311E7F616E21B89008A71AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */,
 				C3D2020516EE6B8600BB7B60 /* CoreData.framework */,
 				C3D201F716EE690900BB7B60 /* QuartzCore.framework */,
 				C3D201F516EE690200BB7B60 /* MapKit.framework */,
@@ -376,6 +421,8 @@
 				C3F12BF516F25021007C3198 /* IAALog.h */,
 				C31F7AF716F3AA0B004C0E52 /* NSArray+Extensions.h */,
 				C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */,
+				C3BA930016F4D15400F15CBB /* NSSet+Extensions.h */,
+				C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -431,6 +478,17 @@
 				C3B75E7D16E26736004B49FB /* IAAOpenidAccountViewController.m */,
 			);
 			name = Identity;
+			sourceTree = "<group>";
+		};
+		C3BA930416F4D3B300F15CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA930B16F4D3B400F15CBB /* SBJson.framework */,
+				C3BA930D16F4D3B400F15CBB /* SBJsonTests.octest */,
+				C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */,
+				C3BA931116F4D3B400F15CBB /* sbjson-iosTests.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C3D201E916EE68B200BB7B60 /* Products */ = {
@@ -543,6 +601,8 @@
 				C3F12BE516F24FEF007C3198 /* Lumberjack */,
 				C3B75E5B16E25175004B49FB /* SFHFKeychainUtils.h */,
 				C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */,
+				C3BA931516F4D4B200F15CBB /* NSObject+SBJson.h */,
+				C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -578,6 +638,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3BA931416F4D3EF00F15CBB /* PBXTargetDependency */,
 				C3D201F316EE68DE00BB7B60 /* PBXTargetDependency */,
 			);
 			name = Tasks;
@@ -607,6 +668,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = C3BA930416F4D3B300F15CBB /* Products */;
+					ProjectRef = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
+				},
+				{
 					ProductGroup = C3D201E916EE68B200BB7B60 /* Products */;
 					ProjectRef = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
 				},
@@ -619,6 +684,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C3BA930B16F4D3B400F15CBB /* SBJson.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SBJson.framework;
+			remoteRef = C3BA930A16F4D3B400F15CBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3BA930D16F4D3B400F15CBB /* SBJsonTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SBJsonTests.octest;
+			remoteRef = C3BA930C16F4D3B400F15CBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsbjson-ios.a";
+			remoteRef = C3BA930E16F4D3B400F15CBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3BA931116F4D3B400F15CBB /* sbjson-iosTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "sbjson-iosTests.octest";
+			remoteRef = C3BA931016F4D3B400F15CBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -712,12 +805,19 @@
 				C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */,
 				C3BA92FA16F49F7300F15CBB /* IAATasksViewController.m in Sources */,
 				C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */,
+				C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */,
+				C3BA931716F4D4B200F15CBB /* NSObject+SBJson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C3BA931416F4D3EF00F15CBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "sbjson-ios";
+			targetProxy = C3BA931316F4D3EF00F15CBB /* PBXContainerItemProxy */;
+		};
 		C3D201F316EE68DE00BB7B60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TapkuLibrary;
@@ -798,7 +898,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
-				HEADER_SEARCH_PATHS = submodules/tapku/src;
+				HEADER_SEARCH_PATHS = (
+					submodules/tapku/src,
+					"submodules/json-framework/src/main/objc",
+				);
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -811,7 +914,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
-				HEADER_SEARCH_PATHS = submodules/tapku/src;
+				HEADER_SEARCH_PATHS = (
+					submodules/tapku/src,
+					"submodules/json-framework/src/main/objc",
+				);
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

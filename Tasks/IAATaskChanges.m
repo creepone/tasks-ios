@@ -15,6 +15,8 @@
 {
     self = [super init];
     if (self) {
+        self.name = @"";
+        self.notes = @"";
         self.categories = [NSSet set];
     }
     return self;

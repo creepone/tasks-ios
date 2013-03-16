@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+typedef enum {
+	kIAAPatchOperationAdd = 1,
+    kIAAPatchOperationEdit = 2,
+    kIAAPatchOperationRemove = 3
+} IAAPatchOperation;
+
+@class IAATask, IAATaskChanges;
 
 @interface IAAPatch : NSManagedObject
 
@@ -16,6 +23,12 @@
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic) int16_t operation;
 @property (nonatomic, retain) NSString * taskId;
-@property (nonatomic) NSTimeInterval timestamp;
+@property (nonatomic, retain) NSDate * timestamp;
+
++ (void)generateInsertPatch:(IAATaskChanges *)taskChanges id:(NSString *)uuid;
++ (void)generateUpdatePatch:(IAATaskChanges *)taskChanges forTask:(IAATask *)task;
++ (void)generateRemovePatch:(IAATask *)task;
+
+- (NSString *)JSONRepresentation;
 
 @end
