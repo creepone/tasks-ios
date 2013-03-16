@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class IAATaskChanges;
 
 @interface IAATask : NSManagedObject
 
@@ -19,6 +20,11 @@
 @property (nonatomic, retain) NSDate * timestamp;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSSet *categories;
+
++ (void)insert:(IAATaskChanges *)taskChanges;
++ (void)update:(IAATask *)task with:(IAATaskChanges *)taskChanges;
++ (void)remove:(IAATask *)task;
+
 @end
 
 @interface IAATask (CoreDataGeneratedAccessors)

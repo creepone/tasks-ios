@@ -17,6 +17,7 @@
 - (NSDate *)datePart:(NSDate *)date;
 - (NSDate *)timePart:(NSDate *)date;
 - (NSDate *)dateWithDate:(NSDate *)date timePart:(NSDate *)time;
+- (NSDate *)dateWithDate:(NSDate *)date daysLater:(int)days;
 
 - (NSDate *)gmtDateWithLocalDate:(NSDate *)date;
 - (NSDate *)localDateWithGmtDate:(NSDate *)date;

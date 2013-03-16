@@ -80,6 +80,13 @@
     return [_calendar dateByAddingComponents:components toDate:midnight options:0];
 }
 
+- (NSDate *)dateWithDate:(NSDate *)date daysLater:(int)days
+{
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	components.day = days;
+	return [_calendar dateByAddingComponents:components toDate:date options:0];
+}
+
 - (NSDate *)gmtDateWithLocalDate:(NSDate *)date
 {
     NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;

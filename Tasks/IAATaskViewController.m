@@ -16,19 +16,21 @@
 #import "IAAReminderViewController.h"
 #import "IAANotesViewController.h"
 #import "IAACategoriesViewController.h"
+#import "IAANotificationManager.h"
 #import "NSString+Extensions.h"
 #import "NSArray+Extensions.h"
 #import "IAALog.h"
+#import "IAAUtils.h"
 
 #define kTitleTextField 42
 #define kMaxLabelHeight 189
 
 @interface IAATaskViewController () <IAANotesViewControllerDelegate, IAACategoriesViewControllerDelegate> {
+    BOOL _newMode;
     IAATask *_task;
     IAATaskChanges *_taskChanges;
 }
 
-- (BOOL)newMode;
 - (void)setupNavigationBarItems;
 - (NSString *)categoriesText;
 
@@ -36,13 +38,24 @@
 
 @implementation IAATaskViewController
 
+- (id)init
+{
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (self) {
+        _taskChanges = [[IAATaskChanges alloc] init];
+        _newMode = YES;
+        self.title = @"New Task";
+    }
+    return self;
+}
+
 - (id)initWithTask:(IAATask *)task
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         _task = task;
         _taskChanges = [[IAATaskChanges alloc] initWithTask:_task];
-        self.title = self.newMode ? @"New Task" : @"Task Details";
+        self.title = @"Details";
     }
     return self;
 }
@@ -83,28 +96,22 @@
 
 - (void)tappedSave
 {
-    // todo: we need much more (and a different) logic here -> creating patch, triggering sync etc.
-    [_task setName:_taskChanges.name];
-    [_task setNotes:_taskChanges.notes];
-    [_task setCategories:_taskChanges.categories];
-    [_task setReminderImportant:_taskChanges.reminderImportant];
-    [_task setReminderDate:_taskChanges.reminderDate];
-    
-    NSError *error;
-    [[IAADataAccess sharedDataAccess] saveChanges:&error];
-    [IAAErrorManager checkError:error];
-    
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    if (_newMode) {
+        [IAATask insert:_taskChanges];
+        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    }
+    else {
+        [IAATask update:_task with:_taskChanges];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)tappedCancel
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (BOOL)newMode
-{
-    return [[_task objectID] isTemporaryID];
+    if (_newMode)
+        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)nameDidChange:(id)sender
@@ -144,7 +151,7 @@
             
             [cell.textField addTarget:self action:@selector(nameDidChange:) forControlEvents:UIControlEventEditingChanged];
             
-            if (self.newMode)
+            if (_newMode)
                 [cell.textField becomeFirstResponder];
             
             return cell;

@@ -35,5 +35,12 @@
 - (id)createObject:(Class)class;
 
 - (NSFetchedResultsController *)fetchedResultsControllerForAllCategories;
+- (NSFetchedResultsController *)fetchedResultsControllerForTasksOfCategory:(IAACategory *)category;
+- (NSFetchedResultsController *)fetchedResultsControllerForTasksDueUntil:(NSDate *)date;
+
+- (NSInteger)countOfTasksInCategory:(IAACategory *)category;
+- (NSInteger)countOfTasksDueUntil:(NSDate *)date;
+
+- (void)performForEachSchedulableTask:(void (^)(IAATask *task))block;
 
 @end

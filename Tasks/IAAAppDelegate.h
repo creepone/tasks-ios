@@ -18,4 +18,9 @@
 
 @property (nonatomic) IAACoreDataStack *coreDataStack;
 
+/**
+ Notification sent when a UILocalNotification was received by the application.
+ */
+extern NSString * const IAALocalNotificationReceivedNotification;
+
 @end

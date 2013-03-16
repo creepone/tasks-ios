@@ -2,6 +2,7 @@
 #import "IAACoreDataStack.h"
 #import "IAAAppDelegate.h"
 #import "IAADefaultsManager.h"
+#import "IAAErrorManager.h"
 
 @interface IAADataAccess() {
     NSManagedObjectContext *_context;
@@ -109,6 +110,124 @@
             managedObjectContext:self.context
             sectionNameKeyPath:nil
             cacheName:nil];
+}
+
+- (NSFetchedResultsController *)fetchedResultsControllerForTasksOfCategory:(IAACategory *)category
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate;
+    
+    if (category == nil)
+        predicate = [NSPredicate predicateWithFormat:@"categories.@count == 0"];
+    else
+        predicate = [NSPredicate predicateWithFormat:@"categories CONTAINS %@", category];
+    
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+	return [[NSFetchedResultsController alloc]
+            initWithFetchRequest:fetchRequest
+            managedObjectContext:self.context
+            sectionNameKeyPath:nil
+            cacheName:nil];
+}
+
+- (NSFetchedResultsController *)fetchedResultsControllerForTasksDueUntil:(NSDate *)date
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate < %@", date];
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *reminderSD = [[NSSortDescriptor alloc] initWithKey:@"reminderDate" ascending:YES];
+    NSSortDescriptor *timestampSD = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
+    [fetchRequest setSortDescriptors:@[reminderSD, timestampSD]];
+    
+	return [[NSFetchedResultsController alloc]
+            initWithFetchRequest:fetchRequest
+            managedObjectContext:self.context
+            sectionNameKeyPath:nil
+            cacheName:nil];
+}
+
+- (NSInteger)countOfTasksInCategory:(IAACategory *)category
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate;
+    
+    if (category == nil)
+        predicate = [NSPredicate predicateWithFormat:@"categories.@count == 0"];
+    else
+        predicate = [NSPredicate predicateWithFormat:@"categories CONTAINS %@", category];
+    
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSInteger result = [self.context countForFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    return result;
+}
+
+- (NSInteger)countOfTasksDueUntil:(NSDate *)date
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate < %@", date];
+    [fetchRequest setPredicate:predicate];
+
+    NSError *error;
+    NSInteger result = [self.context countForFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    return result;
+}
+
+
+- (void)performForEachSchedulableTask:(void (^)(IAATask *task))block
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil"];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setFetchLimit:50];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"reminderDate" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error;
+    BOOL rowsLeft = YES;
+    NSInteger fetchOffset = 0;
+    
+    while (rowsLeft)
+    {
+        [fetchRequest setFetchOffset:fetchOffset];
+        
+        NSArray *results = [self.context executeFetchRequest:fetchRequest error:&error];
+        if (![IAAErrorManager checkError:error])
+            break;
+        
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            IAATask *task = (IAATask *)obj;
+            block(task);
+        }];
+        
+        rowsLeft = [results count] == 50;
+        fetchOffset += 50;
+    }
 }
 
 

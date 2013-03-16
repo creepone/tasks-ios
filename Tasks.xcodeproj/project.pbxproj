@@ -48,6 +48,8 @@
 		C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E7D16E26736004B49FB /* IAAOpenidAccountViewController.m */; };
 		C3B75E8016E26736004B49FB /* IAAOpenidAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */; };
 		C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */; };
+		C3BA92FA16F49F7300F15CBB /* IAATasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92F916F49F7200F15CBB /* IAATasksViewController.m */; };
+		C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */; };
 		C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */; };
 		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
 		C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F516EE690200BB7B60 /* MapKit.framework */; };
@@ -165,6 +167,10 @@
 		C3B75E7E16E26736004B49FB /* IAAOpenidAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAOpenidAccountViewController.xib; sourceTree = "<group>"; };
 		C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
 		C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
+		C3BA92F816F49F7200F15CBB /* IAATasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATasksViewController.h; sourceTree = "<group>"; };
+		C3BA92F916F49F7200F15CBB /* IAATasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATasksViewController.m; sourceTree = "<group>"; };
+		C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANotificationManager.h; sourceTree = "<group>"; };
+		C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANotificationManager.m; sourceTree = "<group>"; };
 		C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = submodules/tapku/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = submodules/tapku/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		C3D201F516EE690200BB7B60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -379,6 +385,8 @@
 			children = (
 				C31F7AFB16F3B37E004C0E52 /* IAATaskChanges.h */,
 				C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */,
+				C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */,
+				C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -510,6 +518,8 @@
 				C31F7AEF16F37B4A004C0E52 /* IAANotesViewController.m */,
 				C31F7AF416F3A33E004C0E52 /* IAACategoriesViewController.h */,
 				C31F7AF516F3A33E004C0E52 /* IAACategoriesViewController.m */,
+				C3BA92F816F49F7200F15CBB /* IAATasksViewController.h */,
+				C3BA92F916F49F7200F15CBB /* IAATasksViewController.m */,
 			);
 			name = Task;
 			sourceTree = "<group>";
@@ -700,6 +710,8 @@
 				C31F7AF916F3AA0C004C0E52 /* NSArray+Extensions.m in Sources */,
 				C31F7AFD16F3B37E004C0E52 /* IAATaskChanges.m in Sources */,
 				C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */,
+				C3BA92FA16F49F7300F15CBB /* IAATasksViewController.m in Sources */,
+				C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

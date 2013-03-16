@@ -11,6 +11,15 @@
 
 @implementation IAATaskChanges
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.categories = [NSSet set];
+    }
+    return self;
+}
+
 - (id)initWithTask:(IAATask *)task
 {
     self = [super init];

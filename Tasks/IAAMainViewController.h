@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IAAMainViewController : UIViewController
+@interface IAAMainViewController : UITableViewController
 
 - (void)loadData;
 

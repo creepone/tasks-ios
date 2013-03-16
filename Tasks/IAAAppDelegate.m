@@ -19,6 +19,8 @@
 
 #define kMigrationErrorAlertTag 44
 
+NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificationReceivedNotification";
+
 @interface IAAAppDelegate() <MBProgressHUDDelegate> {
     NSError *_migrationError;
     MBProgressHUD *_progressHud;
@@ -79,6 +81,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAALocalNotificationReceivedNotification object:self userInfo:@{@"notification": notification}];
 }
 
 #pragma mark - Data initialization on startup
