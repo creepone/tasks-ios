@@ -72,8 +72,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:YES];
+    [super viewWillAppear:animated];
     [self.tableView reloadData];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -120,6 +121,11 @@
     UITextField *textField = (UITextField *)sender;
     _taskChanges.name = textField.text;
     [self setupNavigationBarItems];
+}
+
+- (void)setCategories:(NSSet *)categories
+{
+    [_taskChanges setCategories:categories];
 }
 
 #pragma mark - Table view data source

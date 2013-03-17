@@ -14,8 +14,11 @@
 #import "IAAColor.h"
 
 @interface IAATasksViewController () <NSFetchedResultsControllerDelegate> {
+    IAACategory *_category;
     NSFetchedResultsController *_fetchedResultsController;
 }
+
+- (void)setupToolbarItems;
 
 @end
 
@@ -26,6 +29,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.title = category != nil ? category.name : @"Uncategorized";
+        _category = category;
         _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForTasksOfCategory:category];
         [_fetchedResultsController setDelegate:self];
     }
@@ -46,14 +50,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.backgroundView = nil;
     [self.tableView setBackgroundColor:[IAAColor tableViewBackgroundColor]];
     
+    [self setupToolbarItems];
+    
     NSError *error;
     [_fetchedResultsController performFetch:&error];
     [IAAErrorManager checkError:error];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:YES];
+    
+    [self.tableView reloadData];
+}
+
+- (void)setupToolbarItems
+{
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAdd)];
+    
+    self.toolbarItems = @[addItem];
+    [self.navigationController setToolbarHidden:NO];
+}
+
+- (void)tappedAdd
+{
+    IAATaskViewController *tvc = [[IAATaskViewController alloc] init];
+    if (_category != nil)
+        [tvc setCategories:[NSSet setWithArray:@[_category]]];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
+    [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
+    
+    [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
 #pragma mark - Table view data source

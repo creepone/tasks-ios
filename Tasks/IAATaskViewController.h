@@ -14,4 +14,6 @@
 
 - (id)initWithTask:(IAATask *)task;
 
+- (void)setCategories:(NSSet *)categories;
+
 @end
