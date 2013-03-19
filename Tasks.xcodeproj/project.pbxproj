@@ -53,6 +53,7 @@
 		C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */; };
 		C3BA931216F4D3DB00F15CBB /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */; };
 		C3BA931716F4D4B200F15CBB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */; };
+		C3C1BCBC16F8DF5E00FBFAD6 /* BSONIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */; };
 		C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */; };
 		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
 		C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F516EE690200BB7B60 /* MapKit.framework */; };
@@ -214,6 +215,8 @@
 		C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "submodules/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		C3BA931516F4D4B200F15CBB /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		C3C1BCBA16F8DF5E00FBFAD6 /* BSONIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSONIdGenerator.h; sourceTree = "<group>"; };
+		C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSONIdGenerator.m; sourceTree = "<group>"; };
 		C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = submodules/tapku/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = submodules/tapku/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		C3D201F516EE690200BB7B60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -603,6 +606,8 @@
 				C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */,
 				C3BA931516F4D4B200F15CBB /* NSObject+SBJson.h */,
 				C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */,
+				C3C1BCBA16F8DF5E00FBFAD6 /* BSONIdGenerator.h */,
+				C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -807,6 +812,7 @@
 				C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */,
 				C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */,
 				C3BA931716F4D4B200F15CBB /* NSObject+SBJson.m in Sources */,
+				C3C1BCBC16F8DF5E00FBFAD6 /* BSONIdGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * reminderDate;
 @property (nonatomic) BOOL reminderImportant;
-@property (nonatomic, retain) NSDate * timestamp;
+@property (nonatomic, retain) NSString * lastClientPatchId;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSSet *categories;
 

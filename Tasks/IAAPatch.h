@@ -15,6 +15,12 @@ typedef enum {
     kIAAPatchOperationRemove = 3
 } IAAPatchOperation;
 
+typedef enum {
+	kIAAPatchStateLocal = 1,
+    kIAAPatchStateDownloaded = 2,
+    kIAAPatchStateServer = 3
+} IAAPatchState;
+
 @class IAATask, IAATaskChanges;
 
 @interface IAAPatch : NSManagedObject
@@ -22,12 +28,13 @@ typedef enum {
 @property (nonatomic, retain) NSData * body;
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic) int16_t operation;
+@property (nonatomic) int16_t state;
 @property (nonatomic, retain) NSString * taskId;
-@property (nonatomic, retain) NSDate * timestamp;
+@property (nonatomic, retain) NSString * clientPatchId;
 
-+ (void)generateInsertPatch:(IAATaskChanges *)taskChanges id:(NSString *)uuid;
-+ (void)generateUpdatePatch:(IAATaskChanges *)taskChanges forTask:(IAATask *)task;
-+ (void)generateRemovePatch:(IAATask *)task;
++ (IAAPatch *)generateInsertPatch:(IAATaskChanges *)taskChanges id:(NSString *)uuid;
++ (IAAPatch *)generateUpdatePatch:(IAATaskChanges *)taskChanges forTask:(IAATask *)task;
++ (IAAPatch *)generateRemovePatch:(IAATask *)task;
 
 - (NSString *)JSONRepresentation;
 

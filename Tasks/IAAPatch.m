@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 iOS Apps Austria. All rights reserved.
 //
 
+#import "BSONIdGenerator.h"
 #import "IAAPatch.h"
 #import "IAADataAccess.h"
 #import "IAATaskChanges.h"
@@ -28,15 +29,17 @@
 @dynamic body;
 @dynamic id;
 @dynamic operation;
+@dynamic state;
 @dynamic taskId;
-@dynamic timestamp;
+@dynamic clientPatchId;
 
-+ (void)generateInsertPatch:(IAATaskChanges *)taskChanges id:(NSString *)uuid
++ (IAAPatch *)generateInsertPatch:(IAATaskChanges *)taskChanges id:(NSString *)taskId
 {
     IAAPatch *patch = [[IAADataAccess sharedDataAccess] createObject:[IAAPatch class]];
     [patch setOperation:kIAAPatchOperationAdd];
-    [patch setTimestamp:[NSDate date]];
-    [patch setTaskId:uuid];
+    [patch setState:kIAAPatchStateLocal];
+    [patch setClientPatchId:[BSONIdGenerator generate]];
+    [patch setTaskId:taskId];
     
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
     [body setObject:taskChanges.name forKey:@"name"];
@@ -53,13 +56,16 @@
     [body setObject:[self categoryNames:taskChanges.categories]  forKey:@"categories"];
     [patch setBody:[NSKeyedArchiver archivedDataWithRootObject:body]];
     DDLogInfo(@"add = %@", [patch JSONRepresentation]);
+    
+    return patch;
 }
 
-+ (void)generateUpdatePatch:(IAATaskChanges *)taskChanges forTask:(IAATask *)task
++ (IAAPatch *)generateUpdatePatch:(IAATaskChanges *)taskChanges forTask:(IAATask *)task
 {
     IAAPatch *patch = [[IAADataAccess sharedDataAccess] createObject:[IAAPatch class]];
     [patch setOperation:kIAAPatchOperationEdit];
-    [patch setTimestamp:[NSDate date]];
+    [patch setState:kIAAPatchStateLocal];
+    [patch setClientPatchId:[BSONIdGenerator generate]];
     [patch setTaskId:task.id];
     
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
@@ -108,23 +114,28 @@
     
     [patch setBody:[NSKeyedArchiver archivedDataWithRootObject:body]];
     DDLogInfo(@"edit = %@", [patch JSONRepresentation]);
+    
+    return patch;
 }
 
-+ (void)generateRemovePatch:(IAATask *)task
++ (IAAPatch *)generateRemovePatch:(IAATask *)task
 {
     IAAPatch *patch = [[IAADataAccess sharedDataAccess] createObject:[IAAPatch class]];
     [patch setOperation:kIAAPatchOperationRemove];
-    [patch setTimestamp:[NSDate date]];
+    [patch setState:kIAAPatchStateLocal];
+    [patch setClientPatchId:[BSONIdGenerator generate]];
     [patch setTaskId:task.id];
     
     DDLogInfo(@"delete = %@", [patch JSONRepresentation]);
+    
+    return patch;
 }
 
 - (NSString *)JSONRepresentation
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
     [json setObject:self.taskId forKey:@"taskId"];
-    [json setObject:@([self.timestamp timeIntervalSince1970] * 1000) forKey:@"clientTimestamp"];
+    [json setObject:self.clientPatchId forKey:@"clientPatchId"];
     [json setObject:[IAAPatch stringForOperation:self.operation] forKey:@"operation"];
     
     if (self.body != nil)
