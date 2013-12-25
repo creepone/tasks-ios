@@ -8,6 +8,7 @@
 
 #import "IAASettingsViewController.h"
 #import "IAAIdentityManager.h"
+#import "IAASyncManager.h"
 #import "IAAColor.h"
 
 @interface IAASettingsViewController ()
@@ -78,10 +79,13 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"Sync";
         
-        // todo: use sync manager to find out whether we are online / offline
-        
         IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
-        cell.detailTextLabel.text = (identity.deviceToken != nil) ? @"active" : @"setup";
+        
+        NSString *state = @"setup";
+        if (identity.deviceToken != nil)
+            state = [IAASyncManager isOnline] ? @"active" : @"offline";
+        
+        cell.detailTextLabel.text = state;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -99,6 +103,12 @@
         
         if (identity.deviceToken == nil)
             [identity acquireIdentity];
+        else {
+            if ([IAASyncManager isOnline]) {
+                // todo: async handling (hud)
+                [IAASyncManager syncAll];
+            }
+        }
     }
 }
 

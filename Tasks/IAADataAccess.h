@@ -42,5 +42,6 @@
 - (NSInteger)countOfTasksDueUntil:(NSDate *)date;
 
 - (void)performForEachSchedulableTask:(void (^)(IAATask *task))block;
+- (void)performForEachPatchToSync:(void (^)(IAAPatch *patch))block;
 
 @end

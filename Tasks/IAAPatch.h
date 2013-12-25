@@ -37,5 +37,6 @@ typedef enum {
 + (IAAPatch *)generateRemovePatch:(IAATask *)task;
 
 - (NSString *)JSONRepresentation;
+- (NSDictionary *)dictionaryRepresentation;
 
 @end

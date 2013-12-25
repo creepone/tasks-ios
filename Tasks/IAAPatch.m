@@ -10,11 +10,11 @@
 #import "IAAPatch.h"
 #import "IAADataAccess.h"
 #import "IAATaskChanges.h"
+#import "IAAErrorManager.h"
 #import "NSArray+Extensions.h"
 #import "IAAUtils.h"
 #import "IAALog.h"
 #import "NSSet+Extensions.h"
-#import "NSObject+SBJson.h"
 
 @interface IAAPatch()
 
@@ -131,17 +131,30 @@
     return patch;
 }
 
-- (NSString *)JSONRepresentation
+- (NSDictionary *)dictionaryRepresentation
 {
-    NSMutableDictionary *json = [NSMutableDictionary dictionary];
-    [json setObject:self.taskId forKey:@"taskId"];
-    [json setObject:self.clientPatchId forKey:@"clientPatchId"];
-    [json setObject:[IAAPatch stringForOperation:self.operation] forKey:@"operation"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self.taskId forKey:@"taskId"];
+    [dict setObject:self.clientPatchId forKey:@"clientPatchId"];
+    [dict setObject:[IAAPatch stringForOperation:self.operation] forKey:@"operation"];
     
     if (self.body != nil)
-        [json setObject:[NSKeyedUnarchiver unarchiveObjectWithData:self.body] forKey:@"body"];
+        [dict setObject:[NSKeyedUnarchiver unarchiveObjectWithData:self.body] forKey:@"body"];
     
-    return [json iaa_JSONRepresentation];
+    return dict;
+}
+
+- (NSString *)JSONRepresentation
+{
+    NSDictionary *dict = self.dictionaryRepresentation;
+
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    
+    if (![IAAErrorManager checkError:error])
+        return nil;
+    
+    return [NSString stringWithUTF8String:[jsonData bytes]];
 }
 
 

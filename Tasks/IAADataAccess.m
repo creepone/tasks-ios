@@ -231,6 +231,37 @@
     }
 }
 
+- (void)performForEachPatchToSync:(void (^)(IAAPatch *patch))block
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"state = %@", @(kIAAPatchStateLocal)];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setFetchLimit:50];
+    
+    NSError *error;
+    BOOL rowsLeft = YES;
+    NSInteger fetchOffset = 0;
+    
+    while (rowsLeft)
+    {
+        [fetchRequest setFetchOffset:fetchOffset];
+        
+        NSArray *results = [self.context executeFetchRequest:fetchRequest error:&error];
+        if (![IAAErrorManager checkError:error])
+            break;
+        
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            IAAPatch *patch = (IAAPatch *)obj;
+            block(patch);
+        }];
+        
+        rowsLeft = [results count] == 50;
+        fetchOffset += 50;
+    }
+}
+
 
 - (void)dealloc
 {

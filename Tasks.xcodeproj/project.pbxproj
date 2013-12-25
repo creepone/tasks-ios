@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C305354216E928A6005A7685 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = C305354016E928A6005A7685 /* button.png */; };
 		C305354316E928A6005A7685 /* button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C305354116E928A6005A7685 /* button_pressed.png */; };
+		C308F577186B3B4B0091F0CA /* IAASyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C308F576186B3B4B0091F0CA /* IAASyncManager.m */; };
+		C308F57D186B3B7F0091F0CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C308F57C186B3B7F0091F0CA /* SystemConfiguration.framework */; };
+		C308F580186B3BE10091F0CA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C308F57F186B3BE10091F0CA /* Reachability.m */; };
 		C311E7F816E21B89008A71AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C311E7F716E21B89008A71AD /* UIKit.framework */; };
 		C311E7FA16E21B89008A71AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C311E7F916E21B89008A71AD /* Foundation.framework */; };
 		C311E7FC16E21B89008A71AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C311E7FB16E21B89008A71AD /* CoreGraphics.framework */; };
@@ -51,8 +54,6 @@
 		C3BA92FA16F49F7300F15CBB /* IAATasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92F916F49F7200F15CBB /* IAATasksViewController.m */; };
 		C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */; };
 		C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */; };
-		C3BA931216F4D3DB00F15CBB /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */; };
-		C3BA931716F4D4B200F15CBB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */; };
 		C3C1BCBC16F8DF5E00FBFAD6 /* BSONIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */; };
 		C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */; };
 		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
@@ -84,41 +85,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C3BA930A16F4D3B400F15CBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC12323D1391D5CC00131607;
-			remoteInfo = SBJson;
-		};
-		C3BA930C16F4D3B400F15CBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC1232521391D5CC00131607;
-			remoteInfo = SBJsonTests;
-		};
-		C3BA930E16F4D3B400F15CBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCC2626913920FC7003D9994;
-			remoteInfo = "sbjson-ios";
-		};
-		C3BA931016F4D3B400F15CBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCC2627313920FC7003D9994;
-			remoteInfo = "sbjson-iosTests";
-		};
-		C3BA931316F4D3EF00F15CBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCC2626813920FC7003D9994;
-			remoteInfo = "sbjson-ios";
-		};
 		C3D201EE16EE68B200BB7B60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
@@ -145,6 +111,11 @@
 /* Begin PBXFileReference section */
 		C305354016E928A6005A7685 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		C305354116E928A6005A7685 /* button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pressed.png; sourceTree = "<group>"; };
+		C308F575186B3B4B0091F0CA /* IAASyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAASyncManager.h; sourceTree = "<group>"; };
+		C308F576186B3B4B0091F0CA /* IAASyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAASyncManager.m; sourceTree = "<group>"; };
+		C308F57C186B3B7F0091F0CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C308F57E186B3BE10091F0CA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C308F57F186B3BE10091F0CA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C311E7F416E21B89008A71AD /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C311E7F716E21B89008A71AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C311E7F916E21B89008A71AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -212,9 +183,6 @@
 		C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANotificationManager.m; sourceTree = "<group>"; };
 		C3BA930016F4D15400F15CBB /* NSSet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Extensions.h"; sourceTree = "<group>"; };
 		C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Extensions.m"; sourceTree = "<group>"; };
-		C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "submodules/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
-		C3BA931516F4D4B200F15CBB /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
-		C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		C3C1BCBA16F8DF5E00FBFAD6 /* BSONIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSONIdGenerator.h; sourceTree = "<group>"; };
 		C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSONIdGenerator.m; sourceTree = "<group>"; };
 		C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = submodules/tapku/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
@@ -273,7 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3BA931216F4D3DB00F15CBB /* libsbjson-ios.a in Frameworks */,
+				C308F57D186B3B7F0091F0CA /* SystemConfiguration.framework in Frameworks */,
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
 				C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */,
@@ -308,7 +276,7 @@
 		C311E7F616E21B89008A71AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */,
+				C308F57C186B3B7F0091F0CA /* SystemConfiguration.framework */,
 				C3D2020516EE6B8600BB7B60 /* CoreData.framework */,
 				C3D201F716EE690900BB7B60 /* QuartzCore.framework */,
 				C3D201F516EE690200BB7B60 /* MapKit.framework */,
@@ -437,6 +405,8 @@
 				C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */,
 				C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */,
 				C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */,
+				C308F575186B3B4B0091F0CA /* IAASyncManager.h */,
+				C308F576186B3B4B0091F0CA /* IAASyncManager.m */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -483,22 +453,11 @@
 			name = Identity;
 			sourceTree = "<group>";
 		};
-		C3BA930416F4D3B300F15CBB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3BA930B16F4D3B400F15CBB /* SBJson.framework */,
-				C3BA930D16F4D3B400F15CBB /* SBJsonTests.octest */,
-				C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */,
-				C3BA931116F4D3B400F15CBB /* sbjson-iosTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C3D201E916EE68B200BB7B60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */,
-				C3D201F116EE68B200BB7B60 /* LogicTests.octest */,
+				C3D201F116EE68B200BB7B60 /* LogicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -601,11 +560,11 @@
 		C3F12BE316F24FE2007C3198 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				C308F57E186B3BE10091F0CA /* Reachability.h */,
+				C308F57F186B3BE10091F0CA /* Reachability.m */,
 				C3F12BE516F24FEF007C3198 /* Lumberjack */,
 				C3B75E5B16E25175004B49FB /* SFHFKeychainUtils.h */,
 				C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */,
-				C3BA931516F4D4B200F15CBB /* NSObject+SBJson.h */,
-				C3BA931616F4D4B200F15CBB /* NSObject+SBJson.m */,
 				C3C1BCBA16F8DF5E00FBFAD6 /* BSONIdGenerator.h */,
 				C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */,
 			);
@@ -643,7 +602,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C3BA931416F4D3EF00F15CBB /* PBXTargetDependency */,
 				C3D201F316EE68DE00BB7B60 /* PBXTargetDependency */,
 			);
 			name = Tasks;
@@ -660,6 +618,11 @@
 				CLASSPREFIX = IAA;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "iOS Apps Austria";
+				TargetAttributes = {
+					C311E7F316E21B89008A71AD = {
+						DevelopmentTeam = AVB86P2YPX;
+					};
+				};
 			};
 			buildConfigurationList = C311E7EF16E21B89008A71AD /* Build configuration list for PBXProject "Tasks" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -673,10 +636,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C3BA930416F4D3B300F15CBB /* Products */;
-					ProjectRef = C3BA930316F4D3B300F15CBB /* SBJson.xcodeproj */;
-				},
-				{
 					ProductGroup = C3D201E916EE68B200BB7B60 /* Products */;
 					ProjectRef = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
 				},
@@ -689,34 +648,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C3BA930B16F4D3B400F15CBB /* SBJson.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SBJson.framework;
-			remoteRef = C3BA930A16F4D3B400F15CBB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C3BA930D16F4D3B400F15CBB /* SBJsonTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SBJsonTests.octest;
-			remoteRef = C3BA930C16F4D3B400F15CBB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C3BA930F16F4D3B400F15CBB /* libsbjson-ios.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libsbjson-ios.a";
-			remoteRef = C3BA930E16F4D3B400F15CBB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C3BA931116F4D3B400F15CBB /* sbjson-iosTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "sbjson-iosTests.octest";
-			remoteRef = C3BA931016F4D3B400F15CBB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -724,10 +655,10 @@
 			remoteRef = C3D201EE16EE68B200BB7B60 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3D201F116EE68B200BB7B60 /* LogicTests.octest */ = {
+		C3D201F116EE68B200BB7B60 /* LogicTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = LogicTests.octest;
+			path = LogicTests.xctest;
 			remoteRef = C3D201F016EE68B200BB7B60 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -796,6 +727,7 @@
 				C3DF28D516EFC7E700F395D5 /* IAADatePickerViewController.m in Sources */,
 				C3DF28D816EFCD6400F395D5 /* IAADateFormatter.m in Sources */,
 				C3DF28DB16EFCFC500F395D5 /* IAADateCalculator.m in Sources */,
+				C308F577186B3B4B0091F0CA /* IAASyncManager.m in Sources */,
 				C3DF28DE16EFD23B00F395D5 /* IAATimePickerViewController.m in Sources */,
 				C3F12BF016F25010007C3198 /* DDAbstractDatabaseLogger.m in Sources */,
 				C3F12BF116F25010007C3198 /* DDASLLogger.m in Sources */,
@@ -810,8 +742,8 @@
 				C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */,
 				C3BA92FA16F49F7300F15CBB /* IAATasksViewController.m in Sources */,
 				C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */,
+				C308F580186B3BE10091F0CA /* Reachability.m in Sources */,
 				C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */,
-				C3BA931716F4D4B200F15CBB /* NSObject+SBJson.m in Sources */,
 				C3C1BCBC16F8DF5E00FBFAD6 /* BSONIdGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,11 +751,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C3BA931416F4D3EF00F15CBB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "sbjson-ios";
-			targetProxy = C3BA931316F4D3EF00F15CBB /* PBXContainerItemProxy */;
-		};
 		C3D201F316EE68DE00BB7B60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TapkuLibrary;
@@ -902,12 +829,11 @@
 		C311E81216E21B89008A71AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					submodules/tapku/src,
-					"submodules/json-framework/src/main/objc",
-				);
+				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -918,12 +844,11 @@
 		C311E81316E21B89008A71AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					submodules/tapku/src,
-					"submodules/json-framework/src/main/objc",
-				);
+				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
