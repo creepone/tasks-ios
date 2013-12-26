@@ -41,6 +41,8 @@
 - (NSInteger)countOfTasksInCategory:(IAACategory *)category;
 - (NSInteger)countOfTasksDueUntil:(NSDate *)date;
 
+- (NSString *)lastAvailablePatchId;
+
 - (void)performForEachSchedulableTask:(void (^)(IAATask *task))block;
 - (void)performForEachPatchToSync:(void (^)(IAAPatch *patch))block;
 

@@ -196,6 +196,37 @@
     return result;
 }
 
+- (NSString *)lastAvailablePatchId
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"state = %@ OR state = %@", @(kIAAPatchStateServer), @(kIAAPatchStateDownloaded)];
+    [fetchRequest setPredicate:predicate];
+    
+    NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"clientPatchId"];
+    NSExpression *maxExpression = [NSExpression expressionForFunction:@"max:" arguments:[NSArray arrayWithObject:keyPathExpression]];
+    NSExpressionDescription *expressionDescription = [[NSExpressionDescription alloc] init];
+    [expressionDescription setName:@"maxValue"];
+    [expressionDescription setExpression:maxExpression];
+    [expressionDescription setExpressionResultType:NSStringAttributeType];
+    
+    [fetchRequest setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+    [fetchRequest setResultType:NSDictionaryResultType];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    
+    if (error != nil || [result count] != 1) {
+        return nil;
+    }
+    else {
+        NSDictionary *map = [result lastObject];
+        return [map valueForKey:@"maxValue"];
+    }
+}
+
 
 - (void)performForEachSchedulableTask:(void (^)(IAATask *task))block
 {
@@ -239,6 +270,9 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"state = %@", @(kIAAPatchStateLocal)];
     [fetchRequest setPredicate:predicate];
     [fetchRequest setFetchLimit:50];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"clientPatchId" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     NSError *error;
     BOOL rowsLeft = YES;

@@ -34,7 +34,11 @@
         [patches addObject:patch.dictionaryRepresentation];
     }];
     
-    NSDictionary *result = @{@"patches": patches};
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithDictionary:@{@"patches": patches}];
+    
+    NSString *lastPatchId = [dataAccess lastAvailablePatchId];
+    if (lastPatchId != nil)
+        [result setObject:lastPatchId forKey:@"lastPatchId"];
     
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:&error];
