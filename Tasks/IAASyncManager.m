@@ -22,7 +22,7 @@
 
 + (void)syncAll
 {
-    NSLog(@"%@", [self jsonToSend]);
+    NSLog(@"patches: %@", [self jsonToSend]);
 }
 
 + (NSString *)jsonToSend
@@ -42,7 +42,7 @@
     if (![IAAErrorManager checkError:error])
         return nil;
     
-    return [NSString stringWithUTF8String:[jsonData bytes]];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 @end
