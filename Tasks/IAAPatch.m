@@ -106,9 +106,9 @@
     if ([removed count] > 0 || [added count] > 0) {
         NSMutableDictionary *change = [NSMutableDictionary dictionary];
         if ([removed count] > 0)
-            [change setObject:[self categoryNames:removed] forKey:@"$remove"];
+            [change setObject:[self categoryNames:removed] forKey:@"remove"];
         if ([added count] > 0)
-            [change setObject:[self categoryNames:added] forKey:@"$add"];
+            [change setObject:[self categoryNames:added] forKey:@"add"];
         [body setObject:change forKey:@"categories"];
     }
     

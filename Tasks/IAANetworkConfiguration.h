@@ -22,4 +22,9 @@
  */
 - (NSURL *)authenticationURL;
 
+/**
+ URL of the endpoint used to initiate the synchronization process.
+ */
+- (NSString *)syncURLString;
+
 @end

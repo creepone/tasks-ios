@@ -11,7 +11,8 @@
 @interface IAASyncManager : NSObject
 
 + (BOOL)isOnline;
++ (IAASyncManager *)sharedManager;
 
-+ (void)syncAll;
+- (void)syncAll;
 
 @end

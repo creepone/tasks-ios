@@ -9,7 +9,16 @@
 #import "IAASyncManager.h"
 #import "IAADataAccess.h"
 #import "IAAErrorManager.h"
+#import "IAAIdentityManager.h"
+#import "IAANetworkConfiguration.h"
 #import "Reachability.h"
+#import "AFNetworking.h"
+
+@interface IAASyncManager(){
+    AFHTTPRequestOperationManager *_requestManager;
+}
+
+@end
 
 @implementation IAASyncManager
 
@@ -20,12 +29,39 @@
     return networkStatus == NotReachable ? NO : YES;
 }
 
-+ (void)syncAll
++ (IAASyncManager *)sharedManager
 {
-    NSLog(@"patches: %@", [self jsonToSend]);
+    static dispatch_once_t once;
+    static IAASyncManager *sharedManager;
+    dispatch_once(&once, ^ { sharedManager = [[self alloc] init]; });
+    return sharedManager;
 }
 
-+ (NSString *)jsonToSend
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _requestManager = [AFHTTPRequestOperationManager manager];
+    }
+    return self;
+}
+
+- (void)syncAll
+{
+    NSString *syncURL = [[IAANetworkConfiguration sharedConfiguration] syncURLString];
+    NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:syncURL parameters:[self patchesToSend]];
+    
+    AFHTTPRequestOperation *operation = [_requestManager HTTPRequestOperationWithRequest:request
+    success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [IAAErrorManager checkError:error];
+    }];
+    
+    [_requestManager.operationQueue addOperation:operation];
+}
+
+- (NSDictionary *)patchesToSend
 {
     IAADataAccess *dataAccess = [IAADataAccess sharedDataAccess];
     NSMutableArray *patches = [NSMutableArray array];
@@ -40,13 +76,11 @@
     if (lastPatchId != nil)
         [result setObject:lastPatchId forKey:@"lastPatchId"];
     
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *token = [[IAAIdentityManager sharedManager] deviceToken];
+    if (token != nil)
+        [result setObject:token forKey:@"token"];
     
-    if (![IAAErrorManager checkError:error])
-        return nil;
-    
-    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return result;
 }
 
 @end

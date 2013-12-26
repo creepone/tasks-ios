@@ -106,7 +106,7 @@
         else {
             if ([IAASyncManager isOnline]) {
                 // todo: async handling (hud)
-                [IAASyncManager syncAll];
+                [[IAASyncManager sharedManager] syncAll];
             }
         }
     }

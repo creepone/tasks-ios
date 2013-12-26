@@ -18,6 +18,7 @@
 @implementation IAANetworkConfiguration
 
 static NSString *kAuthenticationURL = @"AuthenticationURL";
+static NSString *kSyncURL = @"SyncURL";
 
 - (id)init
 {
@@ -47,6 +48,11 @@ static NSString *kAuthenticationURL = @"AuthenticationURL";
 {
     NSString *value = [_settings valueForKey:kAuthenticationURL];
     return (value != nil) ? [NSURL URLWithString:value] : nil;
+}
+
+- (NSString *)syncURLString
+{
+    return [_settings valueForKey:kSyncURL];
 }
 
 @end
