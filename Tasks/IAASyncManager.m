@@ -18,6 +18,9 @@
     AFHTTPRequestOperationManager *_requestManager;
 }
 
+- (NSDictionary *)patchesToSend;
+- (void)markAllSynced;
+
 @end
 
 @implementation IAASyncManager
@@ -48,12 +51,27 @@
 
 - (void)syncAll
 {
-    NSString *syncURL = [[IAANetworkConfiguration sharedConfiguration] syncURLString];
+    IAANetworkConfiguration *networkConfig = [IAANetworkConfiguration sharedConfiguration];
+    [networkConfig refresh];
+    
+    NSString *syncURL = [networkConfig syncURLString];
+    if (syncURL == nil)
+        return;
+    
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:syncURL parameters:[self patchesToSend]];
     
     AFHTTPRequestOperation *operation = [_requestManager HTTPRequestOperationWithRequest:request
     success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        
+        NSDictionary *result = (NSDictionary *)responseObject;
+        if ([result objectForKey:@"error"] != nil)
+            return;
+        
+        [self markAllSynced];
+        
+        // todo: merge in the response
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [IAAErrorManager checkError:error];
     }];
@@ -72,15 +90,24 @@
     
     NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithDictionary:@{@"patches": patches}];
     
-    NSString *lastPatchId = [dataAccess lastAvailablePatchId];
-    if (lastPatchId != nil)
-        [result setObject:lastPatchId forKey:@"lastPatchId"];
-    
     NSString *token = [[IAAIdentityManager sharedManager] deviceToken];
     if (token != nil)
         [result setObject:token forKey:@"token"];
     
     return result;
+}
+
+- (void)markAllSynced
+{
+    IAADataAccess *dataAccess = [IAADataAccess sharedDataAccess];
+    
+    [dataAccess performForEachPatchToSync:^(IAAPatch *patch) {
+        patch.state = kIAAPatchStateServer;
+    }];
+    
+    NSError *error;
+    [dataAccess saveChanges:&error];
+    [IAAErrorManager checkError:error];
 }
 
 @end

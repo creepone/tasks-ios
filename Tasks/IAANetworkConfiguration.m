@@ -39,8 +39,12 @@ static NSString *kSyncURL = @"SyncURL";
 
 - (void)refresh
 {
-    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.10:8081/ios/config.local.plist"];
-    NSURL *url = [NSURL URLWithString:@"http://tasks.iosapps.at/ios/config.plist"];
+    #ifdef DEBUG 
+        NSURL *url = [NSURL URLWithString:@"http://192.168.0.10:8081/ios/config.local.plist"];
+    #else
+        NSURL *url = [NSURL URLWithString:@"http://tasks.iosapps.at/ios/config.plist"];
+    #endif
+    
     _settings = [NSDictionary dictionaryWithContentsOfURL:url];
 }
 

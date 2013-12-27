@@ -118,7 +118,7 @@
 		C308F57C186B3B7F0091F0CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C308F57E186B3BE10091F0CA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C308F57F186B3BE10091F0CA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		C311E7F416E21B89008A71AD /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C311E7F416E21B89008A71AD /* Tasks debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tasks debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C311E7F716E21B89008A71AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C311E7F916E21B89008A71AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C311E7FB16E21B89008A71AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -273,7 +273,7 @@
 		C311E7F516E21B89008A71AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C311E7F416E21B89008A71AD /* Tasks.app */,
+				C311E7F416E21B89008A71AD /* Tasks debug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -614,7 +614,7 @@
 			);
 			name = Tasks;
 			productName = Tasks;
-			productReference = C311E7F416E21B89008A71AD /* Tasks.app */;
+			productReference = C311E7F416E21B89008A71AD /* Tasks debug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -878,7 +878,7 @@
 				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME) debug";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

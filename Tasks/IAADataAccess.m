@@ -201,9 +201,6 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 
     [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
-
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"state = %@ OR state = %@", @(kIAAPatchStateServer), @(kIAAPatchStateDownloaded)];
-    [fetchRequest setPredicate:predicate];
     
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"clientPatchId"];
     NSExpression *maxExpression = [NSExpression expressionForFunction:@"max:" arguments:[NSArray arrayWithObject:keyPathExpression]];

@@ -62,12 +62,6 @@
 
 + (IAAPatch *)generateUpdatePatch:(IAATaskChanges *)taskChanges forTask:(IAATask *)task
 {
-    IAAPatch *patch = [[IAADataAccess sharedDataAccess] createObject:[IAAPatch class]];
-    [patch setOperation:kIAAPatchOperationEdit];
-    [patch setState:kIAAPatchStateLocal];
-    [patch setClientPatchId:[BSONIdGenerator generate]];
-    [patch setTaskId:task.id];
-    
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
     
     if (![taskChanges.name isEqualToString:task.name]) {
@@ -111,6 +105,16 @@
             [change setObject:[self categoryNames:added] forKey:@"add"];
         [body setObject:change forKey:@"categories"];
     }
+    
+    // do not create an empty patch
+    if ([[body allKeys] count] == 0)
+        return nil;
+    
+    IAAPatch *patch = [[IAADataAccess sharedDataAccess] createObject:[IAAPatch class]];
+    [patch setOperation:kIAAPatchOperationEdit];
+    [patch setState:kIAAPatchStateLocal];
+    [patch setClientPatchId:[BSONIdGenerator generate]];
+    [patch setTaskId:task.id];
     
     [patch setBody:[NSKeyedArchiver archivedDataWithRootObject:body]];
     DDLogInfo(@"edit = %@", [patch JSONRepresentation]);

@@ -52,6 +52,10 @@
     BOOL needsReschedule = [task.reminderDate compare:taskChanges.reminderDate] != NSOrderedSame || task.reminderImportant != taskChanges.reminderImportant;
     IAAPatch *patch = [IAAPatch generateUpdatePatch:taskChanges forTask:task];
     
+    // no patch = no changes
+    if (patch == nil)
+        return;
+    
     [task setName:taskChanges.name];
     [task setNotes:taskChanges.notes];
     [task setCategories:taskChanges.categories];
