@@ -49,7 +49,14 @@
 
 + (void)update:(IAATask *)task with:(IAATaskChanges *)taskChanges
 {
-    BOOL needsReschedule = [task.reminderDate compare:taskChanges.reminderDate] != NSOrderedSame || task.reminderImportant != taskChanges.reminderImportant;
+    BOOL needsReschedule = NO;
+    
+    if ((task.reminderDate == nil && taskChanges.reminderDate != nil) || (task.reminderDate != nil && taskChanges.reminderDate == nil))
+        needsReschedule = YES;
+
+    if ([task.reminderDate compare:taskChanges.reminderDate] != NSOrderedSame || task.reminderImportant != taskChanges.reminderImportant)
+        needsReschedule = YES;
+        
     IAAPatch *patch = [IAAPatch generateUpdatePatch:taskChanges forTask:task];
     
     // no patch = no changes

@@ -158,6 +158,26 @@
             cacheName:nil];
 }
 
+- (NSFetchedResultsController *)fetchedResultsControllerForTasksDueBetween:(NSDate *)startDate and:(NSDate *)endDate
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate >= %@ AND reminderDate < %@", startDate, endDate];
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *reminderSD = [[NSSortDescriptor alloc] initWithKey:@"reminderDate" ascending:YES];
+    NSSortDescriptor *timestampSD = [[NSSortDescriptor alloc] initWithKey:@"lastClientPatchId" ascending:YES];
+    [fetchRequest setSortDescriptors:@[reminderSD, timestampSD]];
+    
+	return [[NSFetchedResultsController alloc]
+            initWithFetchRequest:fetchRequest
+            managedObjectContext:self.context
+            sectionNameKeyPath:nil
+            cacheName:nil];
+}
+
 - (NSInteger)countOfTasksInCategory:(IAACategory *)category
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -189,6 +209,22 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate < %@", date];
     [fetchRequest setPredicate:predicate];
 
+    NSError *error;
+    NSInteger result = [self.context countForFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    return result;
+}
+
+- (NSInteger)countOfTasksDueBetween:(NSDate *)startDate and:(NSDate *)endDate
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate >= %@ AND reminderDate < %@", startDate, endDate];
+    [fetchRequest setPredicate:predicate];
+    
     NSError *error;
     NSInteger result = [self.context countForFetchRequest:fetchRequest error:&error];
     [IAAErrorManager checkError:error];

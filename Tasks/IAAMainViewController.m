@@ -159,7 +159,7 @@
             NSDate *midnightIn5Days = [calculator datePart:[calculator dateWithDate:[NSDate date] daysLater:5]];
 
             cell.textLabel.text = @"Soon";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfTasksDueUntil:midnightIn5Days]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfTasksDueBetween:[NSDate date] and:midnightIn5Days]];
         }
     }
     else if (indexPath.row < self.countOfCategories)
@@ -194,7 +194,7 @@
         }
         else {
             NSDate *midnightIn5Days = [calculator datePart:[calculator dateWithDate:[NSDate date] daysLater:5]];
-            tvc = [[IAATasksViewController alloc] initWithDueDate:midnightIn5Days title:@"Soon"];
+            tvc = [[IAATasksViewController alloc] initWithDatesBetween:[NSDate date] and:midnightIn5Days title:@"Soon"];
         }
         
         [self.navigationController pushViewController:tvc animated:YES];

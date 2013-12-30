@@ -14,5 +14,6 @@
 
 - (id)initWithCategory:(IAACategory *)category;
 - (id)initWithDueDate:(NSDate *)date title:(NSString *)title;
+- (id)initWithDatesBetween:(NSDate *)startDate and:(NSDate *)endDate title:(NSString *)title;
 
 @end

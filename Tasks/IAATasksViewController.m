@@ -47,6 +47,17 @@
     return self;
 }
 
+- (id)initWithDatesBetween:(NSDate *)startDate and:(NSDate *)endDate title:(NSString *)title
+{
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (self) {
+        self.title = title;
+        _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForTasksDueBetween:startDate and:endDate];
+        [_fetchedResultsController setDelegate:self];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
