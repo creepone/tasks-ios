@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ Notification sent when the sync has been finished in the background.
+ */
+extern NSString * const IAASyncManagerFinishedSync;
+
+
 @interface IAASyncManager : NSObject
 
-+ (BOOL)isOnline;
 + (IAASyncManager *)sharedManager;
++ (BOOL)isOnline;
 
-- (void)syncAll;
+- (void)enqueueSync;
 
 @end

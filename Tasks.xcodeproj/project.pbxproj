@@ -83,6 +83,9 @@
 		C3F12BF216F25010007C3198 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BEB16F25010007C3198 /* DDFileLogger.m */; };
 		C3F12BF316F25010007C3198 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BED16F25010007C3198 /* DDLog.m */; };
 		C3F12BF416F25010007C3198 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BEF16F25010007C3198 /* DDTTYLogger.m */; };
+		C3F1B8EE1871A8DA005072B3 /* IAASyncBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8ED1871A8DA005072B3 /* IAASyncBatch.m */; };
+		C3F1B8F11871BEA3005072B3 /* IAAImportBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8F01871BEA3005072B3 /* IAAImportBatch.m */; };
+		C3F1B8F41871D4E5005072B3 /* IAATextMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8F31871D4E5005072B3 /* IAATextMerge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +239,12 @@
 		C3F12BEE16F25010007C3198 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		C3F12BEF16F25010007C3198 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
 		C3F12BF516F25021007C3198 /* IAALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAALog.h; sourceTree = "<group>"; };
+		C3F1B8EC1871A8DA005072B3 /* IAASyncBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAASyncBatch.h; sourceTree = "<group>"; };
+		C3F1B8ED1871A8DA005072B3 /* IAASyncBatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAASyncBatch.m; sourceTree = "<group>"; };
+		C3F1B8EF1871BEA3005072B3 /* IAAImportBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAImportBatch.h; sourceTree = "<group>"; };
+		C3F1B8F01871BEA3005072B3 /* IAAImportBatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAImportBatch.m; sourceTree = "<group>"; };
+		C3F1B8F21871D4E5005072B3 /* IAATextMerge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATextMerge.h; sourceTree = "<group>"; };
+		C3F1B8F31871D4E5005072B3 /* IAATextMerge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATextMerge.m; sourceTree = "<group>"; };
 		E8D4195B6B4B42D69ABDCB00 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -400,6 +409,8 @@
 				C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */,
 				C3BA930016F4D15400F15CBB /* NSSet+Extensions.h */,
 				C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */,
+				C3F1B8F21871D4E5005072B3 /* IAATextMerge.h */,
+				C3F1B8F31871D4E5005072B3 /* IAATextMerge.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -407,12 +418,11 @@
 		C31F7AFA16F3B372004C0E52 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				C3F1B8EA1871A8CB005072B3 /* Syncing */,
 				C31F7AFB16F3B37E004C0E52 /* IAATaskChanges.h */,
 				C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */,
 				C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */,
 				C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */,
-				C308F575186B3B4B0091F0CA /* IAASyncManager.h */,
-				C308F576186B3B4B0091F0CA /* IAASyncManager.m */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -594,6 +604,19 @@
 			name = Lumberjack;
 			sourceTree = "<group>";
 		};
+		C3F1B8EA1871A8CB005072B3 /* Syncing */ = {
+			isa = PBXGroup;
+			children = (
+				C308F575186B3B4B0091F0CA /* IAASyncManager.h */,
+				C308F576186B3B4B0091F0CA /* IAASyncManager.m */,
+				C3F1B8EC1871A8DA005072B3 /* IAASyncBatch.h */,
+				C3F1B8ED1871A8DA005072B3 /* IAASyncBatch.m */,
+				C3F1B8EF1871BEA3005072B3 /* IAAImportBatch.h */,
+				C3F1B8F01871BEA3005072B3 /* IAAImportBatch.m */,
+			);
+			name = Syncing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -743,11 +766,13 @@
 				C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */,
 				C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */,
 				C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */,
+				C3F1B8F41871D4E5005072B3 /* IAATextMerge.m in Sources */,
 				C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */,
 				C3B75E5916E249C7004B49FB /* IAASettingsViewController.m in Sources */,
 				C3B75E5D16E25175004B49FB /* SFHFKeychainUtils.m in Sources */,
 				C3B75E6216E2522F004B49FB /* IAAIdentityManager.m in Sources */,
 				C3B75E6516E25365004B49FB /* IAADefaultsManager.m in Sources */,
+				C3F1B8EE1871A8DA005072B3 /* IAASyncBatch.m in Sources */,
 				C3B75E6C16E25622004B49FB /* IAAOpenidSelectViewController.m in Sources */,
 				C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */,
 				C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */,
@@ -758,6 +783,7 @@
 				C3D2020916EE6D2600BB7B60 /* IAAUtils.m in Sources */,
 				C3D2020F16EE711E00BB7B60 /* MBProgressHUD.m in Sources */,
 				C3D2021216EE734000BB7B60 /* Model.xcdatamodeld in Sources */,
+				C3F1B8F11871BEA3005072B3 /* IAAImportBatch.m in Sources */,
 				C3DF28BB16EF969E00F395D5 /* IAATaskViewController.m in Sources */,
 				C3DF28BF16EF975300F395D5 /* IAATask.m in Sources */,
 				C3DF28C216EF975300F395D5 /* IAACategory.m in Sources */,

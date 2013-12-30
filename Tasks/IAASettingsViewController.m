@@ -105,8 +105,7 @@
             [identity acquireIdentity];
         else {
             if ([IAASyncManager isOnline]) {
-                // todo: async handling (hud)
-                [[IAASyncManager sharedManager] syncAll];
+                [[IAASyncManager sharedManager] enqueueSync];
             }
         }
     }

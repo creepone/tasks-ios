@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class IAATaskChanges;
+@class IAATaskChanges, IAAPatch;
 
 @interface IAATask : NSManagedObject
 

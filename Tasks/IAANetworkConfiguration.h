@@ -27,4 +27,10 @@
  */
 - (NSString *)syncURLString;
 
+/**
+ URL of the endpoint used to acknowledge the completion of the sync.
+ */
+- (NSString *)acknowledgeURLString;
+
+
 @end

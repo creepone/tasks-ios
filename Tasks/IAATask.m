@@ -12,6 +12,7 @@
 #import "IAADataAccess.h"
 #import "IAAErrorManager.h"
 #import "IAANotificationManager.h"
+#import "IAASyncManager.h"
 #import "IAAUtils.h"
 
 @implementation IAATask
@@ -45,6 +46,7 @@
     
     if (needsReschedule)
         [[IAANotificationManager sharedManager] rescheduleAll];
+    [[IAASyncManager sharedManager] enqueueSync];
 }
 
 + (void)update:(IAATask *)task with:(IAATaskChanges *)taskChanges
@@ -76,6 +78,7 @@
     
     if (needsReschedule)
         [[IAANotificationManager sharedManager] rescheduleAll];
+    [[IAASyncManager sharedManager] enqueueSync];
 }
 
 + (void)remove:(IAATask *)task
@@ -89,6 +92,7 @@
     
     if (needsReschedule)
         [[IAANotificationManager sharedManager] rescheduleAll];
+    [[IAASyncManager sharedManager] enqueueSync];
 }
 
 @end

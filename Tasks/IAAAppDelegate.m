@@ -10,6 +10,7 @@
 #import "IAAAppDelegate.h"
 #import "IAAMainViewController.h"
 #import "IAAMigrationManager.h"
+#import "IAASyncManager.h"
 #import "IAAColor.h"
 #import "IAALog.h"
 #import "IAAKeyboard.h"
@@ -76,6 +77,8 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [[IAASyncManager sharedManager] enqueueSync];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

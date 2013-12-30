@@ -39,4 +39,6 @@ typedef enum {
 - (NSString *)JSONRepresentation;
 - (NSDictionary *)dictionaryRepresentation;
 
++ (IAAPatchOperation)operationForString:(NSString *)operation;
+
 @end

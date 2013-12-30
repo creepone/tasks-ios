@@ -15,6 +15,7 @@
 #import "IAADataAccess.h"
 #import "IAADateCalculator.h"
 #import "IAAAppDelegate.h"
+#import "IAASyncManager.h"
 
 @interface IAAMainViewController () {
     NSFetchedResultsController *_fetchedResultsController;
@@ -49,7 +50,9 @@
     [self setupToolbarItems];
     
     self.tableView.backgroundView = nil;
-    [self.tableView setBackgroundColor:[IAAColor tableViewBackgroundColor]];    
+    [self.tableView setBackgroundColor:[IAAColor tableViewBackgroundColor]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedSync) name:IAASyncManagerFinishedSync object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,6 +112,11 @@
 }
 
 - (void)localNotificationReceived:(NSNotification *)notification
+{
+    [self refreshData];
+}
+
+- (void)finishedSync
 {
     [self refreshData];
 }

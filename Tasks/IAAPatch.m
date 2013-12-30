@@ -196,4 +196,16 @@
     return @"unknown";
 }
 
++ (IAAPatchOperation)operationForString:(NSString *)operation
+{
+    if ([operation isEqualToString:@"add"])
+        return kIAAPatchOperationAdd;
+    if ([operation isEqualToString:@"edit"])
+        return kIAAPatchOperationEdit;
+    if ([operation isEqualToString:@"remove"])
+        return kIAAPatchOperationRemove;
+    
+    return 0;
+}
+
 @end

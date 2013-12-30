@@ -10,6 +10,7 @@
 #import "IAATaskViewController.h"
 #import "IAADataAccess.h"
 #import "IAANotificationManager.h"
+#import "IAASyncManager.h"
 #import "IAAErrorManager.h"
 #import "IAAColor.h"
 
@@ -71,6 +72,8 @@
     NSError *error;
     [_fetchedResultsController performFetch:&error];
     [IAAErrorManager checkError:error];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedSync) name:IAASyncManagerFinishedSync object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,6 +102,15 @@
     [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
     
     [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+- (void)finishedSync
+{
+    NSError *error;
+    [_fetchedResultsController performFetch:&error];
+    [IAAErrorManager checkError:error];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -182,6 +194,11 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

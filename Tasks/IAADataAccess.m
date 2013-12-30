@@ -57,7 +57,7 @@
 {
     // only merge into the main context and if it's not the one notifying
     if (_context == nil && notification.object != self.context) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.context mergeChangesFromContextDidSaveNotification:notification];
         });
     }
@@ -235,7 +235,6 @@
 - (NSString *)lastAvailablePatchId
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-
     [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
     
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"clientPatchId"];
@@ -250,6 +249,7 @@
     
     NSError *error;
     NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
     
     if (error != nil || [result count] != 1) {
         return nil;
@@ -258,6 +258,95 @@
         NSDictionary *map = [result lastObject];
         return [map valueForKey:@"maxValue"];
     }
+}
+
+- (IAAPatch *)getPatchWithClientId:(NSString *)clientPatchId
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"clientPatchId = %@", clientPatchId];
+    [fetchRequest setPredicate:predicate];
+
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    if (error != nil || [result count] != 1)
+        return nil;
+    return [result lastObject];
+}
+
+- (IAATask *)getTaskWithId:(NSString *)taskId
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id = %@", taskId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    if (error != nil || [result count] != 1)
+        return nil;
+    return [result lastObject];
+}
+
+- (IAACategory *)getCategoryWithName:(NSString *)name
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAACategory class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    if (error != nil || [result count] != 1)
+        return nil;
+    return [result lastObject];
+}
+
+- (NSArray *)findDownloadedPatches
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"state = %@", @(kIAAPatchStateDownloaded)];
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"clientPatchId" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSError *error;
+	NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    return result;
+}
+
+- (NSArray *)findPatchesWithTaskId:(NSString *)taskId
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAAPatch class]) inManagedObjectContext:self.context]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"taskId = %@", taskId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"clientPatchId" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSError *error;
+	NSArray *result = [self.context executeFetchRequest:fetchRequest error:&error];
+    [IAAErrorManager checkError:error];
+    
+    return result;
 }
 
 

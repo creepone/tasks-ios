@@ -45,6 +45,13 @@
 
 - (NSString *)lastAvailablePatchId;
 
+- (IAAPatch *)getPatchWithClientId:(NSString *)clientPatchId;
+- (IAATask *)getTaskWithId:(NSString *)taskId;
+- (IAACategory *)getCategoryWithName:(NSString *)name;
+
+- (NSArray *)findDownloadedPatches;
+- (NSArray *)findPatchesWithTaskId:(NSString *)taskId;
+
 - (void)performForEachSchedulableTask:(void (^)(IAATask *task))block;
 - (void)performForEachPatchToSync:(void (^)(IAAPatch *patch))block;
 

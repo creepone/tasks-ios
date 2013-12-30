@@ -7,19 +7,20 @@
 //
 
 #import "IAASyncManager.h"
-#import "IAADataAccess.h"
-#import "IAAErrorManager.h"
-#import "IAAIdentityManager.h"
-#import "IAANetworkConfiguration.h"
+#import "IAASyncBatch.h"
 #import "Reachability.h"
-#import "AFNetworking.h"
+#import "IAAErrorManager.h"
+#import "IAANotificationManager.h"
+#import "IAAIdentityManager.h"
 
-@interface IAASyncManager(){
-    AFHTTPRequestOperationManager *_requestManager;
+NSString * const IAASyncManagerFinishedSync = @"IAASyncManagerFinishedSync";
+
+@interface IAASyncManager() <IAASyncBatchDelegate> {
+    IAASyncBatch *_batch;
+    BOOL _pending;
 }
 
-- (NSDictionary *)patchesToSend;
-- (void)markAllSynced;
+- (void)syncAll;
 
 @end
 
@@ -40,74 +41,58 @@
     return sharedManager;
 }
 
-- (id)init
+
+- (void)enqueueSync
 {
-    self = [super init];
-    if (self) {
-        _requestManager = [AFHTTPRequestOperationManager manager];
+    // we can't sync if we're offline or have no identity
+    if (![IAASyncManager isOnline] || [[IAAIdentityManager sharedManager] deviceToken] == nil)
+        return;
+    
+    _pending = YES;
+    [self peek];
+}
+
+- (void)peek
+{
+    if (_pending && _batch == nil) {
+        _pending = NO;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        [self performSelectorInBackground:@selector(syncAll) withObject:self];
     }
-    return self;
 }
 
 - (void)syncAll
 {
-    IAANetworkConfiguration *networkConfig = [IAANetworkConfiguration sharedConfiguration];
-    [networkConfig refresh];
+    @try {
+        _batch = [[IAASyncBatch alloc] init];
+        [_batch setDelegate:self];
+        [_batch start];
+        
+        // wait until done
+        while (_batch != nil)
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:IAASyncManagerFinishedSync object:self];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[IAANotificationManager sharedManager] rescheduleAll];
+            [self peek];
+        });
+    }
+    @catch (NSException *exception) {
+        // ignore - we don't want to crash the whole app when something goes wrong here
+    }
+}
+
+- (void)syncBatch:(IAASyncBatch *)batch completedWithError:(NSError *)error
+{
+    [batch setDelegate:nil];
+    _batch = nil;
     
-    NSString *syncURL = [networkConfig syncURLString];
-    if (syncURL == nil)
-        return;
-    
-    NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:syncURL parameters:[self patchesToSend]];
-    
-    AFHTTPRequestOperation *operation = [_requestManager HTTPRequestOperationWithRequest:request
-    success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        
-        NSDictionary *result = (NSDictionary *)responseObject;
-        if ([result objectForKey:@"error"] != nil)
-            return;
-        
-        [self markAllSynced];
-        
-        // todo: merge in the response
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [IAAErrorManager checkError:error];
-    }];
-    
-    [_requestManager.operationQueue addOperation:operation];
-}
-
-- (NSDictionary *)patchesToSend
-{
-    IAADataAccess *dataAccess = [IAADataAccess sharedDataAccess];
-    NSMutableArray *patches = [NSMutableArray array];
-    
-    [dataAccess performForEachPatchToSync:^(IAAPatch *patch) {
-        [patches addObject:patch.dictionaryRepresentation];
-    }];
-    
-    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithDictionary:@{@"patches": patches}];
-    
-    NSString *token = [[IAAIdentityManager sharedManager] deviceToken];
-    if (token != nil)
-        [result setObject:token forKey:@"token"];
-    
-    return result;
-}
-
-- (void)markAllSynced
-{
-    IAADataAccess *dataAccess = [IAADataAccess sharedDataAccess];
-    
-    [dataAccess performForEachPatchToSync:^(IAAPatch *patch) {
-        patch.state = kIAAPatchStateServer;
-    }];
-    
-    NSError *error;
-    [dataAccess saveChanges:&error];
-    [IAAErrorManager checkError:error];
+    });
 }
 
 @end
