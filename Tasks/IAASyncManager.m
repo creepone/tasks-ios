@@ -42,6 +42,11 @@ NSString * const IAASyncManagerFinishedSync = @"IAASyncManagerFinishedSync";
 }
 
 
+- (BOOL)isActive
+{
+    return _batch != nil || _pending;
+}
+
 - (void)enqueueSync
 {
     // we can't sync if we're offline or have no identity
@@ -72,9 +77,8 @@ NSString * const IAASyncManagerFinishedSync = @"IAASyncManagerFinishedSync";
         while (_batch != nil)
             [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:IAASyncManagerFinishedSync object:self];
-        
         dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:IAASyncManagerFinishedSync object:self];
             [[IAANotificationManager sharedManager] rescheduleAll];
             [self peek];
         });

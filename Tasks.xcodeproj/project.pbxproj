@@ -903,6 +903,7 @@
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
 				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME) debug";
 				WRAPPER_EXTENSION = app;
@@ -919,6 +920,7 @@
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
 				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

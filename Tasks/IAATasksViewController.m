@@ -20,6 +20,7 @@
 }
 
 - (void)setupToolbarItems;
+- (void)refreshData;
 
 @end
 
@@ -73,7 +74,8 @@
     [_fetchedResultsController performFetch:&error];
     [IAAErrorManager checkError:error];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedSync) name:IAASyncManagerFinishedSync object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:IAASyncManagerFinishedSync object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:UIApplicationDidBecomeActiveNotification object:nil];    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -104,7 +106,7 @@
     [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
-- (void)finishedSync
+- (void)refreshData
 {
     NSError *error;
     [_fetchedResultsController performFetch:&error];

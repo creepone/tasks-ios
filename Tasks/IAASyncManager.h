@@ -19,6 +19,7 @@ extern NSString * const IAASyncManagerFinishedSync;
 + (IAASyncManager *)sharedManager;
 + (BOOL)isOnline;
 
+- (BOOL)isActive;
 - (void)enqueueSync;
 
 @end

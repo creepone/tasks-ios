@@ -52,7 +52,8 @@
     self.tableView.backgroundView = nil;
     [self.tableView setBackgroundColor:[IAAColor tableViewBackgroundColor]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedSync) name:IAASyncManagerFinishedSync object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:IAASyncManagerFinishedSync object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -112,11 +113,6 @@
 }
 
 - (void)localNotificationReceived:(NSNotification *)notification
-{
-    [self refreshData];
-}
-
-- (void)finishedSync
 {
     [self refreshData];
 }

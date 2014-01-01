@@ -67,6 +67,20 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    if (![[IAASyncManager sharedManager] isActive])
+        return;
+    
+    __block UIBackgroundTaskIdentifier backgroundTask;
+    backgroundTask = [application beginBackgroundTaskWithExpirationHandler:^{
+        [application endBackgroundTask:backgroundTask];
+    }];
+    
+    __block id observer;
+    observer = [[NSNotificationCenter defaultCenter] addObserverForName:IAASyncManagerFinishedSync object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+        [application endBackgroundTask:backgroundTask];
+    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
