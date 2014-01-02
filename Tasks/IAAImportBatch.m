@@ -104,7 +104,11 @@
     
     for (IAAPatch *patch in patches) {
         if (patch.operation == kIAAPatchOperationEdit && ![removedIds containsObject:patch.taskId]) {
-            IAATask *task = [_dataAccess getTaskWithId:patch.taskId];
+            IAATask *task = [taskMap objectForKey:patch.taskId];
+            task = task ? : [_dataAccess getTaskWithId:patch.taskId];
+            if (task == nil)
+                continue;
+            
             [taskMap setObject:task forKey:patch.taskId];
             [taskPatchesMap setObject:[NSMutableArray array] forKey:patch.taskId];
         }

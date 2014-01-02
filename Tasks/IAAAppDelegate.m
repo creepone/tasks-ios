@@ -91,8 +91,8 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
-    [[IAASyncManager sharedManager] enqueueSync];
+    if (self.coreDataStack)
+        [[IAASyncManager sharedManager] enqueueSync];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -153,6 +153,7 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
     
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self.mainViewController loadData];
+    [[IAASyncManager sharedManager] enqueueSync];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
