@@ -214,14 +214,21 @@
     
     NSDictionary *reminder = [body objectForKey:@"reminder"];
     if (reminder != nil) {
-        NSNumber *important = [reminder objectForKey:@"important"];
-        if (important != nil)
-            [task setReminderImportant:[important boolValue]];
         
         NSNumber *time = [reminder objectForKey:@"time"];
-        if (time != nil) {
-            NSTimeInterval timeInterval = [time doubleValue] / 1000;
-            [task setReminderDate:[NSDate dateWithTimeIntervalSince1970:timeInterval]];
+        if ([time isEqual:[NSNull null]]) {
+            [task setReminderDate:nil];
+            [task setReminderImportant:NO];
+        }
+        else {
+            if (time != nil) {
+                NSTimeInterval timeInterval = [time doubleValue] / 1000;
+                [task setReminderDate:[NSDate dateWithTimeIntervalSince1970:timeInterval]];
+            }
+            
+            NSNumber *important = [reminder objectForKey:@"important"];
+            if (important != nil)
+                [task setReminderImportant:[important boolValue]];
         }
     }
     
