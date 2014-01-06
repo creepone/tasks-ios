@@ -22,7 +22,7 @@
 - (NSDictionary *)patchesToSend;
 - (NSDictionary *)dataToAcknowledge:(NSDictionary *)syncResponse;
 
-- (BOOL)markAllSynced;
+- (BOOL)save;
 - (void)merge:(NSDictionary *)response;
 - (void)acknowledge:(NSDictionary *)response;
 
@@ -66,7 +66,7 @@
              return;
          }
          
-         if (![self markAllSynced]) return;
+         if (![self save]) return;
          
          [self merge:result];
          [self acknowledge:result];
@@ -122,6 +122,7 @@
     
     [_dataAccess performForEachPatchToSync:^(IAAPatch *patch) {
         [patches addObject:patch.dictionaryRepresentation];
+        patch.state = kIAAPatchStateServer;
     }];
     
     NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithDictionary:@{@"patches": patches}];
@@ -150,12 +151,8 @@
     return result;
 }
 
-- (BOOL)markAllSynced
+- (BOOL)save
 {
-    [_dataAccess performForEachPatchToSync:^(IAAPatch *patch) {
-        patch.state = kIAAPatchStateServer;
-    }];
-    
     NSError *error;
     [_dataAccess saveChanges:&error];
     
