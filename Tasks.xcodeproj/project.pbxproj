@@ -33,6 +33,7 @@
 		C31F7AF916F3AA0C004C0E52 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */; };
 		C31F7AFD16F3B37E004C0E52 /* IAATaskChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */; };
 		C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */; };
+		C344E0361881879E006D6C8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C344E0351881879E006D6C8A /* Images.xcassets */; };
 		C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C367859816E3D722003B22F7 /* NSURL+GHUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
 		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
@@ -153,6 +154,7 @@
 		C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATaskChanges.m; sourceTree = "<group>"; };
 		C31F7AFE16F3BF1B004C0E52 /* NSObject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extensions.h"; sourceTree = "<group>"; };
 		C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extensions.m"; sourceTree = "<group>"; };
+		C344E0351881879E006D6C8A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C367859716E3D722003B22F7 /* NSURL+GHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GHUtils.h"; sourceTree = "<group>"; };
 		C367859816E3D722003B22F7 /* NSURL+GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GHUtils.m"; sourceTree = "<group>"; };
 		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				C311E81416E226FB008A71AD /* ViewControllers */,
 				C311E80616E21B89008A71AD /* IAAAppDelegate.h */,
 				C311E80716E21B89008A71AD /* IAAAppDelegate.m */,
+				C344E0351881879E006D6C8A /* Images.xcassets */,
 				C311E7FE16E21B89008A71AD /* Supporting Files */,
 			);
 			path = Tasks;
@@ -715,6 +718,7 @@
 				C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */,
 				C31F7AE216F2692A004C0E52 /* Default.png in Resources */,
 				C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */,
+				C344E0361881879E006D6C8A /* Images.xcassets in Resources */,
 				C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */,
 				C31F7AE816F26AFE004C0E52 /* icon.png in Resources */,
 				C31F7AEC16F37AA9004C0E52 /* Default@2x.png in Resources */,
@@ -897,6 +901,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8D4195B6B4B42D69ABDCB00 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -914,6 +920,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8D4195B6B4B42D69ABDCB00 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

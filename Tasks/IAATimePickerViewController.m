@@ -33,6 +33,9 @@
 {
     [super viewDidLoad];
     
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     self.view.backgroundColor = [IAAColor tableViewBackgroundColor];
     
     [_datePicker setDatePickerMode:UIDatePickerModeTime];

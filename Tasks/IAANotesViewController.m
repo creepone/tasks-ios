@@ -36,9 +36,12 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     [self setupNavigationBarItems];
     [self setupTextView];
@@ -59,7 +62,7 @@
     [self.delegate notesViewController:self editedNotes:_notes];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification
+- (void)keyboardDidShow:(NSNotification *)notification
 {
     CGRect keyboardFrame;
     [[notification.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
@@ -70,7 +73,7 @@
     [_textView setFrame:textViewFrame];
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification
+- (void)keyboardDidHide:(NSNotification *)notification
 {
     CGRect keyboardFrame;
     [[notification.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
@@ -97,7 +100,7 @@
     _textView = [[UITextView alloc] initWithFrame:frame];
     _textView.font = [UIFont systemFontOfSize:18.0];
     _textView.text = _notes;
-    
+
     [self.view addSubview:_textView];
 }
 
