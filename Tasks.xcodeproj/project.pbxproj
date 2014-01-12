@@ -34,6 +34,18 @@
 		C31F7AFD16F3B37E004C0E52 /* IAATaskChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */; };
 		C31F7B0016F3BF1C004C0E52 /* NSObject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */; };
 		C344E0361881879E006D6C8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C344E0351881879E006D6C8A /* Images.xcassets */; };
+		C34EE91E1882EDB700EA3A0E /* pebbles.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE91D1882EDB700EA3A0E /* pebbles.caf */; };
+		C34EE9221882EF7700EA3A0E /* IAANotificationSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EE9211882EF7700EA3A0E /* IAANotificationSounds.m */; };
+		C34EE9251882F14A00EA3A0E /* IAASoundsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EE9241882F14A00EA3A0E /* IAASoundsViewController.m */; };
+		C34EE9271882F7C600EA3A0E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34EE9261882F7C600EA3A0E /* AudioToolbox.framework */; };
+		C34EE9291882F9FE00EA3A0E /* message1.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9281882F9FE00EA3A0E /* message1.caf */; };
+		C34EE92B1882FA2D00EA3A0E /* wind_chime.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE92A1882FA2D00EA3A0E /* wind_chime.caf */; };
+		C34EE92D1882FA7B00EA3A0E /* message2.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE92C1882FA7B00EA3A0E /* message2.caf */; };
+		C34EE92F1882FAA600EA3A0E /* viber.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE92E1882FAA600EA3A0E /* viber.caf */; };
+		C34EE9311882FAD300EA3A0E /* text.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9301882FAD300EA3A0E /* text.caf */; };
+		C34EE9351882FB1C00EA3A0E /* best.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9321882FB1C00EA3A0E /* best.caf */; };
+		C34EE9361882FB1C00EA3A0E /* beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9331882FB1C00EA3A0E /* beep.caf */; };
+		C34EE9371882FB1C00EA3A0E /* alert.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9341882FB1C00EA3A0E /* alert.caf */; };
 		C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C367859816E3D722003B22F7 /* NSURL+GHUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
 		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
@@ -155,6 +167,20 @@
 		C31F7AFE16F3BF1B004C0E52 /* NSObject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extensions.h"; sourceTree = "<group>"; };
 		C31F7AFF16F3BF1C004C0E52 /* NSObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extensions.m"; sourceTree = "<group>"; };
 		C344E0351881879E006D6C8A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C34EE91D1882EDB700EA3A0E /* pebbles.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pebbles.caf; sourceTree = "<group>"; };
+		C34EE9201882EF7700EA3A0E /* IAANotificationSounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANotificationSounds.h; sourceTree = "<group>"; };
+		C34EE9211882EF7700EA3A0E /* IAANotificationSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAANotificationSounds.m; sourceTree = "<group>"; };
+		C34EE9231882F14A00EA3A0E /* IAASoundsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAASoundsViewController.h; sourceTree = "<group>"; };
+		C34EE9241882F14A00EA3A0E /* IAASoundsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAASoundsViewController.m; sourceTree = "<group>"; };
+		C34EE9261882F7C600EA3A0E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C34EE9281882F9FE00EA3A0E /* message1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = message1.caf; sourceTree = "<group>"; };
+		C34EE92A1882FA2D00EA3A0E /* wind_chime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wind_chime.caf; sourceTree = "<group>"; };
+		C34EE92C1882FA7B00EA3A0E /* message2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = message2.caf; sourceTree = "<group>"; };
+		C34EE92E1882FAA600EA3A0E /* viber.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = viber.caf; sourceTree = "<group>"; };
+		C34EE9301882FAD300EA3A0E /* text.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = text.caf; sourceTree = "<group>"; };
+		C34EE9321882FB1C00EA3A0E /* best.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = best.caf; sourceTree = "<group>"; };
+		C34EE9331882FB1C00EA3A0E /* beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep.caf; sourceTree = "<group>"; };
+		C34EE9341882FB1C00EA3A0E /* alert.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert.caf; sourceTree = "<group>"; };
 		C367859716E3D722003B22F7 /* NSURL+GHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GHUtils.h"; sourceTree = "<group>"; };
 		C367859816E3D722003B22F7 /* NSURL+GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GHUtils.m"; sourceTree = "<group>"; };
 		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
@@ -255,6 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34EE9271882F7C600EA3A0E /* AudioToolbox.framework in Frameworks */,
 				C308F57D186B3B7F0091F0CA /* SystemConfiguration.framework in Frameworks */,
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
@@ -292,6 +319,7 @@
 		C311E7F616E21B89008A71AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C34EE9261882F7C600EA3A0E /* AudioToolbox.framework */,
 				C308F57C186B3B7F0091F0CA /* SystemConfiguration.framework */,
 				C3D2020516EE6B8600BB7B60 /* CoreData.framework */,
 				C3D201F716EE690900BB7B60 /* QuartzCore.framework */,
@@ -324,6 +352,7 @@
 		C311E7FE16E21B89008A71AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C34EE91B1882EDAA00EA3A0E /* Ringtones */,
 				C311E7FF16E21B89008A71AD /* Tasks-Info.plist */,
 				C311E80016E21B89008A71AD /* InfoPlist.strings */,
 				C311E80316E21B89008A71AD /* main.m */,
@@ -421,13 +450,39 @@
 		C31F7AFA16F3B372004C0E52 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				C34EE91F1882EF6400EA3A0E /* Notification */,
 				C3F1B8EA1871A8CB005072B3 /* Syncing */,
 				C31F7AFB16F3B37E004C0E52 /* IAATaskChanges.h */,
 				C31F7AFC16F3B37E004C0E52 /* IAATaskChanges.m */,
-				C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */,
-				C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */,
 			);
 			name = Logic;
+			sourceTree = "<group>";
+		};
+		C34EE91B1882EDAA00EA3A0E /* Ringtones */ = {
+			isa = PBXGroup;
+			children = (
+				C34EE9321882FB1C00EA3A0E /* best.caf */,
+				C34EE9331882FB1C00EA3A0E /* beep.caf */,
+				C34EE9341882FB1C00EA3A0E /* alert.caf */,
+				C34EE9301882FAD300EA3A0E /* text.caf */,
+				C34EE92E1882FAA600EA3A0E /* viber.caf */,
+				C34EE92A1882FA2D00EA3A0E /* wind_chime.caf */,
+				C34EE9281882F9FE00EA3A0E /* message1.caf */,
+				C34EE92C1882FA7B00EA3A0E /* message2.caf */,
+				C34EE91D1882EDB700EA3A0E /* pebbles.caf */,
+			);
+			name = Ringtones;
+			sourceTree = "<group>";
+		};
+		C34EE91F1882EF6400EA3A0E /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA92FC16F4B30200F15CBB /* IAANotificationManager.h */,
+				C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */,
+				C34EE9201882EF7700EA3A0E /* IAANotificationSounds.h */,
+				C34EE9211882EF7700EA3A0E /* IAANotificationSounds.m */,
+			);
+			name = Notification;
 			sourceTree = "<group>";
 		};
 		C3B75E5116E24844004B49FB /* Images */ = {
@@ -457,6 +512,8 @@
 				C3B75E6616E255B9004B49FB /* Identity */,
 				C3B75E5716E249C7004B49FB /* IAASettingsViewController.h */,
 				C3B75E5816E249C7004B49FB /* IAASettingsViewController.m */,
+				C34EE9231882F14A00EA3A0E /* IAASoundsViewController.h */,
+				C34EE9241882F14A00EA3A0E /* IAASoundsViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -703,10 +760,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34EE9361882FB1C00EA3A0E /* beep.caf in Resources */,
 				C311E80216E21B89008A71AD /* InfoPlist.strings in Resources */,
+				C34EE92F1882FAA600EA3A0E /* viber.caf in Resources */,
+				C34EE92D1882FA7B00EA3A0E /* message2.caf in Resources */,
 				C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */,
 				C3B75E5416E24855004B49FB /* toolbarIcon_conf.png in Resources */,
 				C3B75E5516E24855004B49FB /* toolbarIcon_conf@2x.png in Resources */,
+				C34EE91E1882EDB700EA3A0E /* pebbles.caf in Resources */,
+				C34EE92B1882FA2D00EA3A0E /* wind_chime.caf in Resources */,
+				C34EE9371882FB1C00EA3A0E /* alert.caf in Resources */,
 				C3B75E7016E25E4C004B49FB /* openid-google.png in Resources */,
 				C3B75E7216E261CF004B49FB /* openid-yahoo.png in Resources */,
 				C3B75E7416E26448004B49FB /* openid-aol.png in Resources */,
@@ -717,11 +780,14 @@
 				C305354316E928A6005A7685 /* button_pressed.png in Resources */,
 				C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */,
 				C31F7AE216F2692A004C0E52 /* Default.png in Resources */,
+				C34EE9311882FAD300EA3A0E /* text.caf in Resources */,
 				C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */,
+				C34EE9351882FB1C00EA3A0E /* best.caf in Resources */,
 				C344E0361881879E006D6C8A /* Images.xcassets in Resources */,
 				C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */,
 				C31F7AE816F26AFE004C0E52 /* icon.png in Resources */,
 				C31F7AEC16F37AA9004C0E52 /* Default@2x.png in Resources */,
+				C34EE9291882F9FE00EA3A0E /* message1.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +843,7 @@
 				C3B75E6216E2522F004B49FB /* IAAIdentityManager.m in Sources */,
 				C3B75E6516E25365004B49FB /* IAADefaultsManager.m in Sources */,
 				C3F1B8EE1871A8DA005072B3 /* IAASyncBatch.m in Sources */,
+				C34EE9221882EF7700EA3A0E /* IAANotificationSounds.m in Sources */,
 				C3B75E6C16E25622004B49FB /* IAAOpenidSelectViewController.m in Sources */,
 				C3B75E7F16E26736004B49FB /* IAAOpenidAccountViewController.m in Sources */,
 				C3B75E8316E26B5C004B49FB /* NSString+Extensions.m in Sources */,
@@ -794,6 +861,7 @@
 				C3DF28C516EF975300F395D5 /* IAAPatch.m in Sources */,
 				C3DF28C916EF9C7300F395D5 /* IAAColor.m in Sources */,
 				C3DF28CC16EFA91C00F395D5 /* IAATextFieldCell.m in Sources */,
+				C34EE9251882F14A00EA3A0E /* IAASoundsViewController.m in Sources */,
 				C3DF28D016EFC32300F395D5 /* IAAReminderViewController.m in Sources */,
 				C3DF28D516EFC7E700F395D5 /* IAADatePickerViewController.m in Sources */,
 				C3DF28D816EFCD6400F395D5 /* IAADateFormatter.m in Sources */,

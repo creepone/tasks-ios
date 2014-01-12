@@ -10,6 +10,7 @@
 #import "IAAAppDelegate.h"
 #import "IAAMainViewController.h"
 #import "IAAMigrationManager.h"
+#import "IAADefaultsManager.h"
 #import "IAASyncManager.h"
 #import "IAAColor.h"
 #import "IAALog.h"
@@ -36,6 +37,8 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [IAADefaultsManager registerDefaults];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     self.mainViewController = [[IAAMainViewController alloc] init];

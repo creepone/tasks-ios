@@ -9,6 +9,9 @@
 #import "IAASettingsViewController.h"
 #import "IAAIdentityManager.h"
 #import "IAASyncManager.h"
+#import "IAADefaultsManager.h"
+#import "IAANotificationSounds.h"
+#import "IAASoundsViewController.h"
 #import "IAAColor.h"
 
 @interface IAASettingsViewController ()
@@ -41,6 +44,12 @@
     [self.tableView setBackgroundColor:[IAAColor tableViewBackgroundColor]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)setupNavigationBarItems
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(tappedDone)];
@@ -65,7 +74,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,6 +97,13 @@
         cell.detailTextLabel.text = state;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    else if (indexPath.row == 1) {
+        cell.textLabel.text = @"Notification sound";
+        
+        NSString *selectedSound = [IAADefaultsManager notificationSoundName];
+        cell.detailTextLabel.text = [[IAANotificationSounds sharedSounds] labelForSound:selectedSound];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
@@ -108,6 +124,10 @@
                 [[IAASyncManager sharedManager] enqueueSync];
             }
         }
+    }
+    else if (indexPath.row == 1) {
+        IAASoundsViewController *svc = [[IAASoundsViewController alloc] init];
+        [self.navigationController pushViewController:svc animated:YES];
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "IAANotificationManager.h"
+#import "IAADefaultsManager.h"
 #import "IAADataAccess.h"
 
 @interface IAANotificationManager()
@@ -51,7 +52,7 @@
         if (task.reminderImportant) {
             notification.alertBody = task.name;
             notification.alertAction = @"Show";
-            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.soundName = [IAADefaultsManager notificationSoundName];
         }
         
         [application scheduleLocalNotification:notification];

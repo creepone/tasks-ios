@@ -17,4 +17,9 @@
 + (NSInteger)dataStoreVersion;
 + (void)setDataStoreVersion:(NSInteger)version;
 
++ (NSString *)notificationSoundName;
++ (void)setNotificationSoundName:(NSString *)soundName;
+
++ (void)registerDefaults;
+
 @end
