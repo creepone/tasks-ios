@@ -257,6 +257,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_addingRow && indexPath.row == 0)
+        return;
+    
     IAACategory *category = [_fetchedResultsController objectAtIndexPath:[self controllerPath:indexPath]];
 
     if ([_selectedCategories containsObject:category])
