@@ -8,6 +8,7 @@
 
 #import "IAAIdentityManager.h"
 #import "IAAErrorManager.h"
+#import "IAASyncManager.h"
 #import "IAADefaultsManager.h"
 #import "IAANetworkConfiguration.h"
 #import "SFHFKeychainUtils.h"
@@ -175,6 +176,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
         
         self.deviceToken = token;
         
+        [[IAASyncManager sharedManager] enqueueSync];
         [[NSNotificationCenter defaultCenter] postNotificationName:IAAIdentityManagerAcquiredIdentityNotification object:self];
         
         [self dismissAuthentication];
