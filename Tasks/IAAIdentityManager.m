@@ -57,6 +57,15 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
     return sharedManager;
 }
 
+- (void)resetIdentity
+{
+    NSError *error;
+    [SFHFKeychainUtils deleteItemForUsername:kUsername andServiceName:kServiceName error:&error];
+    [IAAErrorManager checkError:error];
+
+    self.deviceToken = nil;
+}
+
 - (void)acquireIdentity
 {
     if (self.deviceToken != nil)

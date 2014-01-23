@@ -35,4 +35,9 @@ extern NSString * const IAAIdentityManagerAcquiredIdentityNotification;
  */
 - (void)acquireIdentity;
 
+/**
+ For debugging purposes only: resets the identity by removing the device token from the keychain
+ */
+- (void)resetIdentity;
+
 @end

@@ -74,7 +74,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#ifdef DEBUG
+    return 3;
+#else
     return 2;
+#endif
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,18 +94,22 @@
         
         IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
         
-        NSString *state = @"setup";
+        NSString *state = @"Setup";
         if (identity.deviceToken != nil)
-            state = [IAASyncManager isOnline] ? @"active" : @"offline";
+            state = [IAASyncManager isOnline] ? @"Active" : @"Offline";
         
         cell.detailTextLabel.text = state;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if (indexPath.row == 1) {
-        cell.textLabel.text = @"Notification sound";
+        cell.textLabel.text = @"Notification Sound";
         
         NSString *selectedSound = [IAADefaultsManager notificationSoundName];
         cell.detailTextLabel.text = [[IAANotificationSounds sharedSounds] labelForSound:selectedSound];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if (indexPath.row == 2) {
+        cell.textLabel.text = @"Reset device token";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -128,6 +136,11 @@
     else if (indexPath.row == 1) {
         IAASoundsViewController *svc = [[IAASoundsViewController alloc] init];
         [self.navigationController pushViewController:svc animated:YES];
+    }
+    else if (indexPath.row == 2) {
+        IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
+        [identity resetIdentity];
+        [self refreshIdentity];
     }
 }
 
