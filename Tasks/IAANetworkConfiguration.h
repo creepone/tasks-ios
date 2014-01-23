@@ -32,5 +32,10 @@
  */
 - (NSString *)acknowledgeURLString;
 
+/**
+ URL of the endpoint used to register the apn token for this device.
+ */
+- (NSString *)apnTokenURLString;
+
 
 @end

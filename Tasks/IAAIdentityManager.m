@@ -42,7 +42,7 @@ static NSString *kServiceName = @"at.iosapps.Tasks";
 {
     self = [super init];
     if (self) {
-        NSError *error;
+        NSError *error;        
         self.deviceToken = [SFHFKeychainUtils getPasswordForUsername:kUsername andServiceName:kServiceName error:&error];
         [IAAErrorManager checkError:error];
     }

@@ -20,6 +20,7 @@
 static NSString *kAuthenticationURL = @"AuthenticationURL";
 static NSString *kSyncURL = @"SyncURL";
 static NSString *kAcknowledgeURL = @"AcknowledgeURL";
+static NSString *kApnTokenURL = @"ApnToken";
 
 
 - (id)init
@@ -64,6 +65,11 @@ static NSString *kAcknowledgeURL = @"AcknowledgeURL";
 - (NSString *)acknowledgeURLString
 {
     return [_settings valueForKey:kAcknowledgeURL];
+}
+
+- (NSString *)apnTokenURLString
+{
+    return [_settings valueForKey:kApnTokenURL];
 }
 
 @end

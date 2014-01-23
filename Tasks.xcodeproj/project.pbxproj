@@ -69,6 +69,7 @@
 		C3BA92FE16F4B30200F15CBB /* IAANotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */; };
 		C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */; };
 		C3C1BCBC16F8DF5E00FBFAD6 /* BSONIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */; };
+		C3C897C71891A76A005CBC38 /* IAAApnTokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C897C61891A76A005CBC38 /* IAAApnTokenManager.m */; };
 		C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */; };
 		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
 		C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F516EE690200BB7B60 /* MapKit.framework */; };
@@ -218,6 +219,8 @@
 		C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Extensions.m"; sourceTree = "<group>"; };
 		C3C1BCBA16F8DF5E00FBFAD6 /* BSONIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSONIdGenerator.h; sourceTree = "<group>"; };
 		C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSONIdGenerator.m; sourceTree = "<group>"; };
+		C3C897C51891A76A005CBC38 /* IAAApnTokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAApnTokenManager.h; sourceTree = "<group>"; };
+		C3C897C61891A76A005CBC38 /* IAAApnTokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAApnTokenManager.m; sourceTree = "<group>"; };
 		C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = submodules/tapku/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = submodules/tapku/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		C3D201F516EE690200BB7B60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -481,6 +484,8 @@
 				C3BA92FD16F4B30200F15CBB /* IAANotificationManager.m */,
 				C34EE9201882EF7700EA3A0E /* IAANotificationSounds.h */,
 				C34EE9211882EF7700EA3A0E /* IAANotificationSounds.m */,
+				C3C897C51891A76A005CBC38 /* IAAApnTokenManager.h */,
+				C3C897C61891A76A005CBC38 /* IAAApnTokenManager.m */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -712,6 +717,11 @@
 				TargetAttributes = {
 					C311E7F316E21B89008A71AD = {
 						DevelopmentTeam = AVB86P2YPX;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -858,6 +868,7 @@
 				C3DF28BB16EF969E00F395D5 /* IAATaskViewController.m in Sources */,
 				C3DF28BF16EF975300F395D5 /* IAATask.m in Sources */,
 				C3DF28C216EF975300F395D5 /* IAACategory.m in Sources */,
+				C3C897C71891A76A005CBC38 /* IAAApnTokenManager.m in Sources */,
 				C3DF28C516EF975300F395D5 /* IAAPatch.m in Sources */,
 				C3DF28C916EF9C7300F395D5 /* IAAColor.m in Sources */,
 				C3DF28CC16EFA91C00F395D5 /* IAATextFieldCell.m in Sources */,

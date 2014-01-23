@@ -78,8 +78,8 @@ NSString * const IAASyncManagerFinishedSync = @"IAASyncManagerFinishedSync";
             [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:IAASyncManagerFinishedSync object:self];
             [[IAANotificationManager sharedManager] rescheduleAll];
+            [[NSNotificationCenter defaultCenter] postNotificationName:IAASyncManagerFinishedSync object:self];
             [self peek];
         });
     }

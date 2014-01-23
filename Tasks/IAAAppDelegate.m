@@ -11,7 +11,10 @@
 #import "IAAMainViewController.h"
 #import "IAAMigrationManager.h"
 #import "IAADefaultsManager.h"
+#import "IAAApnTokenManager.h"
 #import "IAASyncManager.h"
+#import "IAAIdentityManager.h"
+#import "IAAErrorManager.h"
 #import "IAAColor.h"
 #import "IAALog.h"
 #import "IAAKeyboard.h"
@@ -57,6 +60,11 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
     [self initializeLogging];
     [self startDataInitialization];
     
+    if ([application respondsToSelector:@selector(backgroundRefreshStatus)] && [application backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
+        if ([[IAAIdentityManager sharedManager] deviceToken] != nil)
+            [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeNewsstandContentAvailability)];
+    }
+
     return YES;
 }
 
@@ -106,6 +114,31 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:IAALocalNotificationReceivedNotification object:self userInfo:@{@"notification": notification}];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
+{
+    NSString *hexToken = [[devToken description] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    hexToken = [hexToken substringWithRange:NSMakeRange(1, [hexToken length] - 2)];
+    [IAAApnTokenManager performSelectorInBackground:@selector(sendToken:) withObject:hexToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    [IAAErrorManager checkError:error];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"Received push notification");
+    
+    [[IAASyncManager sharedManager] enqueueSync];
+
+    __block id observer;
+    observer = [[NSNotificationCenter defaultCenter] addObserverForName:IAASyncManagerFinishedSync object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+        completionHandler(UIBackgroundFetchResultNewData);
+    }];
 }
 
 #pragma mark - Data initialization on startup
