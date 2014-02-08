@@ -49,9 +49,20 @@ NSString * const IAASyncManagerFinishedSync = @"IAASyncManagerFinishedSync";
 
 - (void)enqueueSync
 {
-    // we can't sync if we're offline or have no identity
-    if (![IAASyncManager isOnline] || [[IAAIdentityManager sharedManager] deviceToken] == nil)
+    UIApplication *app = [UIApplication sharedApplication];
+    
+    // we can't sync if have no identity
+    if ([[IAAIdentityManager sharedManager] deviceToken] == nil)
         return;
+    
+    if (![IAASyncManager isOnline]) {
+        if ([app respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)])
+            [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+        return;
+    }
+    
+    if ([app respondsToSelector:@selector(setMinimumBackgroundFetchInterval:)])
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
     
     _pending = YES;
     [self peek];

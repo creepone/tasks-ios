@@ -42,13 +42,18 @@ static NSString *kApnTokenURL = @"ApnToken";
 
 - (void)refresh
 {
-    #ifdef DEBUG 
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.10:8081/ios/config.local.plist"];
-    #else
-        NSURL *url = [NSURL URLWithString:@"http://tasks.iosapps.at/ios/config.plist"];
-    #endif
+    _settings = [NSDictionary dictionaryWithContentsOfURL:self.configURL];
+}
+
+- (NSURL *)configURL
+{
+#ifdef DEBUG
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.10:8081/ios/config.local.plist"];
+#else
+    NSURL *url = [NSURL URLWithString:@"http://tasks.iosapps.at/ios/config.plist"];
+#endif
     
-    _settings = [NSDictionary dictionaryWithContentsOfURL:url];
+    return url;
 }
 
 - (NSURL *)authenticationURL

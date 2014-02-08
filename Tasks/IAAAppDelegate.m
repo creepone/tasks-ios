@@ -141,6 +141,21 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
     }];
 }
 
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"Performing background sync");
+    
+    [[IAASyncManager sharedManager] enqueueSync];
+    
+    __block id observer;
+    observer = [[NSNotificationCenter defaultCenter] addObserverForName:IAASyncManagerFinishedSync object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+        [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+        
+        completionHandler(UIBackgroundFetchResultNewData);
+    }];
+}
+
 #pragma mark - Data initialization on startup
 
 - (void)startDataInitialization

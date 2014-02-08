@@ -37,5 +37,9 @@
  */
 - (NSString *)apnTokenURLString;
 
+/**
+ URL of the configuration plist file.
+ */
+- (NSURL *)configURL;
 
 @end
