@@ -36,11 +36,11 @@
 
 - (NSFetchedResultsController *)fetchedResultsControllerForAllCategories;
 - (NSFetchedResultsController *)fetchedResultsControllerForTasksOfCategory:(IAACategory *)category;
-- (NSFetchedResultsController *)fetchedResultsControllerForTasksDueUntil:(NSDate *)date;
+- (NSFetchedResultsController *)fetchedResultsControllerForDueTasks;
 - (NSFetchedResultsController *)fetchedResultsControllerForTasksDueBetween:(NSDate *)startDate and:(NSDate *)endDate;
 
 - (NSInteger)countOfTasksInCategory:(IAACategory *)category;
-- (NSInteger)countOfTasksDueUntil:(NSDate *)date;
+- (NSInteger)countOfDueTasks;
 - (NSInteger)countOfTasksDueBetween:(NSDate *)startDate and:(NSDate *)endDate;
 
 - (NSString *)lastAvailablePatchId;

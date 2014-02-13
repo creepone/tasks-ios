@@ -38,12 +38,12 @@
     return self;
 }
 
-- (id)initWithDueDate:(NSDate *)date title:(NSString *)title
+- (id)initWithDueTasks
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        self.title = title;
-        _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForTasksDueUntil:date];
+        self.title = @"Due";
+        _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForDueTasks];
         [_fetchedResultsController setDelegate:self];
     }
     return self;

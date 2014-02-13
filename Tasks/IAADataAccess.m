@@ -138,13 +138,13 @@
             cacheName:nil];
 }
 
-- (NSFetchedResultsController *)fetchedResultsControllerForTasksDueUntil:(NSDate *)date
+- (NSFetchedResultsController *)fetchedResultsControllerForDueTasks
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate < %@", date];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate = nil OR reminderDate < %@", [NSDate date]];
     [fetchRequest setPredicate:predicate];
     
     NSSortDescriptor *reminderSD = [[NSSortDescriptor alloc] initWithKey:@"reminderDate" ascending:YES];
@@ -200,13 +200,13 @@
     return result;
 }
 
-- (NSInteger)countOfTasksDueUntil:(NSDate *)date
+- (NSInteger)countOfDueTasks
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     [fetchRequest setEntity:[NSEntityDescription entityForName:NSStringFromClass([IAATask class]) inManagedObjectContext:self.context]];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate != nil AND reminderDate < %@", date];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reminderDate = nil OR reminderDate < %@", [NSDate date]];
     [fetchRequest setPredicate:predicate];
 
     NSError *error;

@@ -157,7 +157,7 @@
     {
         if (indexPath.row == 0) {            
             cell.textLabel.text = @"Due";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfTasksDueUntil:[NSDate date]]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfDueTasks]];
         }
         else {
             NSDate *midnightIn5Days = [calculator datePart:[calculator dateWithDate:[NSDate date] daysLater:5]];
@@ -194,7 +194,7 @@
         IAADateCalculator *calculator = [IAADateCalculator sharedCalculator];
 
         if (indexPath.row == 0) {
-            tvc = [[IAATasksViewController alloc] initWithDueDate:[NSDate date] title:@"Due"];
+            tvc = [[IAATasksViewController alloc] initWithDueTasks];
         }
         else {
             NSDate *midnightIn5Days = [calculator datePart:[calculator dateWithDate:[NSDate date] daysLater:5]];

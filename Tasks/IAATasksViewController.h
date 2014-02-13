@@ -13,7 +13,7 @@
 @interface IAATasksViewController : UITableViewController
 
 - (id)initWithCategory:(IAACategory *)category;
-- (id)initWithDueDate:(NSDate *)date title:(NSString *)title;
+- (id)initWithDueTasks;
 - (id)initWithDatesBetween:(NSDate *)startDate and:(NSDate *)endDate title:(NSString *)title;
 
 @end
