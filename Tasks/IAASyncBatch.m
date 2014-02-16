@@ -72,6 +72,11 @@
          [self acknowledge:result];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSInteger statusCode = [operation.response statusCode];
+         
+         if (statusCode == 403)
+             [[IAAIdentityManager sharedManager] resetIdentity];
+         
          [self.delegate syncBatch:self completedWithError:error];
      }];
     
