@@ -22,6 +22,8 @@
 		C311E81916E2271B008A71AD /* IAAErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E81716E2271B008A71AD /* IAAErrorViewController.m */; };
 		C311E81A16E2271B008A71AD /* IAAErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C311E81816E2271B008A71AD /* IAAErrorViewController.xib */; };
 		C311E82116E2299D008A71AD /* IAAErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E82016E2299D008A71AD /* IAAErrorManager.m */; };
+		C315341E18B2869F006D7545 /* prebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = C315341D18B2869F006D7545 /* prebuild.sh */; };
+		C315342018B28934006D7545 /* deploy.sh in Resources */ = {isa = PBXBuildFile; fileRef = C315341F18B28934006D7545 /* deploy.sh */; };
 		C31F7AE216F2692A004C0E52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE116F2692A004C0E52 /* Default.png */; };
 		C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE316F26945004C0E52 /* Default-568h@2x.png */; };
 		C31F7AE616F26AFB004C0E52 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31F7AE516F26AFB004C0E52 /* icon@2x.png */; };
@@ -150,6 +152,9 @@
 		C311E81816E2271B008A71AD /* IAAErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAAErrorViewController.xib; sourceTree = "<group>"; };
 		C311E81F16E2299D008A71AD /* IAAErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAErrorManager.h; sourceTree = "<group>"; };
 		C311E82016E2299D008A71AD /* IAAErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAErrorManager.m; sourceTree = "<group>"; };
+		C315341C18B28656006D7545 /* revision.prefix */ = {isa = PBXFileReference; lastKnownFileType = text; path = revision.prefix; sourceTree = "<group>"; };
+		C315341D18B2869F006D7545 /* prebuild.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = prebuild.sh; sourceTree = "<group>"; };
+		C315341F18B28934006D7545 /* deploy.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = deploy.sh; sourceTree = "<group>"; };
 		C31F7AE116F2692A004C0E52 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		C31F7AE316F26945004C0E52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		C31F7AE516F26AFB004C0E52 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
@@ -355,6 +360,7 @@
 		C311E7FE16E21B89008A71AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C315341A18B28385006D7545 /* Build */,
 				C34EE91B1882EDAA00EA3A0E /* Ringtones */,
 				C311E7FF16E21B89008A71AD /* Tasks-Info.plist */,
 				C311E80016E21B89008A71AD /* InfoPlist.strings */,
@@ -448,6 +454,16 @@
 				C3F1B8F31871D4E5005072B3 /* IAATextMerge.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		C315341A18B28385006D7545 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				C315341C18B28656006D7545 /* revision.prefix */,
+				C315341D18B2869F006D7545 /* prebuild.sh */,
+				C315341F18B28934006D7545 /* deploy.sh */,
+			);
+			name = Build;
 			sourceTree = "<group>";
 		};
 		C31F7AFA16F3B372004C0E52 /* Logic */ = {
@@ -771,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C34EE9361882FB1C00EA3A0E /* beep.caf in Resources */,
+				C315342018B28934006D7545 /* deploy.sh in Resources */,
 				C311E80216E21B89008A71AD /* InfoPlist.strings in Resources */,
 				C34EE92F1882FAA600EA3A0E /* viber.caf in Resources */,
 				C34EE92D1882FA7B00EA3A0E /* message2.caf in Resources */,
@@ -785,6 +802,7 @@
 				C3B75E7416E26448004B49FB /* openid-aol.png in Resources */,
 				C3B75E7616E2651B004B49FB /* openid-myopenid.png in Resources */,
 				C3B75E7816E26586004B49FB /* openid.png in Resources */,
+				C315341E18B2869F006D7545 /* prebuild.sh in Resources */,
 				C3B75E8016E26736004B49FB /* IAAOpenidAccountViewController.xib in Resources */,
 				C305354216E928A6005A7685 /* button.png in Resources */,
 				C305354316E928A6005A7685 /* button_pressed.png in Resources */,
@@ -988,6 +1006,8 @@
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
 				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
+				INFOPLIST_PREFIX_HEADER = revision.prefix;
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME) debug";
@@ -1007,6 +1027,8 @@
 				GCC_PREFIX_HEADER = "Tasks/Tasks-Prefix.pch";
 				HEADER_SEARCH_PATHS = submodules/tapku/src;
 				INFOPLIST_FILE = "Tasks/Tasks-Info.plist";
+				INFOPLIST_PREFIX_HEADER = revision.prefix;
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
