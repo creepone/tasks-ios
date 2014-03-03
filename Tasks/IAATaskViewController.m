@@ -86,14 +86,14 @@
 
 - (void)setupNavigationBarItems
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(tappedCancel)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(tappedCancel)];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(tappedSave)];
     
     BOOL isEmptyName = _taskChanges.name == nil || [_taskChanges.name iaa_isEmptyOrWhitespace];
     [saveButton setEnabled:!isEmptyName];
     
-    self.navigationItem.rightBarButtonItem = saveButton;
+    self.navigationItem.leftBarButtonItem = saveButton;
 }
 
 - (void)tappedSave
