@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@class IAATask;
+@class IAATask, IAATaskViewController;
+
+@protocol IAATaskViewControllerDelegate <NSObject>
+
+/**
+ Invoked after the task view controller saved (or created) a task.
+ */
+- (void)taskViewController:(IAATaskViewController *)taskViewController didSaveTask:(IAATask *)task created:(BOOL)created;
+
+@end
 
 @interface IAATaskViewController : UITableViewController
 
 - (id)initWithTask:(IAATask *)task;
+
+@property (nonatomic, weak) id<IAATaskViewControllerDelegate> delegate;
 
 - (void)setCategories:(NSSet *)categories;
 

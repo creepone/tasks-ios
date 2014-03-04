@@ -99,12 +99,12 @@
 - (void)tappedSave
 {
     if (_newMode) {
-        [IAATask insert:_taskChanges];
-        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+        IAATask *task = [IAATask insert:_taskChanges];
+        [self.delegate taskViewController:self didSaveTask:task created:YES];
     }
     else {
         [IAATask update:_task with:_taskChanges];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.delegate taskViewController:self didSaveTask:_task created:NO];
     }
 }
 

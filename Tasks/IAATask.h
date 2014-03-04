@@ -21,9 +21,11 @@
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSSet *categories;
 
-+ (void)insert:(IAATaskChanges *)taskChanges;
++ (IAATask *)insert:(IAATaskChanges *)taskChanges;
 + (void)update:(IAATask *)task with:(IAATaskChanges *)taskChanges;
 + (void)remove:(IAATask *)task;
+
+- (BOOL)isDue;
 
 @end
 

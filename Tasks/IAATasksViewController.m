@@ -14,13 +14,17 @@
 #import "IAAErrorManager.h"
 #import "IAAColor.h"
 
-@interface IAATasksViewController () <NSFetchedResultsControllerDelegate> {
+@interface IAATasksViewController () <NSFetchedResultsControllerDelegate, IAATaskViewControllerDelegate> {
     IAACategory *_category;
+    BOOL _showingDue, _uncategorized;
+    NSDate *_startDate;
+    NSDate *_endDate;
     NSFetchedResultsController *_fetchedResultsController;
 }
 
 - (void)setupToolbarItems;
 - (void)refreshData;
+- (NSInteger)countOfTasks;
 
 @end
 
@@ -32,6 +36,7 @@
     if (self) {
         self.title = category != nil ? category.name : @"Uncategorized";
         _category = category;
+        _uncategorized = category == nil;
         _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForTasksOfCategory:category];
         [_fetchedResultsController setDelegate:self];
     }
@@ -43,6 +48,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.title = @"Due";
+        _showingDue = YES;
         _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForDueTasks];
         [_fetchedResultsController setDelegate:self];
     }
@@ -54,6 +60,8 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.title = title;
+        _startDate = startDate;
+        _endDate = endDate;
         _fetchedResultsController = [[IAADataAccess sharedDataAccess] fetchedResultsControllerForTasksDueBetween:startDate and:endDate];
         [_fetchedResultsController setDelegate:self];
     }
@@ -99,6 +107,7 @@
     IAATaskViewController *tvc = [[IAATaskViewController alloc] init];
     if (_category != nil)
         [tvc setCategories:[NSSet setWithArray:@[_category]]];
+    tvc.delegate = self;
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
     [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
@@ -115,7 +124,45 @@
     [self.tableView reloadData];
 }
 
+- (void)taskViewController:(IAATaskViewController *)taskViewController didSaveTask:(IAATask *)task created:(BOOL)created
+{
+    BOOL popToRoot = NO;
+    
+    if (_category && ![task.categories containsObject:_category])
+        popToRoot = YES;
+    if (_uncategorized && [task.categories count] > 0)
+        popToRoot = YES;    
+    else if (_showingDue && !task.isDue)
+        popToRoot = YES;
+    else if (_startDate && _endDate) {
+        if (!task.reminderDate)
+            popToRoot = YES;
+        if ([_startDate compare:task.reminderDate] == NSOrderedDescending)
+            popToRoot = YES;
+        if ([_endDate compare:task.reminderDate] != NSOrderedDescending)
+            popToRoot = YES;
+    }
+    
+    if (created) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (popToRoot)
+            [self.navigationController popToRootViewControllerAnimated:NO];
+    }
+    else {
+        if (popToRoot)
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        else
+            [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 #pragma mark - Table view data source
+
+- (NSInteger)countOfTasks
+{
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[_fetchedResultsController sections] objectAtIndex:0];
+    return [sectionInfo numberOfObjects];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -124,8 +171,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[_fetchedResultsController sections] objectAtIndex:0];
-    return [sectionInfo numberOfObjects];
+    return self.countOfTasks;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +204,7 @@
         
     IAATask *task = [_fetchedResultsController objectAtIndexPath:indexPath];
     IAATaskViewController *tvc = [[IAATaskViewController alloc] initWithTask:task];
+    tvc.delegate = self;
     [self.navigationController pushViewController:tvc animated:YES];
 }
 

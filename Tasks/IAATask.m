@@ -25,7 +25,7 @@
 @dynamic notes;
 @dynamic categories;
 
-+ (void)insert:(IAATaskChanges *)taskChanges
++ (IAATask *)insert:(IAATaskChanges *)taskChanges
 {
     BOOL needsReschedule = taskChanges.reminderDate != nil;
     NSString *taskId = [BSONIdGenerator generate];
@@ -47,6 +47,8 @@
     if (needsReschedule)
         [[IAANotificationManager sharedManager] rescheduleAll];
     [[IAASyncManager sharedManager] enqueueSync];
+    
+    return task;
 }
 
 + (void)update:(IAATask *)task with:(IAATaskChanges *)taskChanges
@@ -93,6 +95,11 @@
     if (needsReschedule)
         [[IAANotificationManager sharedManager] rescheduleAll];
     [[IAASyncManager sharedManager] enqueueSync];
+}
+
+- (BOOL)isDue
+{
+    return self.reminderDate == nil || [self.reminderDate compare:[NSDate date]] == NSOrderedAscending;
 }
 
 @end
