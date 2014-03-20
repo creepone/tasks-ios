@@ -235,9 +235,7 @@
             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             break;
         }
-    }
-    
-    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.5];
+    }    
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
