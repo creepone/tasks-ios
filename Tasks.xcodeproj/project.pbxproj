@@ -48,6 +48,8 @@
 		C34EE9351882FB1C00EA3A0E /* best.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9321882FB1C00EA3A0E /* best.caf */; };
 		C34EE9361882FB1C00EA3A0E /* beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9331882FB1C00EA3A0E /* beep.caf */; };
 		C34EE9371882FB1C00EA3A0E /* alert.caf in Resources */ = {isa = PBXBuildFile; fileRef = C34EE9341882FB1C00EA3A0E /* alert.caf */; };
+		C3634A4C18DF144F0006E289 /* IAALogging.m in Sources */ = {isa = PBXBuildFile; fileRef = C3634A4B18DF144F0006E289 /* IAALogging.m */; };
+		C3634A5018DF1C8B0006E289 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3634A4F18DF1C8B0006E289 /* libz.dylib */; };
 		C367859916E3D722003B22F7 /* NSURL+GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C367859816E3D722003B22F7 /* NSURL+GHUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3B75E4D16E23B76004B49FB /* IAANetworkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4C16E23B76004B49FB /* IAANetworkConfiguration.m */; };
 		C3B75E5016E246FE004B49FB /* IAAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B75E4F16E246FE004B49FB /* IAAMainViewController.m */; };
@@ -94,11 +96,6 @@
 		C3DF28D816EFCD6400F395D5 /* IAADateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28D716EFCD6400F395D5 /* IAADateFormatter.m */; };
 		C3DF28DB16EFCFC500F395D5 /* IAADateCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */; };
 		C3DF28DE16EFD23B00F395D5 /* IAATimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF28DD16EFD23B00F395D5 /* IAATimePickerViewController.m */; };
-		C3F12BF016F25010007C3198 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BE716F25010007C3198 /* DDAbstractDatabaseLogger.m */; };
-		C3F12BF116F25010007C3198 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BE916F25010007C3198 /* DDASLLogger.m */; };
-		C3F12BF216F25010007C3198 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BEB16F25010007C3198 /* DDFileLogger.m */; };
-		C3F12BF316F25010007C3198 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BED16F25010007C3198 /* DDLog.m */; };
-		C3F12BF416F25010007C3198 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F12BEF16F25010007C3198 /* DDTTYLogger.m */; };
 		C3F1B8EE1871A8DA005072B3 /* IAASyncBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8ED1871A8DA005072B3 /* IAASyncBatch.m */; };
 		C3F1B8F11871BEA3005072B3 /* IAAImportBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8F01871BEA3005072B3 /* IAAImportBatch.m */; };
 		C3F1B8F41871D4E5005072B3 /* IAATextMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8F31871D4E5005072B3 /* IAATextMerge.m */; };
@@ -187,6 +184,9 @@
 		C34EE9321882FB1C00EA3A0E /* best.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = best.caf; sourceTree = "<group>"; };
 		C34EE9331882FB1C00EA3A0E /* beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep.caf; sourceTree = "<group>"; };
 		C34EE9341882FB1C00EA3A0E /* alert.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert.caf; sourceTree = "<group>"; };
+		C3634A4A18DF144F0006E289 /* IAALogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAALogging.h; sourceTree = "<group>"; };
+		C3634A4B18DF144F0006E289 /* IAALogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAALogging.m; sourceTree = "<group>"; };
+		C3634A4F18DF1C8B0006E289 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C367859716E3D722003B22F7 /* NSURL+GHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GHUtils.h"; sourceTree = "<group>"; };
 		C367859816E3D722003B22F7 /* NSURL+GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GHUtils.m"; sourceTree = "<group>"; };
 		C3B75E4B16E23B76004B49FB /* IAANetworkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAANetworkConfiguration.h; sourceTree = "<group>"; };
@@ -264,17 +264,6 @@
 		C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAADateCalculator.m; sourceTree = "<group>"; };
 		C3DF28DC16EFD23B00F395D5 /* IAATimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAATimePickerViewController.h; sourceTree = "<group>"; };
 		C3DF28DD16EFD23B00F395D5 /* IAATimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAATimePickerViewController.m; sourceTree = "<group>"; };
-		C3F12BE616F25010007C3198 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		C3F12BE716F25010007C3198 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		C3F12BE816F25010007C3198 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		C3F12BE916F25010007C3198 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		C3F12BEA16F25010007C3198 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		C3F12BEB16F25010007C3198 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		C3F12BEC16F25010007C3198 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		C3F12BED16F25010007C3198 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		C3F12BEE16F25010007C3198 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		C3F12BEF16F25010007C3198 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		C3F12BF516F25021007C3198 /* IAALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAALog.h; sourceTree = "<group>"; };
 		C3F1B8EC1871A8DA005072B3 /* IAASyncBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAASyncBatch.h; sourceTree = "<group>"; };
 		C3F1B8ED1871A8DA005072B3 /* IAASyncBatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAASyncBatch.m; sourceTree = "<group>"; };
 		C3F1B8EF1871BEA3005072B3 /* IAAImportBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAImportBatch.h; sourceTree = "<group>"; };
@@ -289,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3634A5018DF1C8B0006E289 /* libz.dylib in Frameworks */,
 				C34EE9271882F7C600EA3A0E /* AudioToolbox.framework in Frameworks */,
 				C308F57D186B3B7F0091F0CA /* SystemConfiguration.framework in Frameworks */,
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
@@ -327,6 +317,7 @@
 		C311E7F616E21B89008A71AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3634A4F18DF1C8B0006E289 /* libz.dylib */,
 				C34EE9261882F7C600EA3A0E /* AudioToolbox.framework */,
 				C308F57C186B3B7F0091F0CA /* SystemConfiguration.framework */,
 				C3D2020516EE6B8600BB7B60 /* CoreData.framework */,
@@ -424,6 +415,7 @@
 		C311E81E16E22972008A71AD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C3634A4818DF142E0006E289 /* Logging */,
 				C3F12BE316F24FE2007C3198 /* Lib */,
 				C3B75E8116E26B5C004B49FB /* NSString+Extensions.h */,
 				C3B75E8216E26B5C004B49FB /* NSString+Extensions.m */,
@@ -445,7 +437,6 @@
 				C3DF28D716EFCD6400F395D5 /* IAADateFormatter.m */,
 				C3DF28D916EFCFC500F395D5 /* IAADateCalculator.h */,
 				C3DF28DA16EFCFC500F395D5 /* IAADateCalculator.m */,
-				C3F12BF516F25021007C3198 /* IAALog.h */,
 				C31F7AF716F3AA0B004C0E52 /* NSArray+Extensions.h */,
 				C31F7AF816F3AA0B004C0E52 /* NSArray+Extensions.m */,
 				C3BA930016F4D15400F15CBB /* NSSet+Extensions.h */,
@@ -504,6 +495,15 @@
 				C3C897C61891A76A005CBC38 /* IAAApnTokenManager.m */,
 			);
 			name = Notification;
+			sourceTree = "<group>";
+		};
+		C3634A4818DF142E0006E289 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				C3634A4A18DF144F0006E289 /* IAALogging.h */,
+				C3634A4B18DF144F0006E289 /* IAALogging.m */,
+			);
+			name = Logging;
 			sourceTree = "<group>";
 		};
 		C3B75E5116E24844004B49FB /* Images */ = {
@@ -659,30 +659,12 @@
 			children = (
 				C308F57E186B3BE10091F0CA /* Reachability.h */,
 				C308F57F186B3BE10091F0CA /* Reachability.m */,
-				C3F12BE516F24FEF007C3198 /* Lumberjack */,
 				C3B75E5B16E25175004B49FB /* SFHFKeychainUtils.h */,
 				C3B75E5C16E25175004B49FB /* SFHFKeychainUtils.m */,
 				C3C1BCBA16F8DF5E00FBFAD6 /* BSONIdGenerator.h */,
 				C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */,
 			);
 			name = Lib;
-			sourceTree = "<group>";
-		};
-		C3F12BE516F24FEF007C3198 /* Lumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				C3F12BE616F25010007C3198 /* DDAbstractDatabaseLogger.h */,
-				C3F12BE716F25010007C3198 /* DDAbstractDatabaseLogger.m */,
-				C3F12BE816F25010007C3198 /* DDASLLogger.h */,
-				C3F12BE916F25010007C3198 /* DDASLLogger.m */,
-				C3F12BEA16F25010007C3198 /* DDFileLogger.h */,
-				C3F12BEB16F25010007C3198 /* DDFileLogger.m */,
-				C3F12BEC16F25010007C3198 /* DDLog.h */,
-				C3F12BED16F25010007C3198 /* DDLog.m */,
-				C3F12BEE16F25010007C3198 /* DDTTYLogger.h */,
-				C3F12BEF16F25010007C3198 /* DDTTYLogger.m */,
-			);
-			name = Lumberjack;
 			sourceTree = "<group>";
 		};
 		C3F1B8EA1871A8CB005072B3 /* Syncing */ = {
@@ -890,6 +872,7 @@
 				C3DF28C516EF975300F395D5 /* IAAPatch.m in Sources */,
 				C3DF28C916EF9C7300F395D5 /* IAAColor.m in Sources */,
 				C3DF28CC16EFA91C00F395D5 /* IAATextFieldCell.m in Sources */,
+				C3634A4C18DF144F0006E289 /* IAALogging.m in Sources */,
 				C34EE9251882F14A00EA3A0E /* IAASoundsViewController.m in Sources */,
 				C3DF28D016EFC32300F395D5 /* IAAReminderViewController.m in Sources */,
 				C3DF28D516EFC7E700F395D5 /* IAADatePickerViewController.m in Sources */,
@@ -897,11 +880,6 @@
 				C3DF28DB16EFCFC500F395D5 /* IAADateCalculator.m in Sources */,
 				C308F577186B3B4B0091F0CA /* IAASyncManager.m in Sources */,
 				C3DF28DE16EFD23B00F395D5 /* IAATimePickerViewController.m in Sources */,
-				C3F12BF016F25010007C3198 /* DDAbstractDatabaseLogger.m in Sources */,
-				C3F12BF116F25010007C3198 /* DDASLLogger.m in Sources */,
-				C3F12BF216F25010007C3198 /* DDFileLogger.m in Sources */,
-				C3F12BF316F25010007C3198 /* DDLog.m in Sources */,
-				C3F12BF416F25010007C3198 /* DDTTYLogger.m in Sources */,
 				C31F7AF016F37B4A004C0E52 /* IAANotesViewController.m in Sources */,
 				C31F7AF316F393F8004C0E52 /* IAAKeyboard.m in Sources */,
 				C31F7AF616F3A33E004C0E52 /* IAACategoriesViewController.m in Sources */,
@@ -1011,7 +989,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME) debug";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1033,7 +1011,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -8,7 +8,6 @@
 
 #import "IAAErrorManager.h"
 #import "IAAErrorViewController.h"
-#import "IAALog.h"
 
 @implementation IAAErrorManager
 

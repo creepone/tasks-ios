@@ -7,7 +7,6 @@
 //
 
 #import "IAANotesViewController.h"
-#import "IAALog.h"
 #import "IAAKeyboard.h"
 
 @interface IAANotesViewController () <UITextViewDelegate> {

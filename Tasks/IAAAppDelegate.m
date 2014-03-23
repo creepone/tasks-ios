@@ -16,11 +16,8 @@
 #import "IAAIdentityManager.h"
 #import "IAAErrorManager.h"
 #import "IAAColor.h"
-#import "IAALog.h"
+#import "IAALogging.h"
 #import "IAAKeyboard.h"
-#import "DDASLLogger.h"
-#import "DDTTYLogger.h"
-#import "DDFileLogger.h"
 
 #define kMigrationErrorAlertTag 44
 
@@ -31,8 +28,7 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
     MBProgressHUD *_progressHud;
 }
 
-- (void)startDataInitialization;
-- (void)initializeLogging;
+static void onUncaughtException(NSException* exception);
 
 @end
 
@@ -41,6 +37,9 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [IAADefaultsManager registerDefaults];
+    [IAALogging setupLogging];
+    
+    NSSetUncaughtExceptionHandler(&onUncaughtException);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -57,7 +56,6 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
     // call to initialize listening to show/hide events
     [IAAKeyboard sharedKeyboard];
     
-    [self initializeLogging];
     [self startDataInitialization];
     
     if ([application respondsToSelector:@selector(backgroundRefreshStatus)] && [application backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
@@ -214,15 +212,9 @@ NSString * const IAALocalNotificationReceivedNotification = @"IAALocalNotificati
     }
 }
 
-- (void)initializeLogging
+static void onUncaughtException(NSException* exception)
 {
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    
-    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
-    fileLogger.rollingFrequency = 24 * 60 * 60;
-    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-    [DDLog addLogger:fileLogger];
+    DDLogCError(@"Exception: %@ %@ %@", exception.name, exception.reason, exception.userInfo);
 }
 
 @end

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 iOS Apps Austria. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
+
 #import "IAASettingsViewController.h"
 #import "IAAIdentityManager.h"
 #import "IAASyncManager.h"
@@ -13,8 +15,10 @@
 #import "IAANotificationSounds.h"
 #import "IAASoundsViewController.h"
 #import "IAAColor.h"
+#import "IAALogging.h"
+#import "IAAErrorManager.h"
 
-@interface IAASettingsViewController ()
+@interface IAASettingsViewController () <MFMailComposeViewControllerDelegate>
 
 - (void)setupNavigationBarItems;
 - (void)tappedDone;
@@ -75,9 +79,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #ifdef DEBUG
-    return 3;
+    return 4;
 #else
-    return 2;
+    return 3;
 #endif
 }
 
@@ -109,6 +113,10 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if (indexPath.row == 2) {
+        cell.textLabel.text = @"Send logs";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if (indexPath.row == 3) {
         cell.textLabel.text = @"Reset device token";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -156,10 +164,32 @@
         [self.navigationController pushViewController:svc animated:YES];
     }
     else if (indexPath.row == 2) {
+        NSString *archivePath = [IAALogging archiveLogs];
+        NSData *archiveData = [NSData dataWithContentsOfFile:archivePath];
+        
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+        picker.mailComposeDelegate = self;
+        
+        [picker setToRecipients:@[@"tomas@iosapps.at"]];
+        [picker setSubject:@"Log files"];
+        [picker addAttachmentData:archiveData mimeType:@"application/zip" fileName:@"log.zip"];
+        
+        NSString *emailBody = @"Attached you'll find the log files from Tasks";
+        [picker setMessageBody:emailBody isHTML:YES];
+        
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+    else if (indexPath.row == 3) {
         IAAIdentityManager *identity = [IAAIdentityManager sharedManager];
         [identity resetIdentity];
         [self refreshIdentity];
     }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [IAAErrorManager checkError:error];
 }
 
 

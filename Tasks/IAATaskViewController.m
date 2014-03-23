@@ -19,7 +19,6 @@
 #import "IAANotificationManager.h"
 #import "NSString+Extensions.h"
 #import "NSArray+Extensions.h"
-#import "IAALog.h"
 #import "IAAUtils.h"
 
 #define kTitleTextField 42
