@@ -234,8 +234,16 @@
         case NSFetchedResultsChangeDelete:
         {
             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            if (self.countOfTasks == 0)
-                [self.navigationController popViewControllerAnimated:YES];
+            if (self.countOfTasks == 0) {
+                
+                id frontVc = [[self.navigationController viewControllers] lastObject];
+                if ([frontVc isKindOfClass:[IAATaskViewController class]]) {
+                    IAATaskViewController *tvc = (IAATaskViewController *)frontVc;
+                    tvc.delegate = nil;
+                }
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
             break;
         }
     }    
