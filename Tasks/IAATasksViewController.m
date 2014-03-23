@@ -234,6 +234,8 @@
         case NSFetchedResultsChangeDelete:
         {
             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            if (self.countOfTasks == 0)
+                [self.navigationController popViewControllerAnimated:YES];
             break;
         }
     }    
