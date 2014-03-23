@@ -192,7 +192,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         IAATask *task = [_fetchedResultsController objectAtIndexPath:indexPath];
-        [IAATask remove:task];
+        if (task)
+            [IAATask remove:task];
     }
 }
 
