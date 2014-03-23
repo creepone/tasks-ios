@@ -6,3 +6,4 @@ inhibit_all_warnings!
 pod 'AFNetworking', '~> 2.0'
 pod 'CocoaLumberjack', '~> 1.8'
 pod 'SSZipArchive', '~> 0.3'
+pod 'TapkuLibrary', '~> 0.3.3'

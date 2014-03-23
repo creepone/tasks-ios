@@ -74,8 +74,6 @@
 		C3BA930216F4D15500F15CBB /* NSSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BA930116F4D15500F15CBB /* NSSet+Extensions.m */; };
 		C3C1BCBC16F8DF5E00FBFAD6 /* BSONIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */; };
 		C3C897C71891A76A005CBC38 /* IAAApnTokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C897C61891A76A005CBC38 /* IAAApnTokenManager.m */; };
-		C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */; };
-		C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */; };
 		C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F516EE690200BB7B60 /* MapKit.framework */; };
 		C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D201F716EE690900BB7B60 /* QuartzCore.framework */; };
 		C3D2020216EE6B2A00BB7B60 /* IAAMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D201FD16EE6B2A00BB7B60 /* IAAMigrationManager.m */; };
@@ -100,30 +98,6 @@
 		C3F1B8F11871BEA3005072B3 /* IAAImportBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8F01871BEA3005072B3 /* IAAImportBatch.m */; };
 		C3F1B8F41871D4E5005072B3 /* IAATextMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F1B8F31871D4E5005072B3 /* IAATextMerge.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C3D201EE16EE68B200BB7B60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = TapkuLibrary;
-		};
-		C3D201F016EE68B200BB7B60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
-			remoteInfo = LogicTests;
-		};
-		C3D201F216EE68DE00BB7B60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = TapkuLibrary;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		59338BFB5E0D40E385EF821C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,8 +200,6 @@
 		C3C1BCBB16F8DF5E00FBFAD6 /* BSONIdGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSONIdGenerator.m; sourceTree = "<group>"; };
 		C3C897C51891A76A005CBC38 /* IAAApnTokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAApnTokenManager.h; sourceTree = "<group>"; };
 		C3C897C61891A76A005CBC38 /* IAAApnTokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAAApnTokenManager.m; sourceTree = "<group>"; };
-		C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = submodules/tapku/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
-		C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = submodules/tapku/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		C3D201F516EE690200BB7B60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C3D201F716EE690900BB7B60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3D201FC16EE6B2A00BB7B60 /* IAAMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAAMigrationManager.h; sourceTree = "<group>"; };
@@ -284,7 +256,6 @@
 				C3D2020616EE6B8600BB7B60 /* CoreData.framework in Frameworks */,
 				C3D201F816EE690900BB7B60 /* QuartzCore.framework in Frameworks */,
 				C3D201F616EE690200BB7B60 /* MapKit.framework in Frameworks */,
-				C3D201F416EE68F500BB7B60 /* libTapkuLibrary.a in Frameworks */,
 				C3B75E5F16E2520E004B49FB /* Security.framework in Frameworks */,
 				C311E7F816E21B89008A71AD /* UIKit.framework in Frameworks */,
 				C311E7FA16E21B89008A71AD /* Foundation.framework in Frameworks */,
@@ -323,8 +294,6 @@
 				C3D2020516EE6B8600BB7B60 /* CoreData.framework */,
 				C3D201F716EE690900BB7B60 /* QuartzCore.framework */,
 				C3D201F516EE690200BB7B60 /* MapKit.framework */,
-				C3D201E716EE68B200BB7B60 /* TapkuLibrary.bundle */,
-				C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */,
 				C3B75E5E16E2520E004B49FB /* Security.framework */,
 				C311E7F716E21B89008A71AD /* UIKit.framework */,
 				C311E7F916E21B89008A71AD /* Foundation.framework */,
@@ -550,15 +519,6 @@
 			name = Identity;
 			sourceTree = "<group>";
 		};
-		C3D201E916EE68B200BB7B60 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */,
-				C3D201F116EE68B200BB7B60 /* LogicTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C3D201FA16EE6B0C00BB7B60 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,7 +656,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C3D201F316EE68DE00BB7B60 /* PBXTargetDependency */,
 			);
 			name = Tasks;
 			productName = Tasks;
@@ -733,35 +692,12 @@
 			mainGroup = C311E7EB16E21B89008A71AD;
 			productRefGroup = C311E7F516E21B89008A71AD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C3D201E916EE68B200BB7B60 /* Products */;
-					ProjectRef = C3D201E816EE68B200BB7B60 /* TapkuLibrary.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				C311E7F316E21B89008A71AD /* Tasks */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C3D201EF16EE68B200BB7B60 /* libTapkuLibrary.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libTapkuLibrary.a;
-			remoteRef = C3D201EE16EE68B200BB7B60 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C3D201F116EE68B200BB7B60 /* LogicTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = LogicTests.xctest;
-			remoteRef = C3D201F016EE68B200BB7B60 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C311E7F216E21B89008A71AD /* Resources */ = {
@@ -788,7 +724,6 @@
 				C3B75E8016E26736004B49FB /* IAAOpenidAccountViewController.xib in Resources */,
 				C305354216E928A6005A7685 /* button.png in Resources */,
 				C305354316E928A6005A7685 /* button_pressed.png in Resources */,
-				C3D201EB16EE68B200BB7B60 /* TapkuLibrary.bundle in Resources */,
 				C31F7AE216F2692A004C0E52 /* Default.png in Resources */,
 				C34EE9311882FAD300EA3A0E /* text.caf in Resources */,
 				C31F7AE416F26945004C0E52 /* Default-568h@2x.png in Resources */,
@@ -895,14 +830,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C3D201F316EE68DE00BB7B60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TapkuLibrary;
-			targetProxy = C3D201F216EE68DE00BB7B60 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C311E80016E21B89008A71AD /* InfoPlist.strings */ = {
