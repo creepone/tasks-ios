@@ -17,7 +17,7 @@
 #import "IAAAppDelegate.h"
 #import "IAASyncManager.h"
 
-@interface IAAMainViewController () {
+@interface IAAMainViewController () <IAATaskViewControllerDelegate> {
     NSFetchedResultsController *_fetchedResultsController;
     BOOL _emptyMode;
 }
@@ -96,6 +96,7 @@
 - (void)tappedAdd
 {
     IAATaskViewController *tvc = [[IAATaskViewController alloc] init];
+    tvc.delegate = self;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
     [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
     
@@ -115,6 +116,11 @@
 - (void)localNotificationReceived:(NSNotification *)notification
 {
     [self refreshData];
+}
+
+- (void)taskViewController:(IAATaskViewController *)taskViewController didSaveTask:(IAATask *)task created:(BOOL)created
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
