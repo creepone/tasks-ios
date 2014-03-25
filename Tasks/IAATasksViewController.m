@@ -91,7 +91,13 @@
     [super viewWillAppear:animated];
     [self.navigationController setToolbarHidden:NO animated:YES];
     
-    [self.tableView reloadData];
+    [self setListensToFetchedControllerUpdates:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self setListensToFetchedControllerUpdates:NO];
 }
 
 - (void)setupToolbarItems
@@ -113,6 +119,19 @@
     [navigationController.navigationBar setTintColor:[IAAColor themeColor]];
     
     [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+- (void)setListensToFetchedControllerUpdates:(BOOL)listen
+{
+    BOOL isListening = _fetchedResultsController.delegate != nil;
+    
+    if (listen && !isListening) {
+        _fetchedResultsController.delegate = self;
+        [self refreshData];
+    }
+    else if (!listen && isListening) {
+        _fetchedResultsController.delegate = nil;
+    }
 }
 
 - (void)refreshData
@@ -234,16 +253,8 @@
         case NSFetchedResultsChangeDelete:
         {
             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            if (self.countOfTasks == 0) {
-                
-                id frontVc = [[self.navigationController viewControllers] lastObject];
-                if ([frontVc isKindOfClass:[IAATaskViewController class]]) {
-                    IAATaskViewController *tvc = (IAATaskViewController *)frontVc;
-                    tvc.delegate = nil;
-                }
-                
+            if (self.countOfTasks == 0)
                 [self.navigationController popToRootViewControllerAnimated:YES];
-            }
             break;
         }
     }    
