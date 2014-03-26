@@ -2,6 +2,10 @@
 
 @implementation NSString (Extensions)
 
++ (id)iaa_stringOrNull:(NSString *)string {
+    return string ? string : [NSNull null];
+}
+
 - (BOOL)iaa_isEmptyOrWhitespace {
 	// A nil or NULL string is not the same as an empty string
 	return 0 == self.length ||

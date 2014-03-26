@@ -12,6 +12,7 @@
 #import "IAATaskChanges.h"
 #import "IAAErrorManager.h"
 #import "NSArray+Extensions.h"
+#import "NSString+Extensions.h"
 #import "IAAUtils.h"
 #import "NSSet+Extensions.h"
 
@@ -65,16 +66,16 @@
     
     if (![taskChanges.name isEqualToString:task.name]) {
         NSDictionary *change = @{
-            @"old": task.name,
-            @"new": taskChanges.name
+            @"old": [NSString iaa_stringOrNull:task.name],
+            @"new": [NSString iaa_stringOrNull:taskChanges.name]
         };
         [body setObject:change forKey:@"name"];
     }
     
     if (![taskChanges.notes isEqualToString:task.notes]) {
         NSDictionary *change = @{
-            @"old": task.notes,
-            @"new": taskChanges.notes
+            @"old": [NSString iaa_stringOrNull:task.notes],
+            @"new": [NSString iaa_stringOrNull:taskChanges.notes]
         };
         [body setObject:change forKey:@"notes"];
     }
