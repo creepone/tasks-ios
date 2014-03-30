@@ -72,12 +72,17 @@
 
 - (NSDate *)dateWithDate:(NSDate *)date timePart:(NSDate *)time
 {
-    NSDate *midnight = [self datePart:date];
+    NSUInteger timeFlags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents *timeComponents = [_calendar components:timeFlags fromDate:time];
     
-    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-    NSDateComponents *components = [_calendar components:unitFlags fromDate:time];
+    NSUInteger dateFlags = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear;
+    NSDateComponents *dateComponents = [_calendar components:dateFlags fromDate:date];
     
-    return [_calendar dateByAddingComponents:components toDate:midnight options:0];
+    dateComponents.hour = timeComponents.hour;
+    dateComponents.minute = timeComponents.minute;
+    dateComponents.second = timeComponents.second;
+    
+    return [_calendar dateFromComponents:dateComponents];
 }
 
 - (NSDate *)dateWithDate:(NSDate *)date daysLater:(int)days
