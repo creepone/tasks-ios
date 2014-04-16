@@ -12,4 +12,6 @@
 
 - (void)iaa_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
 
+- (id)iaa_nilIfNull;
+
 @end

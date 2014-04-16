@@ -38,4 +38,9 @@
     return uuidString;
 }
 
++ (BOOL)isNilOrNull:(NSObject *)object
+{
+    return !object || [[NSNull null] isEqual:object];
+}
+
 @end

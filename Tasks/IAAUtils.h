@@ -14,4 +14,6 @@
 
 + (NSString *)generateUuid;
 
++ (BOOL)isNilOrNull:(NSObject *)object;
+
 @end

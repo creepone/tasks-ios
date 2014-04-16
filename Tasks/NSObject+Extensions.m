@@ -16,4 +16,9 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delta), dispatch_get_main_queue(), block);
 }
 
+- (id)iaa_nilIfNull
+{
+    return [self isEqual:[NSNull null]] ? nil : self;
+}
+
 @end

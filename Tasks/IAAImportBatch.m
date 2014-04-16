@@ -6,9 +6,12 @@
 //  Copyright (c) 2013 iOS Apps Austria. All rights reserved.
 //
 
+#import "NSObject+Extensions.h"
+
 #import "IAAImportBatch.h"
 #import "IAADataAccess.h"
 #import "IAATextMerge.h"
+#import "IAAUtils.h"
 
 @interface IAAImportBatch(){
     IAADataAccess *_dataAccess;
@@ -160,8 +163,13 @@
     
     NSDictionary *body = [NSKeyedUnarchiver unarchiveObjectWithData:patch.body];
     
-    [task setName:[body objectForKey:@"name"]];
-    [task setNotes:[body objectForKey:@"notes"]];
+    NSString *name = [body objectForKey:@"name"];
+    if (![IAAUtils isNilOrNull:name])
+        [task setName:name];
+    
+    NSString *notes = [body objectForKey:@"notes"];
+    if (![IAAUtils isNilOrNull:notes])
+        [task setNotes:notes];
     
     NSDictionary *reminder = [body objectForKey:@"reminder"];
     if (reminder != nil) {
@@ -198,16 +206,16 @@
     
     NSDictionary *name = [body objectForKey:@"name"];
     if (name != nil) {
-        NSString *oldName = [name objectForKey:@"old"];
-        NSString *newName = [name objectForKey:@"new"];
+        NSString *oldName = [[name objectForKey:@"old"] iaa_nilIfNull];
+        NSString *newName = [[name objectForKey:@"new"] iaa_nilIfNull];
         
         [task setName:[IAATextMerge merge:oldName current:task.name new:newName]];
     }
     
     NSDictionary *notes = [body objectForKey:@"notes"];
     if (notes != nil) {
-        NSString *oldNotes = [notes objectForKey:@"old"];
-        NSString *newNotes = [notes objectForKey:@"new"];
+        NSString *oldNotes = [[notes objectForKey:@"old"] iaa_nilIfNull];
+        NSString *newNotes = [[notes objectForKey:@"new"] iaa_nilIfNull];
         
         [task setNotes:[IAATextMerge merge:oldNotes current:task.notes new:newNotes]];
     }
