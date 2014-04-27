@@ -9,9 +9,10 @@
 #import "IAANotesViewController.h"
 #import "IAAKeyboard.h"
 
-@interface IAANotesViewController () <UITextViewDelegate> {
+@interface IAANotesViewController () <UITextViewDelegate, UIGestureRecognizerDelegate> {
     UITextView *_textView;
     NSString *_notes;
+    CGFloat _zoomScale;
 }
 
 - (void)setupNavigationBarItems;
@@ -21,12 +22,15 @@
 
 @implementation IAANotesViewController
 
+static const CGFloat kFontSize = 18.f;
+
 - (id)initWithNotes:(NSString *)notes
 {
     self = [super init];
     if (self) {
         self.title = @"Notes";
         _notes = notes;
+        _zoomScale = 1.f;
     }
     return self;
 }
@@ -91,16 +95,38 @@
 - (void)setupTextView
 {
     IAAKeyboard *keyboard = [IAAKeyboard sharedKeyboard];
-    CGRect frame = CGRectMake(0, 0, 320, 416);
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    
+    CGRect navFrame = [[self.navigationController navigationBar] frame];
+    frame.size.height -= navFrame.origin.y + navFrame.size.height;
     
     if (keyboard.isShown)
         frame.size.height -= keyboard.frame.size.height;
 
     _textView = [[UITextView alloc] initWithFrame:frame];
-    _textView.font = [UIFont systemFontOfSize:18.0];
+    _textView.font = [UIFont systemFontOfSize:kFontSize];
     _textView.text = _notes;
-
+    
+    UIPinchGestureRecognizer *pinchGestRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scaleTextView:)];
+    pinchGestRecognizer.delegate = self;
+    [_textView addGestureRecognizer:pinchGestRecognizer];
+    
     [self.view addSubview:_textView];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]]) {
+        _zoomScale = _textView.font.pointSize / kFontSize;
+    }
+    return YES;
+}
+
+- (void)scaleTextView:(UIPinchGestureRecognizer *)recognizer
+{
+    CGFloat currentScale = recognizer.scale * _zoomScale;
+     currentScale = MIN(3.f, MAX(0.5f, currentScale));
+    _textView.font = [UIFont fontWithName:_textView.font.fontName size:18.f * currentScale];
 }
 
 - (void)tappedDelete

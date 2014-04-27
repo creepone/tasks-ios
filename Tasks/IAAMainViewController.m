@@ -163,25 +163,25 @@
     {
         if (indexPath.row == 0) {            
             cell.textLabel.text = @"Due";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfDueTasks]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)[dataAccess countOfDueTasks]];
         }
         else {
             NSDate *midnightIn5Days = [calculator datePart:[calculator dateWithDate:[NSDate date] daysLater:5]];
 
             cell.textLabel.text = @"Soon";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfTasksDueBetween:[NSDate date] and:midnightIn5Days]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)[dataAccess countOfTasksDueBetween:[NSDate date] and:midnightIn5Days]];
         }
     }
     else if (indexPath.row < self.countOfCategories)
     {
         IAACategory *category = [_fetchedResultsController objectAtIndexPath:[self controllerPath:indexPath]];
         cell.textLabel.text = category.name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfTasksInCategory:category]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)[dataAccess countOfTasksInCategory:category]];
     }
     else
     {
         cell.textLabel.text = @"Uncategorized";
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [dataAccess countOfTasksInCategory:nil]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)[dataAccess countOfTasksInCategory:nil]];
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
