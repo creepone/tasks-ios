@@ -227,7 +227,7 @@
             {
                 cell.textLabel.text = _taskChanges.notes;
                 cell.textLabel.textColor = [UIColor blackColor];
-                cell.textLabel.numberOfLines = 9;
+                cell.textLabel.numberOfLines = 0;
                 cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
                 cell.textLabel.clipsToBounds = YES;
                                 
