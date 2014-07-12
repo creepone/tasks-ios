@@ -23,7 +23,7 @@
 
 #define kTitleTextField 42
 #define kLabelWidth 260
-#define kMaxLabelHeight 189
+#define kMaxLabelHeight 10000
 
 @interface IAATaskViewController () <IAANotesViewControllerDelegate, IAACategoriesViewControllerDelegate> {
     BOOL _newMode;
