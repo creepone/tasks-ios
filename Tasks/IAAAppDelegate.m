@@ -60,7 +60,11 @@ static void onUncaughtException(NSException* exception);
     
     if ([application respondsToSelector:@selector(backgroundRefreshStatus)] && [application backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
         if ([[IAAIdentityManager sharedManager] deviceToken] != nil)
-            [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeNewsstandContentAvailability)];
+            [application registerForRemoteNotifications];
+    }
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
 
     return YES;
@@ -152,6 +156,11 @@ static void onUncaughtException(NSException* exception);
         
         completionHandler(UIBackgroundFetchResultNewData);
     }];
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    NSLog(@"registered notifications");
 }
 
 #pragma mark - Data initialization on startup
